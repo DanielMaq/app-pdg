@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
+        <link rel="stylesheet" type="text/css" href="js/jqueryUI/jquery-ui.min.css"/>
+        <link rel="stylesheet" type="text/css" href="js/snap/snap.css"/>
+        <link rel="stylesheet" type="text/css" href="css/fonts.css"/>
+        <link rel="stylesheet" type="text/css" href="css/custom.css"/>
+        <link rel="stylesheet" type="text/css" href="css/mediaQueries.css"/>
+
+        <title>PDG - Telefonica</title>
+
+    </head>
+    <body>
+
+    <div class="snap-drawer snap-drawer-left menu">
+        <h1>Menu</h1>
+
+        <a href="contacts.html" class="blueBtn" data-role="none" rel="external"> Mis Contactos </a>
+        <a href="campaign.html" class="blueBtn" data-role="none" rel="external"> Mis Campañas </a>
+        <a href="reports.html" class="blueBtn active" data-role="none" rel="external"> Mis Reportes </a>
+        <a href="profile.html" class="blueBtn" data-role="none" rel="external"> Mis Datos </a>
+        <a href="#" class="btnText"> Cerrar Sesión </a>
+    </div>
+
+    <div class="snap-content" id="snapContent" >
+
+        <div data-role="page" id="reportPage" data-theme="c">
+
+            <div data-role="header">
+                <img src="./img/ico-menu.png" class="menuBtn"/>
+                <p class="title">Mis Reportes</p>
+                <a href="home.html" class="home" data-role="none" rel="external"><img src="img/ico-home.png" /></a>
+            </div>
+            <div role="main" class="container">
+
+                <div class="headerSelectors">
+                    <div class="campaignSelector">
+                        <p>Seleccione su campaña</p>
+                        <select>
+                            <option data-campId="0001">Campaña 0001</option>
+                            <option data-campId="0010">Campaña 0010</option>
+                            <option data-campId="0011">Campaña 0011</option>
+                            <option data-campId="0100">Campaña 0100</option>
+                            <option data-campId="0101">Campaña 0101</option>
+                            <option data-campId="0110">Campaña 0110</option>
+                            <option data-campId="0111">Campaña 0111</option>
+                        </select>
+                    </div>
+                    <div class="dateRangeSelector">
+                        <div class="row">
+                            <p>Desde</p><input type="text" id="datepickerFrom" readonly="readonly" data-role="none" value="00/00/0000"/>
+                        </div>
+                        <div class="row">
+                            <p>Hasta</p><input type="text" id="datepickerTo" readonly="readonly" data-role="none" value="00/00/0000"/>
+                        </div>
+                        <div class="row">
+                            <p class="filter reset">Reset</p>
+                            <p class="filter go">Filtrar</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <p class="loader"> Cargando <img src="img/ajax-loader.gif" /></p>
+                <p class="noResults">No se han encontrado resultados.</p>
+
+                <div class="results">
+
+                    <div class="infoBlockContent">
+                        <div class="infoBlock anuncios">
+                            <p data-icon="home">Tus Anuncios se vieron</p>
+                            <p class="number">00</p>
+                            <p>veces.</p>
+                        </div>
+
+                        <div class="infoBlock landing">
+                            <p>Visitaron tu landing</p>
+                            <p class="number">00</p>
+                            <p>personas.</p>
+                        </div>
+
+                        <div class="infoBlock clientes">
+                            <p>Obtuvimos</p>
+                            <p class="number">00</p>
+                            <p>posibles clientes.</p>
+                        </div>
+                    </div>
+
+                    <div class="graphContainer">
+                        <h2>Visitas y consultas</h2>
+                        <div id="visitContactGraph"></div>
+                    </div>
+
+                    <div class="theGraphContent">
+                        <div class="graphContainer completedMonthGraph">
+                            <h2>% Cumplido al mes de Enero</h2>
+                            <div class="theGraph"></div>
+                        </div>
+
+                        <div class="graphContainer consuTypeGraph">
+                            <h2>Tipo de consultas</h2>
+                            <div class="theGraph"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div> <!-- /content -->
+
+        </div> <!-- /page -->
+
+    </div>
+
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="js/jqueryUI/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/snap/snap.min.js"></script>
+
+    <script type="text/javascript" src="js/highchart/highcharts.js"></script>
+    <script type="text/javascript" src="js/highchart/highcharts-more.js"></script>
+    <script type="text/javascript" src="js/highchart/modules/solid-gauge.js"></script>
+    <script type="text/javascript" src="js/jssite.js"></script>
+    <script type="text/javascript" src="js/scriptReport.js"></script>
+
+    </body>
+</html>

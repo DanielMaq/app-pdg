@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="msapplication-tap-highlight" content="no"/>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/fonts.css"/>
+        <link rel="stylesheet" type="text/css" href="css/custom.css"/>
+
+        <title>PDG - Telefonica</title>
+
+    </head>
+    <body>
+
+    <div data-role="page" id="contactAnswerPage" data-theme="c">
+
+        <div data-role="header">
+            <a href="contactsDetail.html" class="title back" data-role="none" rel="external"> <img src="./img/ico-back.png" /> Volver</a>
+            <a href="home.html" class="home" data-role="none" rel="external"><img src="img/ico-home.png" /></a>
+        </div>
+        <div role="main" class="container">
+
+            <div class="senderData">
+                <p class="name"></p>
+                <!--<p class="date">05 Ene 2015 - 08:07:38</p>-->
+            </div>
+            <div class="sendContactForm">
+                    <form novalidate="" id="loginForm">
+                        <input type="text" data-role="none" placeholder="Mi nombre" class="campo username">
+                        <input type="text" data-role="none" placeholder="Asunto" class="campo subject">
+                        <textarea data-role="none" placeholder="Mensaje" class="campo textMsg"></textarea>
+                        <input type="submit" class="submitEventBtn" value="Go"/>
+                    </form>
+                    <div class="errors">
+                        <img src="img/ico-error.png"> <p>Usuario o contraseña incorrectos</p>
+                    </div>
+
+                    <a href="#" class="blueBtn">Enviar</a>
+            </div>
+
+
+        </div> <!-- /content -->
+
+    </div> <!-- /page -->
+
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jssite.js"></script>
+    <script type="text/javascript" src="js/scriptContactsAnswer.js  "></script>
+
+    </body>
+</html>

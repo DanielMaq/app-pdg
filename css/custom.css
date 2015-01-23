@@ -1,0 +1,821 @@
+/**
+** Default Styles
+**/
+
+body{
+    font-family: "movistar_textregular";
+    font-weight: normal;
+    text-transform: none;
+}
+html body .ui-page a.blueBtn{
+    background: none repeat scroll 0 0 #0291c8;
+    border: 2px solid #0181ab;
+    border-radius: 4px;
+    color: #ffffff;
+    display: block;
+    font-weight: 400;
+    line-height: 40px;
+    margin: 20px auto;
+    max-width: 300px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: uppercase;
+    width: 90%;
+}
+html body .ui-page a.blueBtn:active{
+    background: none repeat scroll 0 0 #026EC8;
+}
+.btnText{
+    color: #ffffff;
+    display: block;
+    font-family: "movistar_headlineregular";
+    line-height: 40px;
+    text-align: center;
+    text-decoration: none;
+}
+.container{
+    border-width: 0;
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding: 16px;
+}
+.innerContainer{
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+.ui-header{
+    background: none no-repeat scroll 0 0 #005c84;
+    border: medium none;
+    height: 60px;
+    line-height: 60px;
+}
+.ui-header .menuBtn{
+    cursor: pointer;
+    float: left;
+    margin: 14px 20px;
+    width: 32px;
+}
+.ui-header .title{
+    color: #fff;
+    float: left;
+    font-family: 'movistar_headlinebold';
+    font-size: 20px;
+    margin: 0;
+}
+.ui-header .back{
+    cursor: pointer;
+    margin: 0 0 0 20px;
+    text-decoration: none;
+}
+.ui-header .back img{
+    margin: 22px 8px 0 0;
+    vertical-align: top;
+    width: 12px;
+}
+.ui-header .home{
+    display: block;
+    float: right;
+    height: 40px;
+    margin: 7px 20px 0 0;
+    position: relative;
+    text-align: center;
+    width: 40px;
+}
+
+.snap-drawer{
+    background: none no-repeat scroll 0 0 #005c84;
+    padding: 0 20px;
+    width: 226px;
+}
+.snap-drawer h1{
+    color: #5cd2ed;
+    font-family: 'movistar_headlinebold';
+    font-size: 20px;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 0 0 10px;
+    text-align: left;
+    text-transform: uppercase;
+}
+.snap-drawer a.blueBtn{
+    border: 2px solid #0181ab;
+    border-radius: 4px;
+    color: #ffffff;
+    display: block;
+    font-family: 'movistar_headlinebold';
+    line-height: 40px;
+    margin: 0 auto 20px;
+    max-width: 300px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    text-transform: uppercase;
+}
+.snap-drawer a.blueBtn:hover,
+.snap-drawer a.blueBtn.active{
+    background: none repeat scroll 0 0 #0291c8;
+}
+.snap-drawer a.btnText{
+    font-family: "movistar_headlinebold";
+    text-transform: uppercase;
+}
+
+.headerSelectors{
+    overflow: hidden;
+}
+.campaignSelector{
+    float: left;
+    overflow: hidden;
+}
+.campaignSelector p{
+    color: #005c84;
+    display: inline-block;
+    font-family: 'movistar_headlinebold';
+    font-size: 16px;
+    line-height: 33px;
+    margin: 5px 0;
+    vertical-align: top;
+}
+.campaignSelector .ui-select{
+    display: inline-block;
+    margin: 5px 10px;
+}
+.campaignSelector .ui-select > div.ui-btn:after{
+    background: url("../img/ico-arrow-select.png") no-repeat scroll 0 0 transparent;
+    border-radius: 0;
+    margin: 0;
+    right: 6px;
+    top: 10px;
+}
+.campaignSelector .ui-select .ui-btn{
+    border: 2px solid #bbbbbb;
+    padding: 4px 50px 8px 10px;
+}
+.campaignSelector .ui-select span,
+.campaignSelector .ui-select option{
+    color: #58595b;
+    font-family: "movistar_headlineregular";
+    font-weight: 400;
+}
+.dateRangeSelector{
+    float: right;
+    overflow: hidden;
+}
+.dateRangeSelector .row{
+    display: inline-block;
+}
+.dateRangeSelector p{
+    color: #005c84;
+    display: inline-block;
+    font-family: 'movistar_headlinebold';
+    font-size: 16px;
+    line-height: 33px;
+    margin: 5px 0;
+}
+.dateRangeSelector input{
+    background: none no-repeat scroll 0 0 transparent;
+    border: 2px solid #bbbbbb;
+    border-radius: 4px;
+    color: #58595b;
+    font-family: "movistar_headlineregular";
+    font-weight: 400;
+    line-height: 33px;
+    margin: 5px 10px;
+    padding: 0 50px 0 10px;
+}
+.dateRangeSelector .filter{
+    border-radius: 4px;
+    color: #ffffff;
+    background: none no-repeat scroll 0 0 #005c84;
+    border: 2px solid #0181ab;
+    padding: 0 10px;
+}
+
+.ui-widget-header{
+    background: none no-repeat scroll 0 0 #005c84;
+    border: 2px solid #0181ab;
+}
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default{
+    color: #005c84;
+}
+
+#thePopUp{
+    border-radius: 4px;
+    color: #ffffff;
+    /*display: none;*/
+    background: none no-repeat scroll 0 0 #005c84;
+    border: 2px solid #0181ab;
+    left: 0;
+    margin: 0 auto;
+    padding: 4px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 300px;
+}
+#thePopUp .popContainer{
+    background: none repeat scroll 0 0 #0291c8;
+    border: 2px solid #0181ab;
+    position: relative;
+}
+#thePopUp .popContainer p{
+    font-size: 18px;
+    padding: 0 12px;
+}
+#thePopUp .popClose{
+    border: 3px solid #005c84;
+    line-height: 34px;
+    display: inline-block;
+    padding: 0 20px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+/**
+** Splash Page
+**/
+#splashPage {
+    background:  none no-repeat scroll 0 0 #005c84;
+}
+#splashPage img{
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    max-width: 448px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 90%;
+}
+/**
+** homePage
+**/
+#homePage {
+    background:  none no-repeat scroll 0 0 #005c84;
+}
+#homePage img{
+    display: block;
+    margin: 48px auto;
+    max-width: 300px;
+    width: 80%;
+}
+#homePage .homeMenu{
+    bottom: 40px;
+    left: 0;
+    position: absolute;
+    right: 0;
+}
+
+/**
+** loginPage
+**/
+#loginPage {
+    background:  none no-repeat scroll 0 0 #005c84;
+}
+#loginPage img{
+    display: block;
+    margin: 40px auto;
+    max-width: 448px;
+    width: 90%;
+}
+#loginPage .innerContainer p{
+    color: #fff;
+    display: block;
+    font-family: 'movistar_headlineregular';
+    font-size: 22px;
+    margin: 70px auto 0;
+    text-align: center;
+    text-shadow: none;
+}
+#loginPage #loginForm{}
+
+#loginPage #loginForm .campo{
+    background: none no-repeat scroll 0 0 transparent;
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    color: #fff;
+    display: block;
+    font-family: 'movistar_textregular';
+    font-size: 18px;
+    line-height: 30px;
+    margin: 24px auto;
+    padding: 0 10px;
+    width: 90%;
+}
+#loginPage #loginForm .ui-btn{
+    border: medium none;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+#loginPage .errors{
+    display: none;
+}
+#loginPage .errors img{
+    display: inline-block;
+    margin: 10px 10px 0;
+    vertical-align: top;
+    width: 14px;
+}
+#loginPage .errors p{
+    color: #939598;
+     display: inline-block;
+    font-family: 'movistar_textregular';
+    font-size: 16px;
+    line-height: 30px;
+    margin: 0;
+}
+#loginPage .btn{
+    border: 2px solid #0181ab;
+    border-radius: 4px;
+    color: #5cd2ed;
+    display: block;
+    font-family: 'movistar_headlinebold';
+    line-height: 40px;
+    margin: 20px auto;
+    padding: 0 6px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 90%;
+}
+
+/**
+** pwdRecoverPage
+**/
+#pwdRecoverPage {
+    background:  none no-repeat scroll 0 0 #005c84;
+}
+#pwdRecoverPage img{
+    display: block;
+    margin: 40px auto;
+    max-width: 448px;
+    width: 90%;
+}
+#pwdRecoverPage .innerContainer p{
+    color: #fff;
+    display: block;
+    font-family: 'movistar_headlineregular';
+    font-size: 22px;
+    margin: 70px auto 0;
+    text-align: center;
+    text-shadow: none;
+}
+#pwdRecoverPage #pwdRecoverForm{}
+
+#pwdRecoverPage #pwdRecoverForm .campo{
+    background: none no-repeat scroll 0 0 transparent;
+    border: none;
+    border-bottom: 2px solid #ffffff;
+    color: #fff;
+    display: block;
+    font-family: 'movistar_textregular';
+    font-size: 18px;
+    line-height: 30px;
+    margin: 24px auto;
+    padding: 0 10px;
+    width: 90%;
+}
+#pwdRecoverPage #pwdRecoverForm .ui-btn{
+    border: medium none;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+#pwdRecoverPage .errors{
+    display: none;
+}
+#pwdRecoverPage .errors img{
+    display: inline-block;
+    margin: 10px 10px 0;
+    vertical-align: top;
+    width: 14px;
+}
+#pwdRecoverPage .errors p{
+    color: #939598;
+    display: inline-block;
+    font-family: 'movistar_textregular';
+    font-size: 16px;
+    line-height: 30px;
+    margin: 0;
+}
+#pwdRecoverPage .btn{
+    border: 2px solid #0181ab;
+    border-radius: 4px;
+    color: #5cd2ed;
+    display: block;
+    font-family: 'movistar_headlinebold';
+    line-height: 40px;
+    margin: 76px auto 20px;
+    padding: 0 6px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 90%;
+}
+
+/**
+** contactsPage
+**/
+#contactPage {
+    background:  none no-repeat scroll 0 0 #f5f5f5;
+}
+#contactPage .results{
+    display: block;
+    margin: 60px auto 0;
+    overflow-y: inherit;
+}
+#contactPage .loader,
+#contactPage .noResults{
+    color: #005c84;
+    font-family: 'movistar_textregular';
+    font-size: 18px;
+    margin: 30px 0 0;
+    text-align: center;
+}
+#contactPage .loader img{
+    margin: 0 0 0 10px;
+}
+#contactPage .results ul{
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+}
+#contactPage .results ul li{
+    border-top: 1px solid #5cd2ed;
+    cursor: pointer;
+    margin: 0 0 30px;
+    padding: 0 14px;
+}
+#contactPage .results ul li .top{
+    overflow: hidden;
+}
+#contactPage .results ul li .top .left{
+    display: table;
+    float: left;
+    height: 48px;
+    width: 48%;
+}
+#contactPage .results ul li .top .left p{
+    color: #666666;
+    display: table-cell;
+    font-family: 'movistar_headlinebold';
+    font-size: 18px;
+    line-height: 20px;
+    margin: 0;
+    vertical-align: middle;
+}
+#contactPage .results ul li .top .right{
+    float: right;
+    text-align: right;
+    width: 48%;
+}
+#contactPage .results ul li .top .right p{
+    color: #a7a9ac;
+    font-family: 'movistar_textregular';
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0;
+}
+#contactPage .results ul li .msg p{
+    color: #666;
+    font-family: 'movistar_textregular';
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+
+/**
+** contactsDetailPage
+**/
+#contactDetailPage {
+    background:  none no-repeat scroll 0 0 #f5f5f5;
+}
+#contactDetailPage .senderData {
+    overflow: hidden;
+}
+#contactDetailPage .senderData .name{
+    color: #666;
+    float: left;
+    font-family: 'movistar_headlinebold';
+    font-size: 22px;
+    margin: 0;
+}
+#contactDetailPage .senderData .mail,
+#contactDetailPage .senderData .phone{
+    background: url("../img/ico-envelop.png") no-repeat scroll 0 center / 26px auto transparent;
+    clear: left;
+    color: #666;
+    float: left;
+    font-size: 16px;
+    line-height: 26px;
+    margin: 10px 0 0;
+    padding: 0 0 0 34px;
+}
+#contactDetailPage .senderData .phone{
+    background: url("../img/ico-phone.png") no-repeat scroll 0 center / 26px auto transparent;
+}
+#contactDetailPage .senderData .date{
+    border-top: 1px solid #5cd2ed;
+    color: #a7a9ac;
+    display: inline-block;
+    padding: 4px 0 0;
+    text-align: right;
+    width: 100%;
+}
+/*#contactDetailPage .senderData .vote{*/
+    /*float: right;*/
+/*}*/
+/*#contactDetailPage .senderData .vote img{*/
+    /*cursor: pointer;*/
+    /*margin: 0 0 0 10px;*/
+    /*width: 50px;*/
+/*}*/
+#contactDetailPage .msgContent{}
+#contactDetailPage .msgContent p{
+    color: #666;
+    font-size: 18px;
+}
+html body #contactDetailPage.ui-page a.blueBtn{
+    margin: 60px auto 0;
+}
+
+/**
+** contactsAnswerPage
+**/
+#contactAnswerPage {
+    background:  none no-repeat scroll 0 0 #f5f5f5;
+}
+#contactAnswerPage .senderData{
+    border-bottom: 1px solid #5cd2ed;
+    overflow: hidden;
+    padding: 0 0 14px;
+}
+#contactAnswerPage .senderData .name{
+    color: #666;
+    float: left;
+    font-size: 20px;
+    line-height: 24px;
+    margin: 0;
+}
+#contactAnswerPage .senderData .date{
+    color: #a7a9ac;
+    float: right;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0;
+}
+#contactAnswerPage .sendContactForm{
+    margin: 40px auto 0;
+    min-width: 290px;
+}
+#contactAnswerPage .sendContactForm .campo{
+    background: none no-repeat scroll 0 0 transparent;
+    border: none;
+    border-bottom: 2px solid #005c84;
+    color: #404041;
+    display: block;
+    font-family: 'movistar_textregular';
+    font-size: 18px;
+    line-height: 30px;
+    margin: 24px auto;
+    padding: 0 10px;
+    width: 90%;
+}
+#contactAnswerPage .sendContactForm .campo.textMsg{
+    border: 1px solid #939598;
+    min-height: 120px;
+}
+#contactAnswerPage .sendContactForm .ui-btn{
+    border: medium none;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+#contactAnswerPage .errors{
+    display: none;
+}
+#contactAnswerPage .errors img{
+    display: inline-block;
+    margin: 10px 10px 0;
+    vertical-align: top;
+    width: 14px;
+}
+#contactAnswerPage .errors p{
+    color: #939598;
+    display: inline-block;
+    font-family: 'movistar_textregular';
+    font-size: 16px;
+    line-height: 30px;
+    margin: 0;
+}
+
+/**
+** campaignsPage
+**/
+#campaignPage {
+    background:  none no-repeat scroll 0 0 #f5f5f5;
+}
+#campaignPage .results{
+    display: block;
+    margin: 60px auto 0;
+    position: relative;
+}
+#campaignPage .loader,
+#campaignPage .noResults{
+    color: #005c84;
+    font-family: 'movistar_textregular';
+    font-size: 18px;
+    margin: 30px 0 0;
+    text-align: center;
+}
+#campaignPage .results iframe{
+    border: 2px solid #005c84;
+    /*border: medium none;*/
+    display: block;
+    margin: 0 auto;
+    height: 100%;
+    width: 98%;
+}
+#campaignPage .loader img{
+    margin: 0 0 0 10px;
+}
+
+/**
+** profilePage
+**/
+#profilePage {
+    background:  none no-repeat scroll 0 0 #f5f5f5;
+}
+#profilePage .profileForm{
+    margin: 20px auto 0;
+    min-width: 290px;
+}
+#profilePage .profileForm h2{
+    color: #666666;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 20px 0 0;
+}
+#profilePage .profileForm .campo{
+    background: none no-repeat scroll 0 0 #ffffff;
+    border: 1px solid #939598;
+    color: #404041;
+    display: block;
+    font-family: "movistar_textregular";
+    font-size: 18px;
+    line-height: 39px;
+    margin: 10px auto;
+    padding: 0 10px;
+    width: 90%;
+}
+#profilePage .profileForm .campo.idEmpresa{
+    background: none no-repeat scroll 0 0 #d1d3d4;
+    color: #939598;
+}
+#profilePage .profileForm .campo.textMsg{
+    border: 1px solid #939598;
+    min-height: 120px;
+}
+#profilePage .profileForm .ui-btn{
+    border: medium none;
+    height: 0;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+#profilePage .errors{
+    display: none;
+    text-align: center;
+}
+#profilePage .errors img{
+    display: inline-block;
+    margin: 10px 10px 0;
+    vertical-align: top;
+    width: 14px;
+}
+#profilePage .errors p{
+    color: #939598;
+    display: inline-block;
+    font-family: 'movistar_textregular';
+    font-size: 16px;
+    line-height: 30px;
+    margin: 0;
+}
+
+/**
+** reportsPage
+**/
+#reportPage {
+    background:  none no-repeat scroll 0 0 #f5f5f5;
+}
+#reportPage .loader,
+#reportPage .noResults{
+    color: #005c84;
+    font-family: 'movistar_textregular';
+    font-size: 18px;
+    margin: 30px 0 0;
+    text-align: center;
+}
+#reportPage .noResults{
+    display: none;
+}
+#reportPage .loader img{
+    margin: 0 0 0 10px;
+}
+#reportPage .results{
+    display: none;
+    margin: 20px auto 0;
+    position: relative;
+}
+#reportPage .results .infoBlockContent{
+    text-align: center;
+}
+#reportPage .results .infoBlock{
+    background: none no-repeat scroll 0 0 #dfdfdf;
+    border-radius: 4px;
+    box-shadow: 1px 1px 3px #777;
+    display: inline-block;
+    margin: 10px;
+    max-width: 300px;
+    padding: 15px;
+    text-align: center;
+    width: 80%;
+}
+#reportPage .results .infoBlock p{
+    color: #333333;
+    font-family: 'movistar_textregular';
+    font-size: 16px;
+    margin: 0;
+    text-transform: uppercase;
+}
+#reportPage .results .infoBlock p.number{
+    color: #005c84;
+    font-family: 'movistar_headlinebold';
+    font-size: 30px;
+    text-transform: uppercase;
+}
+#reportPage .results .graphContainer{
+    margin: 0 auto;
+    vertical-align: top;
+    width: 95%;
+}
+#reportPage .results .graphContainer h2{
+    background: none no-repeat scroll 0 0 #dfdfdf;
+    box-shadow: 1px 0px 1px 0px #777;
+    border-radius: 4px 4px 0 0;
+    color: #005c84;
+    font-family: 'movistar_headlinebold';
+    font-size: 22px;
+    margin: 20px 0 0;
+    text-indent: 20px;
+    line-height: 50px;
+}
+#reportPage .results .graphContainer #visitContactGraph{
+    box-shadow: 1px 1px 3px #777;
+    margin: 0 auto;
+}
+#reportPage .results .theGraphContent{
+    text-align: center;
+}
+#reportPage .results .graphContainer.completedMonthGraph,
+#reportPage .results .graphContainer.consuTypeGraph{
+    display: inline-block;
+    margin: 0 15px;
+    width: 45%;
+}
+#reportPage .results .graphContainer.completedMonthGraph .theGraph,
+#reportPage .results .graphContainer.consuTypeGraph .theGraph{
+    border: 1px solid #777;
+    box-shadow: 1px 0px 1px 0px #777;
+    border-radius: 4px 4px 0 0;
+}
+#reportPage .results .graphContainer.completedMonthGraph .highcharts-data-labels,
+#reportPage .results .graphContainer.completedMonthGraph .highcharts-data-labels .null,
+#reportPage .results .graphContainer.completedMonthGraph .highcharts-data-labels .null span{
+    left: 0 !important;
+    right: 0;
+}
+#reportPage .results .graphContainer.completedMonthGraph .highcharts-data-labels .null{
+    top: 180px !important;
+}
+#reportPage .results .graphContainer.completedMonthGraph .graphInfo{
+    color: #999;
+    font-family: 'movistar_headlineregular';
+    font-size: 18px;
+    text-align: center;
+}
+#reportPage .results .graphContainer.completedMonthGraph .graphInfo span{
+    color: #333;
+    display: block;
+    font-family: 'movistar_headlinebold';
+    font-size: 34px;
+}

@@ -1,0 +1,10 @@
+/**
+** Default Media Queries
+**/
+
+@media screen and (max-width: 720px) {
+    #reportPage .results .graphContainer.completedMonthGraph,
+    #reportPage .results .graphContainer.consuTypeGraph{
+        width: 95%;
+    }
+}
