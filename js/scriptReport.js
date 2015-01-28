@@ -64,7 +64,6 @@ function getCampaingReport(campId){
 
     var fromDate = $('#datepickerFrom').val();
     var toDate = $('#datepickerTo').val();
-
     var sendOk = 0;
 
     if( $.trim(fromDate).length === 0 ){
@@ -79,19 +78,24 @@ function getCampaingReport(campId){
         sendOk = 1;
     }
 
-    if (sendOk){
-        if( fromDate == '00/00/0000' || toDate == '00/00/0000'){
+    if (sendOk) {
+        if ( fromDate == '00/00/0000' || toDate == '00/00/0000') {
             fromDate = toDate = 0;
         }
 
         $.ajax({
             url: webServicesUrl+"report.php",
             type:'POST',
-            data:{campID : campId, from: fromDate, to: toDate},
-            success:function(result){
+            data: {
+                campID : campId,
+                from: fromDate,
+                to: toDate
+            },
+            success: function(result) {
                 var r = $.parseJSON(result);
-                if (r.data && r.data.status && r.data.status == 'success'){
-                    console.log(r);
+
+                if (r.data && r.data.status && r.data.status == 'success') {
+
                     var arrayReporte = r.data.Reporte;
                     var impresiones = Math.ceil(r.data.impresiones);
                     var visitas = 0;
@@ -115,22 +119,19 @@ function getCampaingReport(campId){
 
                         arrayVisitas[index] = [fechaCreado, parseInt(this.visitas) ];
                         arrayConsultas[index] = [fechaCreado, parseInt(this.consultas) ];
-
-
                     });
 
-                        setTimeout(function() {
-                            showInfoBlock(impresiones, visitas, consultas);
-                            $('.loader, .noResults').hide();
-                            $('.results').show();
-                            loadGraph1(arrayVisitas, arrayConsultas);
-                            loadGraph2(r.data.total_deuda, r.data.progreso_mes);
-                            loadGraph3(r.data.torta);
-                        }, 1500 );
-                }else{
+                    setTimeout(function() {
+                        showInfoBlock(impresiones, visitas, consultas);
+                        $('.loader, .noResults').hide();
+                        $('.results').show();
+                        loadGraph1(arrayVisitas, arrayConsultas);
+                        loadGraph2(r.data.total_deuda, r.data.progreso_mes);
+                        loadGraph3(r.data.torta);
+                    }, 1500 );
+                } else {
                     $('.loader, .results').hide();
                     $('.noResults').show();
-                    showMessage(r.data);
                 }
             },
             error:function(error){

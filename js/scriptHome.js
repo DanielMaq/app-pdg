@@ -23,7 +23,7 @@ function registerDevice() {
             pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
         } else {
             /* Registro si es ios */
-            //pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
+            pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
         }
     }
     catch(err)
@@ -37,7 +37,7 @@ function registerDevice() {
 // handle AjvPNS notifications for iOS
 function onNotificationAPN(e) {
     if (e.alert) {
-        $("#app-status-ul").append('<li>push-notification: ' + e.alert + '</li>');
+        showMessage('push-notification: ' + e.alert);
         // showing an alert also requires the org.apache.cordova.dialogs plugin
         navigator.notification.alert(e.alert);
     }
@@ -104,17 +104,27 @@ function onNotification(e) {
 }
 
 function tokenHandler (result) {
-    $("#app-status-ul").append('<li>token: '+ result +'</li>');
+    showMessage('Token: ' + result);
     // Your iOS push server needs to know the token before it can push to this device
     // here is where you might want to send it the token for later use.
+
+    $.ajax({
+        url: 'http://projectsunderdev.com/app-pdg/ws/registerDevice.php',
+        type:'POST',
+        data:{newDeviceID: result, newUserId: sessionStorage.getItem('userID'), platform: 'apns'},
+        success:function(result){},
+        error:function(error){
+            alert(JSON.stringify(error));
+        }
+    });
 }
 
 function successHandler (result) {
-    $("#app-status-ul").append('<li>success:'+ result +'</li>');
+    showMessage('Success: ' + result);
 }
 
 function errorHandler (error) {
-    $("#app-status-ul").append('<li>error:'+ error +'</li>');
+    showMessage('Error: ' + error);
 }
 function onConfirm(buttonIndex) {
     if(buttonIndex == 1){
