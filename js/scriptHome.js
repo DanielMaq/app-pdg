@@ -36,6 +36,7 @@ function registerDevice() {
 
 // handle AjvPNS notifications for iOS
 function onNotificationAPN(e) {
+    alert( JSON.stringify(e) );
     if (e.alert) {
         showMessage('push-notification: ' + e.alert);
         // showing an alert also requires the org.apache.cordova.dialogs plugin
