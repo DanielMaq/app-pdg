@@ -36,11 +36,14 @@ function registerDevice() {
 
 // handle AjvPNS notifications for iOS
 function onNotificationAPN(e) {
-    alert( JSON.stringify(e) );
     if (e.alert) {
-        showMessage('push-notification: ' + e.alert);
         // showing an alert also requires the org.apache.cordova.dialogs plugin
-        navigator.notification.alert(e.alert);
+        navigator.notification.confirm(
+            '¿Ver Ahora?', // message
+            onConfirm, // callback to invoke with index of button pressed
+            'Nuevo mensaje', // title
+            ['Si','Más Tarde'] // buttonLabels
+        );
     }
 
     if (e.sound) {
