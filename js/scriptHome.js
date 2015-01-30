@@ -71,7 +71,7 @@ function onNotification(e) {
                 $.ajax({
                     url: 'http://projectsunderdev.com/app-pdg/ws/registerDevice.php',
                     type:'POST',
-                    data:{newDeviceID: e.regid, newUserId: sessionStorage.getItem('userID'), platform: 'gcm'},
+                    data:{newDeviceID: e.regid, newUserId: localStorage.getItem('userID'), platform: 'gcm'},
                     success:function(result){},
                     error:function(error){
                         alert(JSON.stringify(error));
@@ -115,7 +115,7 @@ function tokenHandler (result) {
     $.ajax({
         url: 'http://projectsunderdev.com/app-pdg/ws/registerDevice.php',
         type:'POST',
-        data:{newDeviceID: result, newUserId: sessionStorage.getItem('userID'), platform: 'apns'},
+        data:{newDeviceID: result, newUserId: localStorage.getItem('userID'), platform: 'apns'},
         success:function(result){},
         error:function(error){
             alert(JSON.stringify(error));

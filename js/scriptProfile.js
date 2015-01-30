@@ -69,7 +69,7 @@ $('#profilePage').live( 'pageinit',function(event){
 
 function loadData()
 {
-    var uID = sessionStorage.getItem('userID');
+    var uID = localStorage.getItem('userID');
 
     $.ajax({
         url: webServicesUrl+"profile.php",
@@ -127,7 +127,7 @@ function saveData()
 function getProfileData()
 {
     return {
-        uID: sessionStorage.getItem('userID'),
+        uID: localStorage.getItem('userID'),
         email: $('.email').val(),
         nombre_apellido: $('.name').val(),
         razon_social: $('.razonSocial').val(),

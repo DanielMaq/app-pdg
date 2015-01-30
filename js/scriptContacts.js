@@ -41,7 +41,7 @@ var contactos = null;
 function getCampaingMsgs(campId){
 
     var $resultsContainer = $('.results');
-    var uID = sessionStorage.getItem('userID');
+    var uID = localStorage.getItem('userID');
     var campID = campId;
     var page = 0;
 
@@ -104,7 +104,7 @@ function getCampaingMsgs(campId){
 
 function parseDate($date)
 {
-    var date = new Date($date);
+    var date = new Date($date.replace(' ', 'T'));
     var months = {0: 'Ene', 1: 'Feb', 2: 'Mar', 3: 'Abr', 4: 'May', 5: 'Jun', 6: 'Jul', 7: 'Ago', 8: 'Sep', 9: 'Oct', 10: 'Nov', 11: 'Dic'};
     var pieces = $date.split(' ');
     var time = pieces[1];

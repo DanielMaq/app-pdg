@@ -32,7 +32,7 @@ function setHeights(header){
 }
 
 function is_logged(){
-    var logged = $.isEmptyObject(sessionStorage.getItem("userID"));
+    var logged = $.isEmptyObject(localStorage.getItem("userID"));
 
     if( ($('#loginPage').length == 0) && logged ){
         window.location.href="login.html";
@@ -144,7 +144,7 @@ function openPopUp(){
 }
 
 function getCampaigns(){
-    var uID = sessionStorage.getItem('userID');
+    var uID = localStorage.getItem('userID');
     $.ajax({
         url: webServicesUrl+"campaign.php",
         type:'POST',

@@ -50,7 +50,7 @@ $('#loginPage').live( 'pageinit',function(event){
                     var r = $.parseJSON(result);
                     if (r.data && r.data.status && r.data.status == 'success'){
                         //showError('Ingresando...', 1);
-                        sessionStorage.setItem("userID", r.data[0].userID);
+                        localStorage.setItem("userID", r.data[0].userID);
                         window.location.href="home.html";
                     }else{
                         showMessage(r.data.message);

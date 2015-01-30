@@ -1,7 +1,7 @@
 $('#splashPage').live( 'pageinit',function(event){
 
     setTimeout(function(){
-        var logged = $.isEmptyObject(sessionStorage.getItem("userID"));
+        var logged = $.isEmptyObject(localStorage.getItem("userID"));
         if( logged ){
             window.location.href = 'login.html';
         }else{
