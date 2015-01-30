@@ -39,7 +39,7 @@ function onNotificationAPN(e) {
     if (e.alert) {
         // showing an alert also requires the org.apache.cordova.dialogs plugin
         navigator.notification.confirm(
-            '¿Ver Ahora?', // message
+            e.alert + '<br/>¿Ver Ahora?', // message
             onConfirm, // callback to invoke with index of button pressed
             'Nuevo mensaje', // title
             ['Si','Más Tarde'] // buttonLabels
@@ -89,7 +89,7 @@ function onNotification(e) {
             }
 
             navigator.notification.confirm(
-                '¿Ver Ahora?', // message
+                e.message + '<br/>¿Ver Ahora?', // message
                 onConfirm, // callback to invoke with index of button pressed
                 'Nuevo mensaje', // title
                 ['Si','Más Tarde'] // buttonLabels
@@ -108,10 +108,8 @@ function onNotification(e) {
 }
 
 function tokenHandler (result) {
-    showMessage('Token: ' + result);
     // Your iOS push server needs to know the token before it can push to this device
     // here is where you might want to send it the token for later use.
-
     $.ajax({
         url: 'http://projectsunderdev.com/app-pdg/ws/registerDevice.php',
         type:'POST',
