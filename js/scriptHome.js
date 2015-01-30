@@ -124,7 +124,7 @@ function tokenHandler (result) {
 }
 
 function successHandler (result) {
-    showMessage('Success: ' + result);
+    //showMessage('Success: ' + result);
 }
 
 function errorHandler (error) {
