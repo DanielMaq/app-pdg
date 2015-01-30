@@ -39,9 +39,10 @@ $('#loginPage').live( 'pageinit',function(event){
 
             //TODO: borrar datos fijos
 
-            username = 'gpetti@aterrizar.com.ar';
-            pass = '30577262124';
-
+            /*
+                username = 'gpetti@aterrizar.com.ar';
+                pass = '30577262124';
+            */
             $.ajax({
                 url: webServicesUrl+"login.php",
                 type:'POST',
