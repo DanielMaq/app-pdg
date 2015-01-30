@@ -39,7 +39,7 @@ function onNotificationAPN(e) {
     if (e.alert) {
         // showing an alert also requires the org.apache.cordova.dialogs plugin
         navigator.notification.confirm(
-            e.alert + '<br/>¿Ver Ahora?', // message
+            e.alert + '\n ¿Ver Ahora?', // message
             onConfirm, // callback to invoke with index of button pressed
             'Nuevo mensaje', // title
             ['Si','Más Tarde'] // buttonLabels
@@ -89,7 +89,7 @@ function onNotification(e) {
             }
 
             navigator.notification.confirm(
-                e.message + '<br/>¿Ver Ahora?', // message
+                e.message + '\n ¿Ver Ahora?', // message
                 onConfirm, // callback to invoke with index of button pressed
                 'Nuevo mensaje', // title
                 ['Si','Más Tarde'] // buttonLabels
