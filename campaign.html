@@ -10,31 +10,32 @@
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
         <link rel="stylesheet" type="text/css" href="js/snap/snap.css"/>
         <link rel="stylesheet" type="text/css" href="css/fonts.css"/>
+        <link rel="stylesheet" type="text/css" href="css/slicknav.css" />
         <link rel="stylesheet" type="text/css" href="css/custom.css"/>
 
         <title>PDG - Telefonica</title>
 
     </head>
     <body>
-
-    <div class="snap-drawer snap-drawer-left menu">
-        <h1>Menu</h1>
-
-        <a href="contacts.html" class="blueBtn" data-role="none" rel="external"> Mis Contactos </a>
-        <a href="campaign.html" class="blueBtn active" data-role="none" rel="external"> Mis Campañas </a>
-        <a href="reports.html" class="blueBtn" data-role="none" rel="external"> Mis Reportes </a>
-        <a href="profile.html" class="blueBtn" data-role="none" rel="external"> Mis Datos </a>
-        <a href="#" class="btnText"> Cerrar Sesión </a>
-    </div>
-
     <div class="snap-content" id="snapContent" >
 
         <div data-role="page" id="campaignPage" data-theme="c">
 
-            <div data-role="header">
+            <div data-role="header" id="pageHeader">
                 <img src="./img/ico-menu.png" class="menuBtn"/>
                 <p class="title">Mis Campañas</p>
-                <a href="home.html" class="home" data-role="none" rel="external"><img src="img/ico-home.png" /></a>
+				<a href="#" class="showSelects notShow" data-role="none" rel="external"><i class="fa fa-cog"></i></a>
+                <ul id="menu" style="" class="slicknav_menu notShow">
+                    <li class="username"><span class="circle"></span> <span>Username</span></li>
+                    <li><a href="contacts.html" class="" data-role="none" rel="external"><span class="icon contacts"></span> <span>Mis Contactos</span> </a></li>
+                    <!--<li><a href="#" class="" data-role="none" rel="external"><span class="icon msg"></span> <span>Mensajes</span> </a></li>-->
+                    <li><a href="campaign.html" class="active" data-role="none" rel="external"><span class="icon camp"></span> <span>Mis Campañas</span> </a></li>
+                    <li><a href="reports.html" class="" data-role="none" rel="external"><span class="icon reports"></span> <span>Mis Reportes</span> </a></li>
+                    <li><a href="profile.html" class="" data-role="none" rel="external"><span class="icon config"></span> <span>Configuración</span> </a></li>
+                    <li class="vSpace"></li>
+                    <li class="line"><hr /></li>
+                    <li class="bottom"><a href="#" class="btnExit"><span class="icon exit"></span> <span>Cerrar Sesión</span> </a></li>
+                </ul>
             </div>
             <div role="main" class="container">
 
@@ -71,5 +72,6 @@
     <script type="text/javascript" src="js/jssite.js"></script>
     <script type="text/javascript" src="js/scriptCampaign.js"></script>
 
+    <script src="js/jquery.slicknav.min.js"></script>
     </body>
 </html>

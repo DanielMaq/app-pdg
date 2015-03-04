@@ -12,6 +12,12 @@ if ( isset($_REQUEST['to']) && $_REQUEST['to'] !== '0' ) {
     $data['hasta'] = $to;
 }
 
+if ( isset($_REQUEST['ultima_visita']) && $_REQUEST['ultima_visita'] !== '0' ) {
+    $data['ultima_visita'] = $_REQUEST['ultima_visita'];
+    $data['desde'] = '0';
+    $data['hasta'] = '0';
+}
+
 $service = 'report';
 
 include_once('ws.php');

@@ -5,6 +5,8 @@
 @media screen and (max-width: 720px) {
     #reportPage .results .graphContainer.completedMonthGraph,
     #reportPage .results .graphContainer.consuTypeGraph{
-        width: 95%;
+        width: 100%;
+        margin: 0;
     }
+
 }

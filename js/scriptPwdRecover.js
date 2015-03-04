@@ -14,7 +14,12 @@ $('#pwdRecoverPage').live( 'pageinit',function(event) {
             showError('El email es requerido.');
             return;
         } else {
-            sendOk = 1;
+            if(validateEmail(username)){
+                sendOk = 1;
+            }else{
+                showError('El email ingresado no es válido.');
+                return
+            }
         }
 
         if (sendOk) {

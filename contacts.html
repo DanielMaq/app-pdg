@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
         <link rel="stylesheet" type="text/css" href="js/snap/snap.css"/>
         <link rel="stylesheet" type="text/css" href="css/fonts.css"/>
+        <link rel="stylesheet" type="text/css" href="css/slicknav.css" />
         <link rel="stylesheet" type="text/css" href="css/custom.css"/>
 
         <title>PDG - Telefonica</title>
@@ -17,44 +18,59 @@
     </head>
     <body>
 
-    <div class="snap-drawer snap-drawer-left menu">
-        <h1>Menu</h1>
-
-        <a href="contacts.html" class="blueBtn active" data-role="none" rel="external"> Mis Contactos </a>
-        <a href="campaign.html" class="blueBtn" data-role="none" rel="external"> Mis Campañas </a>
-        <a href="reports.html" class="blueBtn" data-role="none" rel="external"> Mis Reportes </a>
-        <a href="profile.html" class="blueBtn" data-role="none" rel="external"> Mis Datos </a>
-        <a href="#" class="btnText"> Cerrar Sesión </a>
-    </div>
-
     <div class="snap-content" id="snapContent" >
 
         <div data-role="page" id="contactPage" data-theme="c">
 
-            <div data-role="header">
+            <div data-role="header" id="pageHeader">
                 <img src="./img/ico-menu.png" class="menuBtn"/>
                 <p class="title">Mis Contactos</p>
-                <a href="home.html" class="home" data-role="none" rel="external"><img src="img/ico-home.png" /></a>
+                <a href="#" class="showSelects notShow" data-role="none" rel="external"><i class="fa fa-cog"></i></a>
+                <ul id="menu" style="" class="slicknav_menu notShow">
+                    <li class="username"><span class="circle"></span> <span>Username</span></li>
+                    <li><a href="contacts.html" class="active" data-role="none" rel="external"><span class="icon contacts"></span> <span>Mis Contactos</span> </a></li>
+                    <!--<li><a href="#" class="" data-role="none" rel="external"><span class="icon msg"></span> <span>Mensajes</span> </a></li>-->
+                    <li><a href="campaign.html" class="" data-role="none" rel="external"><span class="icon camp"></span> <span>Mis Campañas</span> </a></li>
+                    <li><a href="reports.html" class="" data-role="none" rel="external"><span class="icon reports"></span> <span>Mis Reportes</span> </a></li>
+                    <li><a href="profile.html" class="" data-role="none" rel="external"><span class="icon config"></span> <span>Configuración</span> </a></li>
+                    <li class="vSpace"></li>
+                    <li class="line"><hr /></li>
+                    <li class="bottom"><a href="#" class="btnExit"><span class="icon exit"></span> <span>Cerrar Sesión</span> </a></li>
+                </ul>
             </div>
-            <div role="main" class="container">
 
-                <div class="campaignSelector">
-                    <p>Seleccione su campaña</p>
-                    <select>
-                        <option data-campId="0001">Campaña 0001</option>
-                        <option data-campId="0010">Campaña 0010</option>
-                        <option data-campId="0011">Campaña 0011</option>
-                        <option data-campId="0100">Campaña 0100</option>
-                        <option data-campId="0101">Campaña 0101</option>
-                        <option data-campId="0110">Campaña 0110</option>
-                        <option data-campId="0111">Campaña 0111</option>
-                    </select>
+			<p class="loader"> Cargando <img src="img/ajax-loader.gif" /></p>
+
+            <div class="campaignSelector">
+                <p>Seleccione su campaña</p>
+                <select>
+                    <option data-campId="0001">Campaña 0001</option>
+                    <option data-campId="0010">Campaña 0010</option>
+                    <option data-campId="0011">Campaña 0011</option>
+                    <option data-campId="0100">Campaña 0100</option>
+                    <option data-campId="0101">Campaña 0101</option>
+                    <option data-campId="0110">Campaña 0110</option>
+                    <option data-campId="0111">Campaña 0111</option>
+                </select>
+            </div>
+            <div role="main" class="container" style="">
+                <div class="wrap">
+                    <ul class="tabs">
+                        <li class="active">
+                            <a href="tab-1">Todos</a>
+                        </li>
+                        <li>
+                            <a href="tab-2">Nuevos</a>
+                        </li>
+                    </ul>
                 </div>
 
-                <div class="results">
+                <div class="contentTabs" style="color: #000000;">
+                    <div class="results todos active" id="tab-1">
+                    </div>
 
-                    <p class="loader"> Cargando <img src="img/ajax-loader.gif" /></p>
-
+                    <div class="results nuevos" id="tab-2">
+                    </div>
                 </div>
 
             </div> <!-- /content -->
@@ -71,5 +87,7 @@
     <script type="text/javascript" src="js/jssite.js"></script>
     <script type="text/javascript" src="js/scriptContacts.js"></script>
 
+    <link href="js/idangerous/idangerous.swiper.css" rel="stylesheet"/>
+    <script type="text/javascript" src="js/idangerous/idangerous.swiper.js"></script>
     </body>
 </html>

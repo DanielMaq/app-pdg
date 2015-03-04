@@ -19,6 +19,18 @@ $('#campaignPage').live( 'pageinit',function(event){
 
     });
 
+    $('.showSelects').addClass('notShow');
+
+    $('.showSelects').on('touchend',function(){
+        if($(this).hasClass('notShow')){
+            $('.campaignSelector').css('max-height','83px');
+            setTimeout(function(){$('.showSelects').removeClass('notShow')},100)
+        }else{
+            $('.campaignSelector').css('max-height','0');
+            setTimeout(function(){$('.showSelects').addClass('notShow')},100)
+        }
+    })
+
 });
 
 

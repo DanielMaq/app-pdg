@@ -11,6 +11,7 @@
         <link rel="stylesheet" type="text/css" href="js/jqueryUI/jquery-ui.min.css"/>
         <link rel="stylesheet" type="text/css" href="js/snap/snap.css"/>
         <link rel="stylesheet" type="text/css" href="css/fonts.css"/>
+        <link rel="stylesheet" type="text/css" href="css/slicknav.css" />
         <link rel="stylesheet" type="text/css" href="css/custom.css"/>
         <link rel="stylesheet" type="text/css" href="css/mediaQueries.css"/>
 
@@ -19,53 +20,59 @@
     </head>
     <body>
 
-    <div class="snap-drawer snap-drawer-left menu">
-        <h1>Menu</h1>
-
-        <a href="contacts.html" class="blueBtn" data-role="none" rel="external"> Mis Contactos </a>
-        <a href="campaign.html" class="blueBtn" data-role="none" rel="external"> Mis Campañas </a>
-        <a href="reports.html" class="blueBtn active" data-role="none" rel="external"> Mis Reportes </a>
-        <a href="profile.html" class="blueBtn" data-role="none" rel="external"> Mis Datos </a>
-        <a href="#" class="btnText"> Cerrar Sesión </a>
-    </div>
-
     <div class="snap-content" id="snapContent" >
 
         <div data-role="page" id="reportPage" data-theme="c">
-
-            <div data-role="header">
-                <img src="./img/ico-menu.png" class="menuBtn"/>
+            <div data-role="header" id="pageHeader">
+                <img src="./img/ico-menu.png" class="menuBtn" id="openMenu"/>
                 <p class="title">Mis Reportes</p>
-                <a href="home.html" class="home" data-role="none" rel="external"><img src="img/ico-home.png" /></a>
+				<a href="#" class="showSelects notShow" data-role="none" rel="external"><i class="fa fa-cog"></i></a>
+                <ul id="menu" style="" class="slicknav_menu notShow">
+                    <li class="username"><span class="circle"></span> <span>Username</span></li>
+                    <li><a href="contacts.html" class="" data-role="none" rel="external"><span class="icon contacts"></span> <span>Mis Contactos</span> </a></li>
+                    <!--<li><a href="#" class="" data-role="none" rel="external"><span class="icon msg"></span> <span>Mensajes</span> </a></li>-->
+                    <li><a href="campaign.html" class="" data-role="none" rel="external"><span class="icon camp"></span> <span>Mis Campañas</span> </a></li>
+                    <li><a href="reports.html" class="active" data-role="none" rel="external"><span class="icon reports"></span> <span>Mis Reportes</span> </a></li>
+                    <li><a href="profile.html" class="" data-role="none" rel="external"><span class="icon config"></span> <span>Configuración</span> </a></li>
+                    <li class="vSpace"></li>
+                    <li class="line"><hr /></li>
+                    <li class="bottom"><a href="#" class="btnExit"><span class="icon exit"></span> <span>Cerrar Sesión</span> </a></li>
+                </ul>
             </div>
             <div role="main" class="container">
-
-                <div class="headerSelectors">
-                    <div class="campaignSelector">
-                        <p>Seleccione su campaña</p>
-                        <select>
-                            <option data-campId="0001">Campaña 0001</option>
-                            <option data-campId="0010">Campaña 0010</option>
-                            <option data-campId="0011">Campaña 0011</option>
-                            <option data-campId="0100">Campaña 0100</option>
-                            <option data-campId="0101">Campaña 0101</option>
-                            <option data-campId="0110">Campaña 0110</option>
-                            <option data-campId="0111">Campaña 0111</option>
-                        </select>
-                    </div>
-                    <div class="dateRangeSelector">
-                        <div class="row">
-                            <p>Desde</p><input type="text" id="datepickerFrom" readonly="readonly" data-role="none" value="00/00/0000"/>
-                        </div>
-                        <div class="row">
-                            <p>Hasta</p><input type="text" id="datepickerTo" readonly="readonly" data-role="none" value="00/00/0000"/>
-                        </div>
-                        <div class="row">
-                            <p class="filter reset">Reset</p>
-                            <p class="filter go">Filtrar</p>
-                        </div>
-                    </div>
-                </div>
+				<div class="selectsContainer">
+					<div class="headerSelectors">
+						<div class="campaignSelector">
+							<p>Seleccione su campaña</p>
+							<select>
+								<option data-campId="0001">Campaña 0001</option>
+								<option data-campId="0010">Campaña 0010</option>
+								<option data-campId="0011">Campaña 0011</option>
+								<option data-campId="0100">Campaña 0100</option>
+								<option data-campId="0101">Campaña 0101</option>
+								<option data-campId="0110">Campaña 0110</option>
+								<option data-campId="0111">Campaña 0111</option>
+							</select>
+						</div>
+						<div class="dateRangeSelector">
+							<div class="row" style="display: none">
+								<p>Desde</p><input type="text" id="datepickerFrom" readonly="readonly" data-role="none" value="00/00/0000"/>
+							</div>
+							<div class="row" style="display: none">
+								<p>Hasta</p><input type="text" id="datepickerTo" readonly="readonly" data-role="none" value="00/00/0000"/>
+							</div>
+								<select id="selectPeriod">
+									<option value="thirtydays">Ultimos 30 días</option>
+									<option value="month">Este mes</option>
+									<option value="sevendays">Últimos 7 días</option>
+								</select>
+							<!--<div class="row">-->
+								<!--&lt;!&ndash;<p class="filter reset">Reset</p>&ndash;&gt;-->
+								<!--<a href="#" class="filter btn ingreso"><i class="fa fa-check-circle" style="font-size: 30px;display: inline-block;padding-right: 10px;"></i>Filtrar</a>-->
+							<!--</div>-->
+						</div>
+					</div>
+				</div>
 
 
                 <p class="loader"> Cargando <img src="img/ajax-loader.gif" /></p>
@@ -77,37 +84,36 @@
                         <div class="infoBlock anuncios">
                             <p data-icon="home">Tus Anuncios se vieron</p>
                             <p class="number">00</p>
-                            <p>veces.</p>
                         </div>
 
                         <div class="infoBlock landing">
                             <p>Visitaron tu landing</p>
                             <p class="number">00</p>
-                            <p>personas.</p>
                         </div>
 
                         <div class="infoBlock clientes">
-                            <p>Obtuvimos</p>
+                            <p>Posibles clientes</p>
                             <p class="number">00</p>
-                            <p>posibles clientes.</p>
                         </div>
                     </div>
 
                     <div class="graphContainer">
                         <h2>Visitas y consultas</h2>
-                        <div id="visitContactGraph"></div>
+                        <!--<div id="visitContactGraph"></div>-->
+						<div id="graph1" class="theGraph"></div>
                     </div>
 
                     <div class="theGraphContent">
                         <div class="graphContainer completedMonthGraph">
                             <h2>% Cumplido al mes de Enero</h2>
-                            <div class="theGraph"></div>
+                            <div id="graph2" class="theGraph"></div>
                         </div>
 
-                        <div class="graphContainer consuTypeGraph">
-                            <h2>Tipo de consultas</h2>
-                            <div class="theGraph"></div>
-                        </div>
+						<div class="graphContainer consuTypeGraph" style="position: relative">
+							<h2>Tipo de consultas</h2>
+							<div id="addText" style="position:absolute; left:0px; top:0px;"></div>
+							<div id="graph3" class="theGraph" style="position:relative; left:0px; top:0px;"></div>
+						</div>
                     </div>
 
                 </div>
@@ -131,5 +137,6 @@
     <script type="text/javascript" src="js/jssite.js"></script>
     <script type="text/javascript" src="js/scriptReport.js"></script>
 
+    <script src="js/jquery.slicknav.min.js"></script>
     </body>
 </html>

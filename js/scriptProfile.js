@@ -7,13 +7,13 @@ $('#profilePage').live( 'pageinit',function(event){
     loadData();
 
     $('#profilePage #theForm').on('submit', function(e){
-        $('#profilePage .blueBtn').trigger('click');
+        $('#profilePage .save').trigger('click');
         e.preventDefault();
         return false;
     });
 
 
-    $('#profilePage .blueBtn').on('click', function(e){ //LOGIN
+    $('#profilePage .save').on('click', function(e){ //LOGIN
 
         e.preventDefault();
         showError('vaciar');
@@ -82,6 +82,8 @@ function loadData()
             if (r.data && r.data.status && r.data.status == 'success') {
                 var datos = r.data[0];
 
+                $('.loader').hide();
+
                 $('.idEmpresa').val(datos.cuit);
                 $('.razonSocial').val(datos.razon_social);
                 $('.telefonoEmp').val(datos.telefono);
@@ -90,10 +92,13 @@ function loadData()
                 $('.telefono').val(datos.telefono);
                 $('.celular').val(datos.telefono_celular);
                 $('.telefono2').val(datos.telefono_alternativo);
+
+                $('div.profileForm').fadeIn();
             } else {
                 $('.loader, .results').hide();
                 $('.noResults').show();
             }
+
         },
         error: function(error) {
             alert(JSON.stringify(error));
@@ -106,17 +111,17 @@ function saveData()
     $.ajax({
         url: webServicesUrl + "setprofile.php",
         type:'POST',
-        data: getProfileData(),
+        data:  getProfileData(),
         success: function(result) {
             var r = $.parseJSON(result);
             var message = 'ERROR';
 
             if (r.data && r.data.status && r.data.status == 'success') {
-                var datos = r.data[0];
                 message = 'Datos guardados';
             }
 
             showMessage(message);
+            showError('vaciar');
         },
         error: function(error) {
             alert(JSON.stringify(error));

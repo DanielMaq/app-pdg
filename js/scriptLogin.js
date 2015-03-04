@@ -35,6 +35,13 @@ $('#loginPage').live( 'pageinit',function(event){
             sendOk = 1;
         }
 
+        if(!validateEmail(username)){
+            showError('El Email ingresado no es válido');
+            return;
+        }else{
+            sendOk = 1;
+        }
+
         if(sendOk){
 
             //TODO: borrar datos fijos

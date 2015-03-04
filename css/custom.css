@@ -2,10 +2,30 @@
 ** Default Styles
 **/
 
+/*
+** FONT STYLES
+*/
+
+.font_1 {
+    font-size: 33px;
+    font-weight: normal;
+}
+.font_2 {
+    font-size: 16px;
+}
+.font_3{
+    font-family: "HelveticaLTStd-Roman";
+    font-size: 16px;
+}
+.font_4 {
+    font-family: 'HelveticaNeueLTStd-Bd';
+    font-size: 22px;
+}
 body{
-    font-family: "movistar_textregular";
+    font-family: "HelveticaNeue-Light";
     font-weight: normal;
     text-transform: none;
+    color: #ffffff;
 }
 html body .ui-page a.blueBtn{
     background: none repeat scroll 0 0 #0291c8;
@@ -29,16 +49,16 @@ html body .ui-page a.blueBtn:active{
 .btnText{
     color: #ffffff;
     display: block;
-    font-family: "movistar_headlineregular";
-    line-height: 40px;
-    text-align: center;
-    text-decoration: none;
+    font-family: HelveticaLTStd-Roman;
+    line-height: 30px;
+    text-align: left;
+    text-decoration: underline;
+    font-size: 15px;
+    padding-left: 15px;
 }
 .container{
     border-width: 0;
-    overflow-x: hidden;
-    overflow-y: visible;
-    padding: 16px;
+    /*padding: 16px;*/
 }
 .innerContainer{
     margin: 0 auto;
@@ -46,10 +66,21 @@ html body .ui-page a.blueBtn:active{
 }
 
 .ui-header{
-    background: none no-repeat scroll 0 0 #005c84;
+    background: rgb(0,92,133);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjYlIiBzdG9wLWNvbG9yPSIjMDA1Yzg1IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA1Mzc5MyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(-35deg,  rgba(0,92,133,1) 6%, rgba(5,55,147,1) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(6%,rgba(0,92,133,1)), color-stop(100%,rgba(5,55,147,1)));
+    background: -webkit-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: -o-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: -ms-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: linear-gradient(135deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005c85', endColorstr='#053793',GradientType=1 );
     border: medium none;
     height: 60px;
     line-height: 60px;
+    position: relative;
+    z-index: 10;
+    width: 100%;
 }
 .ui-header .menuBtn{
     cursor: pointer;
@@ -60,7 +91,6 @@ html body .ui-page a.blueBtn:active{
 .ui-header .title{
     color: #fff;
     float: left;
-    font-family: 'movistar_headlinebold';
     font-size: 20px;
     margin: 0;
 }
@@ -82,115 +112,272 @@ html body .ui-page a.blueBtn:active{
     position: relative;
     text-align: center;
     width: 40px;
+    position: relative;
+    z-index: 2;
 }
 
-.snap-drawer{
-    background: none no-repeat scroll 0 0 #005c84;
-    padding: 0 20px;
-    width: 226px;
-}
-.snap-drawer h1{
-    color: #5cd2ed;
-    font-family: 'movistar_headlinebold';
-    font-size: 20px;
-    height: 60px;
-    line-height: 60px;
-    margin: 0 0 0 10px;
-    text-align: left;
-    text-transform: uppercase;
-}
-.snap-drawer a.blueBtn{
-    border: 2px solid #0181ab;
-    border-radius: 4px;
-    color: #ffffff;
+/*
+/* MENU STYLES
+*/
+.slicknav_menu {
     display: block;
-    font-family: 'movistar_headlinebold';
-    line-height: 40px;
-    margin: 0 auto 20px;
-    max-width: 300px;
-    text-align: center;
+    position: absolute;
+    width: 90%;
+    top: 0;
+    background: rgb(0,92,133);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjYlIiBzdG9wLWNvbG9yPSIjMDA1Yzg1IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA1Mzc5MyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(-35deg,  rgba(0,92,133,1) 6%, rgba(5,55,147,1) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(6%,rgba(0,92,133,1)), color-stop(100%,rgba(5,55,147,1)));
+    background: -webkit-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: -o-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: -ms-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    /*background: linear-gradient(125deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);*/
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005c85', endColorstr='#053793',GradientType=1 );
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    -webkit-transition: all .5s ease;
+    -moz-transition: all .5s ease;
+    -ms-transition: all .5s ease;
+    -o-transition: all .5s ease;
+    transition: all .5s ease;
+    overflow: auto;
+    /*max-height: 0;*/
+    padding:0 5%;
+    /*display: none;*/
+    padding-top: 30px;
+    -webkit-transform: translate3d(0,-100%,0);
+    -moz-transform: translate3d(0,-100%,0);
+    -ms-transform: translate3d(0,-100%,0);
+    -o-transform: translate3d(0,-100%,0);
+    transform: translate3d(0,-100%,0);
+}
+#menu li {
+    position: relative;
+}
+#menu li .arrow{
+    position: absolute;
+    right: 20%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+#menu li.bottom a {
+    display: inline-block;
+    width: auto;
+}
+#menu li.bottom .arrow{
+    -webkit-transform: translateY(-50%) rotate(-90deg);
+    -moz-transform: translateY(-50%) rotate(-90deg);
+    -ms-transform: translateY(-50%) rotate(-90deg);
+    -o-transform: translateY(-50%) rotate(-90deg);
+    transform: translateY(-50%) rotate(-90deg);
+    font-size: 23px;
+    cursor: pointer;
+}
+#menu li.bottom .arrow.menuBtn {
+    margin: 0;
+    width: auto;
+    float: none;
+    right: 10%;
+}
+#menu li.username span:last-child{
+    padding-left: 15px;
+}
+#menu li.username span {
+    display: inline-block;
+    line-height: 35px;
+    vertical-align: middle;
+    font-size: 16px;
+    font-family: 'HelveticaNeueLTStd-Bd';
+}
+#menu li a {
     text-decoration: none;
-    text-shadow: none;
-    text-transform: uppercase;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'HelveticaNeue-Light';
+    width: 100%;
+    display: block;
+    background: rgba(0, 0, 0, 0);
+    position: relative;
+    z-index: 100;
 }
-.snap-drawer a.blueBtn:hover,
-.snap-drawer a.blueBtn.active{
-    background: none repeat scroll 0 0 #0291c8;
+#menu li a span:last-child {
+    padding-left:15px;
 }
-.snap-drawer a.btnText{
-    font-family: "movistar_headlinebold";
-    text-transform: uppercase;
+#menu li.username span.circle {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+    background-color: #000;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0;
 }
+#menu li span.icon{
+    display: inline-block;
+    background-image: url("../img/menu-icons-sprite.png");
+    background-repeat: no-repeat;
+    background-color: transparent;
+    background-attachment: scroll;
+    vertical-align: middle;
+    width: 32px;
+    height: 30px;
+    margin: 7px;
+}
+#menu li span.icon.contacts {
+    background-position: center 3px;
+}
+#menu li span.icon.msg {
+    background-position: center -29px;
+}
+#menu li span.icon.camp {
+    background-position: center -66px;
+}
+#menu li span.icon.reports {
+    background-position: center -100px;
+}
+#menu li span.icon.config {
+    background-position: center -135px;
+}
+#menu li span.icon.exit {
+    background-position: center -170px;
+}
+#menu li hr{
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    height: 1px;
+}
+
+#menu li.vSpace {
+    height: 0;
+}
+
+
+
+
+
+
+
 
 .headerSelectors{
     overflow: hidden;
 }
 .campaignSelector{
-    float: left;
     overflow: hidden;
 }
 .campaignSelector p{
-    color: #005c84;
-    display: inline-block;
-    font-family: 'movistar_headlinebold';
-    font-size: 16px;
-    line-height: 33px;
-    margin: 5px 0;
-    vertical-align: top;
+    display: none;
 }
-.campaignSelector .ui-select{
-    display: inline-block;
-    margin: 5px 10px;
-}
-.campaignSelector .ui-select > div.ui-btn:after{
-    background: url("../img/ico-arrow-select.png") no-repeat scroll 0 0 transparent;
-    border-radius: 0;
+.campaignSelector .ui-select,
+.dateRangeSelector .ui-select{
     margin: 0;
-    right: 6px;
-    top: 10px;
 }
-.campaignSelector .ui-select .ui-btn{
-    border: 2px solid #bbbbbb;
-    padding: 4px 50px 8px 10px;
+.campaignSelector .ui-select > div.ui-btn:after,
+.dateRangeSelector .ui-select > div.ui-btn:after{
+    background: none;
+    font: normal normal normal 14px/1 FontAwesome;
+    color: #003470;
+    content: "\f107";
+    font-size: 20px;
+    border-radius: 0;
+    right: 10%;
+    top: 50%;
+    margin: -11px 0 0 0;
+}
+.campaignSelector .ui-select .ui-btn,
+.dateRangeSelector .ui-select .ui-btn{
+    border-bottom: 2px solid #cecece;
+    height: 80px;
+    padding: 0;
+    border-radius: 0;
+    border-top:none;
+    border-left: none;
+    border-right: none;
+}
+.campaignSelector .ui-select span:before,
+.dateRangeSelector .ui-select span:before {
+    content: '';
+    background: url("../img/select-icons-sprite.png") center -66px no-repeat scroll;
+    height: 30px;
+    width: 30px;
+    display: inline-block;
+    position: relative;
+    left: -20px;
+    top: 10px;
+    transform: scale(1.2);
+}
+
+.campaignSelector .ui-select span,
+.dateRangeSelector .ui-select span{
+    color: #005c85 !important;
+    font-size: 18px;
+    font-family: "HelveticaNeue-Light";
+}
+
+
+.dateRangeSelector .ui-select span:before{
+    background-position: center -29px;
 }
 .campaignSelector .ui-select span,
-.campaignSelector .ui-select option{
-    color: #58595b;
-    font-family: "movistar_headlineregular";
-    font-weight: 400;
+.dateRangeSelector .ui-select span {
+    line-height: 80px;
+    text-align: left;
+    padding-left: 70px;
 }
+
 .dateRangeSelector{
-    float: right;
-    overflow: hidden;
+    width: 100%;
 }
 .dateRangeSelector .row{
-    display: inline-block;
+    display: block;
+    border-bottom: 2px solid #CECECE;
+    padding: 10px 0;
 }
 .dateRangeSelector p{
     color: #005c84;
+    /*display: inline-block;*/
+    color: #005C85 !important;
+    font-size: 18px;
+    font-family: "HelveticaNeue-Light";
+    line-height: 18px;
+    text-align: left;
+    padding-left: 70px;
+    font-weight: 700;
+    margin:0;
+}
+.dateRangeSelector p:before {
+    content: '';
+    background: url("../img/select-icons-sprite.png") center -29px no-repeat scroll;
+    height: 30px;
+    width: 30px;
     display: inline-block;
-    font-family: 'movistar_headlinebold';
-    font-size: 16px;
-    line-height: 33px;
-    margin: 5px 0;
+    position: relative;
+    left: -20px;
+    top: 10px;
+    transform: scale(1.2);
 }
 .dateRangeSelector input{
     background: none no-repeat scroll 0 0 transparent;
-    border: 2px solid #bbbbbb;
-    border-radius: 4px;
-    color: #58595b;
-    font-family: "movistar_headlineregular";
+    border: none;
+    border-radius: 0;
+    color: #5a5a5a;
     font-weight: 400;
-    line-height: 33px;
-    margin: 5px 10px;
-    padding: 0 50px 0 10px;
+    padding-left: 13%;
+    width: 87%;
+    margin-top: 10px;
 }
-.dateRangeSelector .filter{
-    border-radius: 4px;
+.dateRangeSelector .filter.btn.ingreso{
+    border-radius: 2px;
     color: #ffffff;
-    background: none no-repeat scroll 0 0 #005c84;
-    border: 2px solid #0181ab;
-    padding: 0 10px;
+    border: none;
+    width: 250px;
+    margin: 0 auto;
+    font-family: 'HelveticaNeueLTStd-Bd';
+    font-size: 20px;
 }
 
 .ui-widget-header{
@@ -241,7 +428,15 @@ html body .ui-page a.blueBtn:active{
 ** Splash Page
 **/
 #splashPage {
-    background:  none no-repeat scroll 0 0 #005c84;
+    background: rgb(0,92,133);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjYlIiBzdG9wLWNvbG9yPSIjMDA1Yzg1IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA1Mzc5MyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(-35deg,  rgba(0,92,133,1) 6%, rgba(5,55,147,1) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(6%,rgba(0,92,133,1)), color-stop(100%,rgba(5,55,147,1)));
+    background: -webkit-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: -o-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: -ms-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: linear-gradient(135deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005c85', endColorstr='#053793',GradientType=1 );
 }
 #splashPage img{
     bottom: 0;
@@ -257,7 +452,15 @@ html body .ui-page a.blueBtn:active{
 ** homePage
 **/
 #homePage {
-    background:  none no-repeat scroll 0 0 #005c84;
+    background: rgb(0,92,133);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjYlIiBzdG9wLWNvbG9yPSIjMDA1Yzg1IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA1Mzc5MyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(-35deg,  rgba(0,92,133,1) 6%, rgba(5,55,147,1) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(6%,rgba(0,92,133,1)), color-stop(100%,rgba(5,55,147,1)));
+    background: -webkit-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: -o-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: -ms-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: linear-gradient(135deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005c85', endColorstr='#053793',GradientType=1 );
 }
 #homePage img{
     display: block;
@@ -266,47 +469,67 @@ html body .ui-page a.blueBtn:active{
     width: 80%;
 }
 #homePage .homeMenu{
-    bottom: 40px;
-    left: 0;
-    position: absolute;
-    right: 0;
+    margin-top: 100px;
 }
 
 /**
 ** loginPage
 **/
 #loginPage {
-    background:  none no-repeat scroll 0 0 #005c84;
+    background: rgb(0,92,133);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMTAwJSI+CiAgICA8c3RvcCBvZmZzZXQ9IjYlIiBzdG9wLWNvbG9yPSIjMDA1Yzg1IiBzdG9wLW9wYWNpdHk9IjEiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzA1Mzc5MyIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(-35deg,  rgba(0,92,133,1) 6%, rgba(5,55,147,1) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(6%,rgba(0,92,133,1)), color-stop(100%,rgba(5,55,147,1)));
+    background: -webkit-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: -o-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: -ms-linear-gradient(-35deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: linear-gradient(135deg,  rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005c85', endColorstr='#053793',GradientType=1 );
+    /*background:  none no-repeat scroll 0 0 #005c84;*/
 }
-#loginPage img{
+.theLogo{
     display: block;
     margin: 40px auto;
     max-width: 448px;
     width: 90%;
 }
-#loginPage .innerContainer p{
+#loginPage .innerContainer > p{
     color: #fff;
     display: block;
-    font-family: 'movistar_headlineregular';
-    font-size: 22px;
-    margin: 70px auto 0;
     text-align: center;
     text-shadow: none;
+    margin: 0 0 30px;
 }
-#loginPage #loginForm{}
-
-#loginPage #loginForm .campo{
-    background: none no-repeat scroll 0 0 transparent;
+#loginPage .innerContainer h2 {
+    text-align: center;
+    margin: 0;
+    margin: 70px auto 0;
+}
+::-webkit-input-placeholder {
+    color: black;
+}
+:-moz-placeholder { /* Firefox 18- */
+    color: black;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+    color: black;
+}
+:-ms-input-placeholder {
+    color: black;
+}
+input.campo{
+    background: none no-repeat scroll 0 0 #6795b9;
     border: none;
-    border-bottom: 2px solid #ffffff;
-    color: #fff;
+    color: #000;
     display: block;
-    font-family: 'movistar_textregular';
-    font-size: 18px;
     line-height: 30px;
     margin: 24px auto;
-    padding: 0 10px;
+    padding: 7px 10px 4px;
     width: 90%;
+    border-radius: 4px;
+}
+#loginPage #loginForm .campo.password{
+    margin-bottom: 10px;
 }
 #loginPage #loginForm .ui-btn{
     border: medium none;
@@ -315,74 +538,80 @@ html body .ui-page a.blueBtn:active{
     overflow: hidden;
     padding: 0;
 }
-#loginPage .errors{
+.errors{
     display: none;
 }
-#loginPage .errors img{
+.errors img{
     display: inline-block;
-    margin: 10px 10px 0;
-    vertical-align: top;
+    margin: 0 10px 3px;
+    vertical-align: middle;
     width: 14px;
 }
-#loginPage .errors p{
+.errors p{
     color: #939598;
-     display: inline-block;
-    font-family: 'movistar_textregular';
+    display: inline-block;
     font-size: 16px;
     line-height: 30px;
-    margin: 0;
+    margin: 5px 0;
 }
-#loginPage .btn{
-    border: 2px solid #0181ab;
+.btn.ingreso{
     border-radius: 4px;
-    color: #5cd2ed;
+    color: #ffffff;
     display: block;
-    font-family: 'movistar_headlinebold';
-    line-height: 40px;
+    line-height: 50px;
     margin: 20px auto;
     padding: 0 6px;
     text-align: center;
     text-decoration: none;
-    text-transform: uppercase;
     width: 90%;
+    height: 50px;
+    background: rgb(255,124,0);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2ZmN2MwMCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNiNjNmMGIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+    background: -moz-linear-gradient(top,  rgba(255,124,0,1) 0%, rgba(182,63,11,1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,124,0,1)), color-stop(100%,rgba(182,63,11,1)));
+    background: -webkit-linear-gradient(top,  rgba(255,124,0,1) 0%,rgba(182,63,11,1) 100%);
+    background: -o-linear-gradient(top,  rgba(255,124,0,1) 0%,rgba(182,63,11,1) 100%);
+    background: -ms-linear-gradient(top,  rgba(255,124,0,1) 0%,rgba(182,63,11,1) 100%);
+    background: linear-gradient(to bottom,  rgba(255,124,0,1) 0%,rgba(182,63,11,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7c00', endColorstr='#b63f0b',GradientType=0 );
+    -webkit-box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.51);
+    -moz-box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.51);
+    box-shadow: 0px 0px 5px 1px rgba(255, 255, 255, 0.51);
 }
+#loginPage #loginForm{
+    position: relative;
+}
+#loginPage #loginForm i {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    font-size: 25px;
+}
+
 
 /**
 ** pwdRecoverPage
 **/
 #pwdRecoverPage {
-    background:  none no-repeat scroll 0 0 #005c84;
+    background: #005C85;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJod…IgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+    background: -moz-linear-gradient(-35deg, rgba(0,92,133,1) 6%, rgba(5,55,147,1) 100%);
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(6%,#005C85), color-stop(100%,#053793));
+    background: -webkit-linear-gradient(-35deg, #005C85 6%,#053793 100%);
+    background: -o-linear-gradient(-35deg, rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: -ms-linear-gradient(-35deg, rgba(0,92,133,1) 6%,rgba(5,55,147,1) 100%);
+    background: linear-gradient(135deg, #005C85 6%,#053793 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#005c85', endColorstr='#053793',GradientType=1 );
 }
-#pwdRecoverPage img{
-    display: block;
-    margin: 40px auto;
-    max-width: 448px;
-    width: 90%;
-}
-#pwdRecoverPage .innerContainer p{
+#pwdRecoverPage .innerContainer > p{
     color: #fff;
     display: block;
-    font-family: 'movistar_headlineregular';
     font-size: 22px;
     margin: 70px auto 0;
     text-align: center;
     text-shadow: none;
 }
-#pwdRecoverPage #pwdRecoverForm{}
 
-#pwdRecoverPage #pwdRecoverForm .campo{
-    background: none no-repeat scroll 0 0 transparent;
-    border: none;
-    border-bottom: 2px solid #ffffff;
-    color: #fff;
-    display: block;
-    font-family: 'movistar_textregular';
-    font-size: 18px;
-    line-height: 30px;
-    margin: 24px auto;
-    padding: 0 10px;
-    width: 90%;
-}
 #pwdRecoverPage #pwdRecoverForm .ui-btn{
     border: medium none;
     height: 0;
@@ -390,53 +619,52 @@ html body .ui-page a.blueBtn:active{
     overflow: hidden;
     padding: 0;
 }
-#pwdRecoverPage .errors{
-    display: none;
-}
-#pwdRecoverPage .errors img{
-    display: inline-block;
-    margin: 10px 10px 0;
-    vertical-align: top;
-    width: 14px;
-}
-#pwdRecoverPage .errors p{
-    color: #939598;
-    display: inline-block;
-    font-family: 'movistar_textregular';
-    font-size: 16px;
-    line-height: 30px;
-    margin: 0;
-}
-#pwdRecoverPage .btn{
-    border: 2px solid #0181ab;
-    border-radius: 4px;
-    color: #5cd2ed;
-    display: block;
-    font-family: 'movistar_headlinebold';
-    line-height: 40px;
-    margin: 76px auto 20px;
-    padding: 0 6px;
-    text-align: center;
-    text-decoration: none;
-    text-transform: uppercase;
-    width: 90%;
-}
 
 /**
 ** contactsPage
 **/
 #contactPage {
-    background:  none no-repeat scroll 0 0 #f5f5f5;
+    background:  none no-repeat scroll 0 0 #ffffff;
 }
-#contactPage .results{
+.showSelects {
     display: block;
-    margin: 60px auto 0;
-    overflow-y: inherit;
+    float: right;
+    position: relative !important;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+    color: #fff;
+    font-size: 30px !important;
+    min-height: 100%;
+    line-height: 60px;
+    left: 0;
+    top:0;
+    margin-right: 20px !important;
+    cursor: pointer;
+}
+#contactPage .campaignSelector {
+    max-height: 0;
+    -webkit-transition: max-height 0.5s ease-in;
+    -moz-transition: max-height 0.5s ease-in;
+    -ms-transition: max-height 0.5s ease-in;
+    -o-transition: max-height 0.5s ease-in;
+    transition: max-height 0.5s ease-in;
+}
+#contactPage .container {
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    -moz-transition: opacity 0.5s;
+    -ms-transition: opacity 0.5s;
+    -o-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+#contactPage .container.show {
+    opacity: 1;
+    padding: 0;
 }
 #contactPage .loader,
 #contactPage .noResults{
     color: #005c84;
-    font-family: 'movistar_textregular';
     font-size: 18px;
     margin: 30px 0 0;
     text-align: center;
@@ -449,14 +677,16 @@ html body .ui-page a.blueBtn:active{
     margin: 0;
     padding: 0;
 }
-#contactPage .results ul li{
-    border-top: 1px solid #5cd2ed;
-    cursor: pointer;
-    margin: 0 0 30px;
-    padding: 0 14px;
+#contactPage .results ul li:first-child {
+    border-top: none;
 }
-#contactPage .results ul li .top{
-    overflow: hidden;
+#contactPage .results ul li{
+    border-top: 1px solid #d5dbcb;
+    cursor: pointer;
+    font-family: 'HelveticaLTStd-Roman';
+}
+#contactPage .results ul li:last-child {
+    border-bottom: 1px solid #d5dbcb;
 }
 #contactPage .results ul li .top .left{
     display: table;
@@ -467,7 +697,6 @@ html body .ui-page a.blueBtn:active{
 #contactPage .results ul li .top .left p{
     color: #666666;
     display: table-cell;
-    font-family: 'movistar_headlinebold';
     font-size: 18px;
     line-height: 20px;
     margin: 0;
@@ -480,16 +709,201 @@ html body .ui-page a.blueBtn:active{
 }
 #contactPage .results ul li .top .right p{
     color: #a7a9ac;
-    font-family: 'movistar_textregular';
     font-size: 16px;
     line-height: 24px;
     margin: 0;
 }
 #contactPage .results ul li .msg p{
     color: #666;
-    font-family: 'movistar_textregular';
     font-size: 16px;
     margin: 0 0 10px;
+}
+#contactPage .results ul li .msg:after {
+    content: '';
+    clear: both;
+    display: table;
+}
+#contactPage .wrap {
+    clear: both;
+    width: 100%;
+    background: #f4f6f0;
+}
+#contactPage .tabs {
+    width: 80%;
+    height: 70px;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+#contactPage .tabs > li {
+    float: left;
+    height: 50px;
+    vertical-align: middle;
+    line-height: 50px;
+    width: calc(50% - 8px);
+    border: 2px solid #02508a;
+    margin-top: 8px;
+    cursor: pointer;
+    /*-webkit-transition: all 0.5s ease;*/
+    /*-moz-transition: all 0.5s ease;*/
+    /*-ms-transition: all 0.5s ease;*/
+    /*-o-transition: all 0.5s ease;*/
+    /*transition: all 0.5s ease;*/
+}
+#contactPage .tabs > li:hover, #contactPage .tabs > li.active {
+    background-color: #02508a;
+}
+#contactPage .tabs > li:hover a, #contactPage .tabs > li.active a {
+    color: #ffffff;
+}
+#contactPage .tabs > li a {
+    display: block;
+    width: 100%;
+    color:#02508a;
+    text-decoration: none;
+}
+#contactPage .tabs > li:first-child{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+#contactPage .tabs > li:last-child{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#contactPage .tabs > li:last-child:after {
+    content: '';
+    clear: both;
+    display: table;
+}
+#contactPage .contentTabs {
+    position: relative;
+}
+#contactPage .contentTabs .results {
+    opacity: 0;
+    position: absolute;
+    top: 0; /* seguramente hay q cambiar esto */
+    left: 0;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+    max-width: 100%;
+    overflow: hidden;
+}
+#contactPage .contentTabs .results.active{
+    opacity: 1;
+}
+#contactPage .swiper-container {
+    width: 100%;
+}
+#contactPage .swiper-slide {
+    position: relative;
+    height: 70px;
+}
+#contactPage .swiper-slide .info {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 65px;
+}
+#contactPage .swiper-slide .info .name{
+    text-transform: capitalize;
+    color: #02508A;
+    font-size: 18px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+#contactPage .swiper-slide .info .campaign {
+    color: #858585;
+    font-size: 12px;
+}
+#contactPage .swiper-slide.contactAction .arrow {
+    margin-left: 30px;
+}
+#contactPage .swiper-slide.contactAction{
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+}
+#contactPage .swiper-slide.contactAction .arrow .circle{
+    border: 1px solid #d5dbcb;
+    border-radius: 50%;
+    text-align: center;
+    width: 27px;
+    line-height: 27px;
+    display: block;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -webkit-transition: all 0.4s linear;
+    -moz-transition: all 0.4s linear;
+    -ms-transition: all 0.4s linear;
+    -o-transition: all 0.4s linear;
+    transition: all 0.4s linear;
+
+}
+#contactPage .swiper-slide.contactAction .arrow i {
+    color: #03508a;
+    font-size: 20px;
+    -webkit-transform: translateY(1px);
+    -moz-transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    -o-transform: translateY(1px);
+    transform: translateY(1px);
+}
+#contactPage .swiper-slide.contactAction.swiper-slide-active .arrow i{
+    -webkit-transform: translateY(1px);
+    -moz-transform: translateY(1px);
+    -ms-transform: translateY(1px);
+    -o-transform: translateY(1px);
+    transform: translateY(1px);
+    color: #ffffff;
+}
+#contactPage .swiper-slide.contactAction.swiper-slide-active .arrow .circle{
+    -webkit-transform: translateY(-50%) rotate(180deg);
+    -moz-transform: translateY(-50%) rotate(180deg);
+    -ms-transform: translateY(-50%) rotate(180deg);
+    -o-transform: translateY(-50%) rotate(180deg);
+    transform: translateY(-50%) rotate(180deg);
+}
+#contactPage .swiper-slide.contactAction .action1{
+    height: 70px;
+    line-height: 70px;
+    width: 65%;
+    float: right;
+    color: #ffffff;
+    font-size: 19px;
+    display: inline-block;
+}
+#contactPage .swiper-slide.contactAction .action1 i {
+    font-size: 35px;
+    display: inline-block;
+    padding-left: 50px;
+    position: relative;
+    top: 5px;
+}
+#contactPage .swiper-slide.contactAction.swiper-slide-active {
+    -webkit-box-shadow: inset 0px 1px 20px 2px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow:    inset 0px 1px 20px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0px 1px 20px 2px rgba(0, 0, 0, 0.5);
+    background: #02508a;
+}
+#contactPage .swiper-slide.contactAction:after {
+    content: '';
+    clear: both;
+    display: table;
 }
 
 /**
@@ -497,14 +911,19 @@ html body .ui-page a.blueBtn:active{
 **/
 #contactDetailPage {
     background:  none no-repeat scroll 0 0 #f5f5f5;
+
 }
+#contactDetailPage .container {
+    margin-top: 60px;
+    padding: 0 16px;
+}
+
 #contactDetailPage .senderData {
     overflow: hidden;
 }
 #contactDetailPage .senderData .name{
     color: #666;
     float: left;
-    font-family: 'movistar_headlinebold';
     font-size: 22px;
     margin: 0;
 }
@@ -553,6 +972,10 @@ html body #contactDetailPage.ui-page a.blueBtn{
 #contactAnswerPage {
     background:  none no-repeat scroll 0 0 #f5f5f5;
 }
+#contactAnswerPage .container {
+    margin-top: 60px;
+    padding: 0 16px;
+}
 #contactAnswerPage .senderData{
     border-bottom: 1px solid #5cd2ed;
     overflow: hidden;
@@ -582,7 +1005,6 @@ html body #contactDetailPage.ui-page a.blueBtn{
     border-bottom: 2px solid #005c84;
     color: #404041;
     display: block;
-    font-family: 'movistar_textregular';
     font-size: 18px;
     line-height: 30px;
     margin: 24px auto;
@@ -600,23 +1022,6 @@ html body #contactDetailPage.ui-page a.blueBtn{
     overflow: hidden;
     padding: 0;
 }
-#contactAnswerPage .errors{
-    display: none;
-}
-#contactAnswerPage .errors img{
-    display: inline-block;
-    margin: 10px 10px 0;
-    vertical-align: top;
-    width: 14px;
-}
-#contactAnswerPage .errors p{
-    color: #939598;
-    display: inline-block;
-    font-family: 'movistar_textregular';
-    font-size: 16px;
-    line-height: 30px;
-    margin: 0;
-}
 
 /**
 ** campaignsPage
@@ -632,7 +1037,6 @@ html body #contactDetailPage.ui-page a.blueBtn{
 #campaignPage .loader,
 #campaignPage .noResults{
     color: #005c84;
-    font-family: 'movistar_textregular';
     font-size: 18px;
     margin: 30px 0 0;
     text-align: center;
@@ -643,7 +1047,7 @@ html body #contactDetailPage.ui-page a.blueBtn{
     display: block;
     margin: 0 auto;
     height: 100%;
-    width: 98%;
+    width: 94%;
 }
 #campaignPage .loader img{
     margin: 0 0 0 10px;
@@ -655,9 +1059,13 @@ html body #contactDetailPage.ui-page a.blueBtn{
 #profilePage {
     background:  none no-repeat scroll 0 0 #f5f5f5;
 }
+#profilePage .container {
+    padding: 0 16px;
+}
 #profilePage .profileForm{
     margin: 20px auto 0;
     min-width: 290px;
+    display: none;
 }
 #profilePage .profileForm h2{
     color: #666666;
@@ -670,7 +1078,6 @@ html body #contactDetailPage.ui-page a.blueBtn{
     border: 1px solid #939598;
     color: #404041;
     display: block;
-    font-family: "movistar_textregular";
     font-size: 18px;
     line-height: 39px;
     margin: 10px auto;
@@ -692,35 +1099,27 @@ html body #contactDetailPage.ui-page a.blueBtn{
     overflow: hidden;
     padding: 0;
 }
-#profilePage .errors{
-    display: none;
-    text-align: center;
-}
-#profilePage .errors img{
-    display: inline-block;
-    margin: 10px 10px 0;
-    vertical-align: top;
-    width: 14px;
-}
-#profilePage .errors p{
-    color: #939598;
-    display: inline-block;
-    font-family: 'movistar_textregular';
-    font-size: 16px;
-    line-height: 30px;
-    margin: 0;
-}
 
 /**
 ** reportsPage
 **/
 #reportPage {
-    background:  none no-repeat scroll 0 0 #f5f5f5;
+    background:  none no-repeat scroll 0 0 #ffffff;
 }
-#reportPage .loader,
+
+.selectsContainer, #campaignPage .campaignSelector{
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transition: max-height 0.5s ease-in;
+    -moz-transition: max-height 0.5s ease-in;
+    -ms-transition: max-height 0.5s ease-in;
+    -o-transition: max-height 0.5s ease-in;
+    transition: max-height 0.5s ease-in;
+}
+
+.loader,
 #reportPage .noResults{
     color: #005c84;
-    font-family: 'movistar_textregular';
     font-size: 18px;
     margin: 30px 0 0;
     text-align: center;
@@ -733,51 +1132,93 @@ html body #contactDetailPage.ui-page a.blueBtn{
 }
 #reportPage .results{
     display: none;
-    margin: 20px auto 0;
     position: relative;
+    border-top: none;
 }
 #reportPage .results .infoBlockContent{
     text-align: center;
 }
 #reportPage .results .infoBlock{
-    background: none no-repeat scroll 0 0 #dfdfdf;
-    border-radius: 4px;
-    box-shadow: 1px 1px 3px #777;
-    display: inline-block;
-    margin: 10px;
-    max-width: 300px;
-    padding: 15px;
-    text-align: center;
-    width: 80%;
+    background: none no-repeat scroll 0 0 transparent;
+    clear: both;
+    padding: 15px 0;
+    width: 100%;
+    border-top: 1px solid #e3e3e3;
+    vertical-align: middle;
+    vertical-align: middle;
+    display: block;
+    overflow: hidden;
+}
+
+#reportPage .results .infoBlock p:first-child:before {
+    font: normal normal normal 14px/1 FontAwesome;
+    color: #003470;
+    font-size: 20px;
+    padding-right: 10px;
+    position: absolute;
+    left: 10px;
+    line-height: 20px;
+    top: 50%;
+    margin-top: -10px;
+
+}
+#reportPage .results .infoBlock.clientes {
+    border-bottom: 1px solid #e3e3e3;
+}
+
+#reportPage .results .infoBlock.anuncios p:first-child:before {
+    content: '\f0c0';
+}
+#reportPage .results .infoBlock.landing p:first-child:before {
+    content: '\f06e';
+}
+#reportPage .results .infoBlock.clientes p:first-child:before {
+    content: '\f080';
+}
+
+#reportPage .results .infoBlock p:first-child {
+    float: left;
+    max-width: 60%;
+    padding-left: 40px;
+    position: relative;
+    text-align: left;
+}
+#reportPage .results .infoBlock p:last-child {
+    float: right;
+    padding-right: 5%;
+}
+#reportPage .results .infoBlock p:last-child:after {
+    content: '';
+    display: table;
+    clear: both;
 }
 #reportPage .results .infoBlock p{
-    color: #333333;
-    font-family: 'movistar_textregular';
+    color: #005c85;
     font-size: 16px;
     margin: 0;
-    text-transform: uppercase;
-}
-#reportPage .results .infoBlock p.number{
-    color: #005c84;
-    font-family: 'movistar_headlinebold';
-    font-size: 30px;
-    text-transform: uppercase;
+    font-family: 'HelveticaNeueLTStd-Bd';
 }
 #reportPage .results .graphContainer{
-    margin: 0 auto;
+    margin: 20px auto 0;
     vertical-align: top;
-    width: 95%;
+    width: 100%;
+}
+#graph3 {
+    background-color: #f4f6f0;
 }
 #reportPage .results .graphContainer h2{
-    background: none no-repeat scroll 0 0 #dfdfdf;
-    box-shadow: 1px 0px 1px 0px #777;
-    border-radius: 4px 4px 0 0;
-    color: #005c84;
-    font-family: 'movistar_headlinebold';
-    font-size: 22px;
-    margin: 20px 0 0;
-    text-indent: 20px;
-    line-height: 50px;
+    background: none no-repeat scroll 0 0 transparent;
+    box-shadow:none;
+    border-radius: 0;
+    color: #005C85;
+    font-size: 18px;
+    margin: 0;
+    text-align: center;
+    font-family: HelveticaNeueLTStd-Bd;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    padding: 15px;
+    border-color: #E3E3E3;
 }
 #reportPage .results .graphContainer #visitContactGraph{
     box-shadow: 1px 1px 3px #777;
@@ -789,14 +1230,17 @@ html body #contactDetailPage.ui-page a.blueBtn{
 #reportPage .results .graphContainer.completedMonthGraph,
 #reportPage .results .graphContainer.consuTypeGraph{
     display: inline-block;
-    margin: 0 15px;
-    width: 45%;
+    margin: 0;
+    width: 100%;
 }
 #reportPage .results .graphContainer.completedMonthGraph .theGraph,
 #reportPage .results .graphContainer.consuTypeGraph .theGraph{
-    border: 1px solid #777;
-    box-shadow: 1px 0px 1px 0px #777;
-    border-radius: 4px 4px 0 0;
+    border: none;
+    box-shadow: none;
+    border-radius: 0;
+}
+#reportPage .results .graphContainer.consuTypeGraph .highcharts-container{
+    background-color: #f4f6f0;
 }
 #reportPage .results .graphContainer.completedMonthGraph .highcharts-data-labels,
 #reportPage .results .graphContainer.completedMonthGraph .highcharts-data-labels .null,
@@ -809,13 +1253,26 @@ html body #contactDetailPage.ui-page a.blueBtn{
 }
 #reportPage .results .graphContainer.completedMonthGraph .graphInfo{
     color: #999;
-    font-family: 'movistar_headlineregular';
     font-size: 18px;
+    font-size: 3vw !important;
     text-align: center;
+    position: relative;
+    top: 15px;
 }
 #reportPage .results .graphContainer.completedMonthGraph .graphInfo span{
     color: #333;
     display: block;
-    font-family: 'movistar_headlinebold';
     font-size: 34px;
+    font-size: 5vw !important;
+}
+
+
+#pieChartInfoText span{
+    display: block;
+}
+#pieChartInfoText span:first-child{
+    font-size: 5vw !important;
+}
+#pieChartInfoText span:last-child{
+    font-size: 4vw !important;
 }
