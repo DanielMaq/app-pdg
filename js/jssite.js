@@ -138,7 +138,7 @@ function menuCreator(){
         window.scrollTo(0,0);
     })
 
-    $('.slicknav_menu .btnExit').on('click', function(e){
+    $('.slicknav_menu .btnExit').on('touchstart', function(e){
         e.preventDefault();
 
         localStorage.removeItem('userID');
