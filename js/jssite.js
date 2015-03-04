@@ -147,7 +147,7 @@ function menuCreator(){
         try {
             navigator.notification.confirm(
                 '¿Seguro deseas salir?', // message
-                window.location.href = "login.html", // callback to invoke with index of button pressed
+                function(){window.location.href = "login.html"}, // callback to invoke with index of button pressed
                 'Cerrar Aplicación', // title
                 ['Cancelar', 'Salir'] // buttonLabels
             );
