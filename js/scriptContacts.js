@@ -102,10 +102,10 @@ function getCampaingMsgs(campId)
                 alert(JSON.stringify(error));
             }
         });
-
+        $('.results').empty();
         showContacts(campId);
         showNewContacts(campId);
-    }, 1500);
+    }, 500);
 }
 
 function getUltimoId(campId)
@@ -265,6 +265,7 @@ function showContacts(campId)
 
 function showNewContacts(campId)
 {
+
     //Anchos para generar los swipes
     var winW = $(window).width();
     var psW = winW-80;
