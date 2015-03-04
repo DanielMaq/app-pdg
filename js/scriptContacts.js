@@ -28,6 +28,8 @@ $('#contactPage').live( 'pageinit',function(event) {
 
     $('.campaignSelector select').on('change', function(){
         var campId = currentCamp = $(this).find('option:selected').attr('data-campId');
+        $('.results').hide();
+        $('p.loader').show();
         getCampaingMsgs(campId);
     });
 
@@ -73,7 +75,7 @@ function getCampaingMsgs(campId)
     var campID = campId;
     var page = 0;
     var ultimoID = getUltimoId(campId);
-
+    $()
     setTimeout(function() {
         $.ajax({
             url: webServicesUrl+"contact.php",
@@ -91,7 +93,8 @@ function getCampaingMsgs(campId)
                     updateContactsLocalStorage(r.data, campId);
                 }
                 generateTabs()
-                $('p.loader').remove();
+                $('p.loader').hide();
+                $('.results').show();
             },
             error:function(error){
                 alert(JSON.stringify(error));
