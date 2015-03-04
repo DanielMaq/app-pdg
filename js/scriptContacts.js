@@ -35,12 +35,12 @@ $('#contactPage').live( 'pageinit',function(event) {
         getCampaingMsgs(campId);
     });
 
-    $('.results').scroll(function() {
-        if ($(this).scrollTop() == 0) {
-            var campId = $('.campaignSelector select').find('option:selected').attr('data-campId');
-            getCampaingMsgs(campId);
-        }
-    });
+    //$('.results').scroll(function() {
+    //    if ($(this).scrollTop() == 0) {
+    //        var campId = $('.campaignSelector select').find('option:selected').attr('data-campId');
+    //        getCampaingMsgs(campId);
+    //    }
+    //});
 
     $(document).on('click','.swiper-slide.contactInfo',function(){
         var msgId = $(this).parent().parent().attr('data-msgId');
@@ -349,8 +349,8 @@ function parseDate($date)
 function generateTabs(){
     $('#contactPage .container').addClass('show')
     $('#contactPage .tabs > li a').on('click',function(e){e.preventDefault()})
-    $('#contactPage .tabs > li a').on('touchstart',function(e){e.preventDefault()})
-    $('#contactPage .tabs > li a').on('touchend',function(e){
+    //$('#contactPage .tabs > li a').on('touchstart',function(e){e.preventDefault()})
+    $('#contactPage .tabs > li a').on('touchstart',function(e){
         e.preventDefault();
         $('.tabs > li').removeClass('active');
             var tabToShow = $(this).attr('href');
