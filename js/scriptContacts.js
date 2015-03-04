@@ -2,6 +2,8 @@ var contactos;
 var currentCamp;
 $('#contactPage').live( 'pageinit',function(event) {
 
+    $('p.loader').show();
+
     setHeights(1);
 
     menuCreator();

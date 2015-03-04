@@ -651,7 +651,6 @@ input.campo{
     transition: max-height 0.5s ease-in;
 }
 #contactPage .container {
-    opacity: 0;
     -webkit-transition: opacity 0.5s;
     -moz-transition: opacity 0.5s;
     -ms-transition: opacity 0.5s;
