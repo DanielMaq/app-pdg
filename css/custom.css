@@ -62,7 +62,7 @@ html body .ui-page a.blueBtn:active{
 }
 .innerContainer{
     margin: 0 auto;
-    max-width: 80%;
+    max-width: 300px;
 }
 
 .ui-header{
