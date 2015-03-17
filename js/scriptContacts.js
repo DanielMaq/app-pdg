@@ -226,7 +226,8 @@ function showContacts(campId)
     } else {
         var data = '<div class="listContact"><ul>';
 
-        for (var i = 0; i < contactos.length; i++) {
+        //for (var i = 0; i < contactos.length; i++) {
+        for (var i = 0; i < 30; i++) {
             var contact = contactos[i];
             if (contact != null && contact.contactID != undefined) {
                 var date = generateDate(contact.date); //obtenemos la fecha en el formato adecuado

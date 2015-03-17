@@ -14,6 +14,12 @@
 
         <title>PDG - Telefonica</title>
 
+		<style>
+			#menu li {
+				padding: 6px 0 !important;
+			}
+		</style>
+
     </head>
     <body>
 
@@ -23,16 +29,16 @@
 
             <img src="img/logo.png"/>
 
-
-            <div class="homeMenu">
-                <a href="reports.html" class="blueBtn" data-role="none" rel="external"> Mis Reportes </a>
-                <a href="contacts.html" class="blueBtn" data-role="none" rel="external"> Mis Contactos </a>
-                <a href="campaign.html" class="blueBtn" data-role="none" rel="external"> Mis Campañas </a>
-                <hr style="margin: 0 auto; width: 90%; max-width: 300px;"/>
-                <h1 style="color: #ffffff;">Configuración</h1>
-                <a href="profile.html" class="blueBtn" data-role="none" rel="external"> Mis Datos </a>
-            </div>
-
+			<ul id="menu" style="list-style: none;max-width: 400px;margin:0 auto;">
+				<li><a href="contacts.html" class="active" data-role="none" rel="external"><span class="icon contacts"></span> <span style="font-size: 20px">Mis Contactos</span> </a></li>
+				<!--<li><a href="#" class="" data-role="none" rel="external"><span class="icon msg"></span> <span>Mensajes</span> </a></li>-->
+				<li><a href="campaign.html" class="" data-role="none" rel="external"><span class="icon camp"></span> <span style="font-size: 20px">Mis Campañas</span> </a></li>
+				<li><a href="reports.html" class="" data-role="none" rel="external"><span class="icon reports"></span> <span style="font-size: 20px">Mis Reportes</span> </a></li>
+				<li><a href="profile.html" class="" data-role="none" rel="external"><span class="icon config"></span> <span style="font-size: 20px">Configuración</span> </a></li>
+				<li class="vSpace"></li>
+				<li class="line" style="width: 90%"><hr /></li>
+				<li class="bottom"><a href="#" class="btnExit"><span class="icon exit"></span> <span style="font-size: 20px">Cerrar Sesión</span> </a></li>
+			</ul>
 
         </div> <!-- /content -->
 

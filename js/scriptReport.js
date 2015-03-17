@@ -11,6 +11,9 @@ $(window).on( 'load',function(event){
     $('#datepickerTo').val(toDate);
 
     $('#selectPeriod').on('change', function () {
+        $('.loader').show();
+        $('.noResults, .results').hide();
+
         var $value = $(this).val();
         var $changeDate = true;
 
@@ -36,8 +39,6 @@ $(window).on( 'load',function(event){
         }
 
         var campId = $('.campaignSelector select option:selected').attr('data-campId');
-        $('.loader').show();
-        $('.noResults, .results').hide();
 
         getCampaingReport(campId);
     });

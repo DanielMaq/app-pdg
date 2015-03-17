@@ -740,7 +740,7 @@ input.campo{
     height: 50px;
     vertical-align: middle;
     line-height: 50px;
-    width: calc(50% - 8px);
+    width: 47%;
     border: 2px solid #02508a;
     margin-top: 8px;
     cursor: pointer;
@@ -809,7 +809,7 @@ input.campo{
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%);
-    left: 65px;
+    left: 35px;
 }
 #contactPage .swiper-slide .info .name{
     text-transform: capitalize;
