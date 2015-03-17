@@ -61,11 +61,11 @@ $('#loginPage').live( 'pageinit',function(event){
                         localStorage.setItem("userID", r.data[0].userID);
                         window.location.href="home.html";
                     }else{
-                        showMessage(r.data.message);
+                        showError(r.data.message);
                     }
                 },
                 error:function(error){
-                    alert(JSON.stringify(error));
+                    showError('Error de conexión.');
                 }
             });
         }
