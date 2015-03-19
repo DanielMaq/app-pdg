@@ -26,7 +26,11 @@ $('#contactPage').live( 'pageinit',function(event) {
         localStorage.removeItem('cid');
     }
 
-    getCampaingMsgs(firstCamp);
+    $('p.loader').hide();
+    $('.results').show();
+    showContacts(firstCamp);
+    showNewContacts(firstCamp);
+    generateTabs()
 
     $('.campaignSelector select').on('change', function(){
         var campId = currentCamp = $(this).find('option:selected').attr('data-campId');
@@ -34,13 +38,6 @@ $('#contactPage').live( 'pageinit',function(event) {
         $('p.loader').show();
         getCampaingMsgs(campId);
     });
-
-    //$('.results').scroll(function() {
-    //    if ($(this).scrollTop() == 0) {
-    //        var campId = $('.campaignSelector select').find('option:selected').attr('data-campId');
-    //        getCampaingMsgs(campId);
-    //    }
-    //});
 
     $(document).on('click','.swiper-slide.contactInfo',function(){
         var msgId = $(this).parent().parent().attr('data-msgId');
@@ -77,35 +74,37 @@ function getCampaingMsgs(campId)
     var campID = campId;
     var page = 0;
     var ultimoID = getUltimoId(campId);
-    $()
-    setTimeout(function() {
         $.ajax({
             url: webServicesUrl+"contact.php",
             type:'POST',
-            async: false,
+            async: true,
             data:{
                 uID : uID,
                 campID: campID,
                 page: page,
                 ultimoID: ultimoID
             },
+            beforeSend: function(){
+
+            },
             success: function (result) {
                 var r = $.parseJSON(result);
                 if (r.data && r.data.status && r.data.status == 'success' && r.data[0] != undefined) {
                     updateContactsLocalStorage(r.data, campId);
                 }
-                generateTabs()
-                $('p.loader').hide();
-                $('.results').show();
             },
             error:function(error){
                 alert(JSON.stringify(error));
+            },
+            complete: function(){
+                $('.results').empty();
+                showContacts(campId);
+                showNewContacts(campId);
+                generateTabs()
+                $('p.loader').hide();
+                $('.results').show();
             }
         });
-        $('.results').empty();
-        showContacts(campId);
-        showNewContacts(campId);
-    }, 500);
 }
 
 function getUltimoId(campId)
@@ -215,7 +214,7 @@ function showContacts(campId)
     var sLocalContacts = localStorage.getItem('contacts');
     var aLocalContacts = sLocalContacts != null ? JSON.parse(sLocalContacts) : [];
     contactos = null;
-    for (var i = 0; i < aLocalContacts.length; i++) {
+    for (var i = 0; i < 31; i++) {
         if (aLocalContacts[i] != undefined && aLocalContacts[i].campID == campId) {
             contactos = aLocalContacts[i].data;
         }
@@ -227,7 +226,7 @@ function showContacts(campId)
         var data = '<div class="listContact"><ul>';
 
         //for (var i = 0; i < contactos.length; i++) {
-        for (var i = 0; i < 30; i++) {
+        for (var i = 0; i < 31; i++) {
             var contact = contactos[i];
             if (contact != null && contact.contactID != undefined) {
                 var date = generateDate(contact.date); //obtenemos la fecha en el formato adecuado
@@ -261,7 +260,7 @@ function showContacts(campId)
         $resultsContainer.html(data);
     }
 
-    createSwipes()
+    createSwipes();
 }
 
 function showNewContacts(campId)
@@ -301,7 +300,7 @@ function showNewContacts(campId)
     } else {
         var data = '<div class="listContact"><ul>';
 
-        for (var i = 0; i < contactos.length; i++) {
+        for (var i = 0; i < 31; i++) {
             var contact = contactos[i];
 
             if (contact != null && contact.contactID != undefined && contact.contactID >= ultimoID) {
@@ -348,18 +347,22 @@ function parseDate($date)
 }
 
 function generateTabs(){
+    $('#contactPage .tabs > li:first-child a').on('touchstart',function(){
+
+    })
+
     $('#contactPage .container').addClass('show')
     $('#contactPage .tabs > li a').on('click',function(e){e.preventDefault()})
     //$('#contactPage .tabs > li a').on('touchstart',function(e){e.preventDefault()})
     $('#contactPage .tabs > li a').on('touchstart',function(e){
         e.preventDefault();
         $('.tabs > li').removeClass('active');
-            var tabToShow = $(this).attr('href');
-            $('.contentTabs .results').removeClass('active');
-            $('.tabs > li').removeClass('active');
-            $(this).parent().addClass('active');
-            $('#contactPage .contentTabs #'+tabToShow).addClass('active');
-    })
+        var tabToShow = $(this).attr('href');
+        $('.contentTabs .results').removeClass('active');
+        $('.tabs > li').removeClass('active');
+        $(this).parent().addClass('active');
+        $('#contactPage .contentTabs #'+tabToShow).addClass('active');
+    });
 }
 
 function createSwipes(){
@@ -380,3 +383,23 @@ function generateDate(date){
     newDate = newDate[2] + '/' + newDate[1] + '/' + newDate[0];
     return newDate;
 }
+
+window.onload = function() {
+    WebPullToRefresh.init( {
+        loadingFunction: exampleLoadingFunction
+    } );
+};
+
+// Just an example loading function that returns a
+// promise that WebPullToRefresh can use.
+var exampleLoadingFunction = function() {
+    getCampaingMsgs(currentCamp)
+    return new Promise( function( resolve, reject ) {
+        // Run some async loading code here
+        if ( true /* if the loading worked */ ) {
+            resolve();
+        } else {
+            reject();
+        }
+    } );
+};

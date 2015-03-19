@@ -43,7 +43,6 @@ $('#loginPage').live( 'pageinit',function(event){
         }
 
         if(sendOk){
-
             //TODO: borrar datos fijos
 
             /*

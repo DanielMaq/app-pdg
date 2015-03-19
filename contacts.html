@@ -13,20 +13,20 @@
         <link rel="stylesheet" type="text/css" href="css/fonts.css"/>
         <link rel="stylesheet" type="text/css" href="css/slicknav.css" />
         <link rel="stylesheet" type="text/css" href="css/custom.css"/>
+		<link rel="stylesheet" href="js/pulltorefresh/genericons/genericons.css">
+		<link rel="stylesheet" href="js/pulltorefresh/base.css">
 
         <title>PDG - Telefonica</title>
 
     </head>
     <body>
 
-    <div class="snap-content" id="snapContent" >
-
         <div data-role="page" id="contactPage" data-theme="c">
 
-            <div data-role="header" id="pageHeader">
+            <div data-role="header" id="pageHeader" data-position="fixed">
                 <img src="./img/ico-menu.png" class="menuBtn"/>
                 <p class="title">Mis Contactos</p>
-                <a href="#" class="showSelects notShow" data-role="none" rel="external"><i class="fa fa-cog"></i></a>
+                <a href="#" class="showSelects notShow" data-role="none" rel="external"><i class="fa fa-filter"></i></a>
                 <ul id="menu" style="" class="slicknav_menu notShow">
                     <li class="username"><span class="circle"></span> <img src="img/logo.png" width="200" /></li>
                     <li><a href="contacts.html" class="active" data-role="none" rel="external"><span class="icon contacts"></span> <span>Mis Contactos</span> </a></li>
@@ -52,7 +52,7 @@
                     <option data-campId="0111">Campaña 0111</option>
                 </select>
             </div>
-            <div role="main" class="container" style="">
+            <div role="main" class="container" style="position: absolute;width: 100%;">
                 <div class="wrap">
                     <ul class="tabs">
                         <li class="active">
@@ -66,20 +66,28 @@
 
 				<p class="loader"> Cargando <img src="img/ajax-loader.gif" /></p>
 
-				<div class="contentTabs" style="color: #000000;">
+				<div class="wrapperContent" id="content" style="">
+					<div id="ptr">
+						<div class="loading">
+							<span id="l1"></span>
+							<span id="l2"></span>
+							<span id="l3"></span>
+						</div>
+					</div>
 
-                    <div class="results todos active" id="tab-1">
-                    </div>
+					<div class="contentTabs" style="color: #000000;">
 
-                    <div class="results nuevos" id="tab-2">
-                    </div>
-                </div>
+						<div class="results todos active" id="tab-1">
+						</div>
 
+						<div class="results nuevos" id="tab-2">
+						</div>
+					</div>
+
+				</div>
             </div> <!-- /content -->
 
         </div> <!-- /page -->
-
-    </div>
 
     <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
@@ -87,6 +95,8 @@
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/snap/snap.min.js"></script>
     <script type="text/javascript" src="js/jssite.js"></script>
+	<script src="js/pulltorefresh/hammer.1.1.3.js"></script>
+	<script src="js/pulltorefresh/wptr.1.0.js"></script>
     <script type="text/javascript" src="js/scriptContacts.js"></script>
 
     <link href="js/idangerous/idangerous.swiper.css" rel="stylesheet"/>

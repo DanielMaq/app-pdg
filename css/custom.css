@@ -78,7 +78,7 @@ html body .ui-page a.blueBtn:active{
     border: medium none;
     height: 60px;
     line-height: 60px;
-    position: relative;
+    position: fixed;
     z-index: 10;
     width: 100%;
 }
@@ -782,20 +782,35 @@ input.campo{
     position: relative;
 }
 #contactPage .contentTabs .results {
-    opacity: 0;
-    position: absolute;
-    top: 0; /* seguramente hay q cambiar esto */
-    left: 0;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -ms-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
     max-width: 100%;
-    overflow: hidden;
+    position: absolute;
+    top: 0;
+}
+#contactPage .contentTabs .results.todos {
+    -webkit-transform: translate3d(-100%,0,0);
+    -moz-transform: translate3d(-100%,0,0);
+    -ms-transform: translate3d(-100%,0,0);
+    -o-transform: translate3d(-100%,0,0);
+    transform: translate3d(-100%,0,0);
+}
+#contactPage .contentTabs .results.nuevos {
+    -webkit-transform: translate3d(100%,0,0);
+    -moz-transform: translate3d(100%,0,0);
+    -ms-transform: translate3d(100%,0,0);
+    -o-transform: translate3d(100%,0,0);
+    transform: translate3d(100%,0,0);
 }
 #contactPage .contentTabs .results.active{
-    opacity: 1;
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 }
 #contactPage .swiper-container {
     width: 100%;
