@@ -21,38 +21,46 @@ $('#loginPage').live( 'pageinit',function(event){
 
         var sendOk = 0;
 
-        if($.trim(username).length === 0 ){
-            showError('El email es requerido.');
-            return;
-        }else{
-            sendOk = 1;
-        }
+        //if($.trim(username).length === 0 ){
+        //    showError('El email es requerido.');
+        //    $('input.username').focus();
+        //    return;
+        //}else{
+        //    sendOk = 1;
+        //}
 
-        if($.trim(pass).length === 0){
-            showError('La contraseña no puede ser vacía.');
-            return;
-        }else{
-            sendOk = 1;
-        }
-
-        if(!validateEmail(username)){
-            showError('El Email ingresado no es válido');
-            return;
-        }else{
-            sendOk = 1;
-        }
-
+        //if($.trim(pass).length === 0){
+        //    showError('La contraseña no puede ser vacía.');
+        //    $('input.password').focus();
+        //    return;
+        //}else{
+        //    sendOk = 1;
+        //}
+        //
+        //if(!validateEmail(username)){
+        //    showError('El Email ingresado no es válido');
+        //    $('input.username').focus();
+        //    return;
+        //}else{
+        //    sendOk = 1;
+        //}
+        sendOk = 1;
         if(sendOk){
             //TODO: borrar datos fijos
 
-            /*
+
                 username = 'gpetti@aterrizar.com.ar';
                 pass = '30577262124';
-            */
+
             $.ajax({
                 url: webServicesUrl+"login.php",
                 type:'POST',
                 data:{email: username, password: pass},
+                beforeSend: function(){
+                    $('.innerContainer *').not('h2').hide()
+                    $('.innerContainer p.loading').remove();
+                    $('.innerContainer').append('<p class="loading" style="margin-top:20px">Ingresando...</p>')
+                },
                 success:function(result){
                     var r = $.parseJSON(result);
                     if (r.data && r.data.status && r.data.status == 'success'){
@@ -61,6 +69,9 @@ $('#loginPage').live( 'pageinit',function(event){
                         window.location.href="home.html";
                     }else{
                         showError(r.data.message);
+                        $('.innerContainer *').show()
+                        $('.innerContainer p.loading').hide();
+                        $('input.username').focus();
                     }
                 },
                 error:function(error){

@@ -26,11 +26,7 @@ $('#contactPage').live( 'pageinit',function(event) {
         localStorage.removeItem('cid');
     }
 
-    $('p.loader').hide();
-    $('.results').show();
-    showContacts(firstCamp);
-    showNewContacts(firstCamp);
-    generateTabs()
+    getCampaingMsgs(currentCamp);
 
     $('.campaignSelector select').on('change', function(){
         var campId = currentCamp = $(this).find('option:selected').attr('data-campId');
@@ -94,7 +90,7 @@ function getCampaingMsgs(campId)
                 }
             },
             error:function(error){
-                alert(JSON.stringify(error));
+                //alert(JSON.stringify(error));
             },
             complete: function(){
                 $('.results').empty();
@@ -347,22 +343,18 @@ function parseDate($date)
 }
 
 function generateTabs(){
-    $('#contactPage .tabs > li:first-child a').on('touchstart',function(){
-
-    })
-
-    $('#contactPage .container').addClass('show')
-    $('#contactPage .tabs > li a').on('click',function(e){e.preventDefault()})
-    //$('#contactPage .tabs > li a').on('touchstart',function(e){e.preventDefault()})
-    $('#contactPage .tabs > li a').on('touchstart',function(e){
-        e.preventDefault();
-        $('.tabs > li').removeClass('active');
-        var tabToShow = $(this).attr('href');
-        $('.contentTabs .results').removeClass('active');
-        $('.tabs > li').removeClass('active');
-        $(this).parent().addClass('active');
-        $('#contactPage .contentTabs #'+tabToShow).addClass('active');
-    });
+        $('#contactPage .container').addClass('show')
+        ////$('#contactPage .tabs > li a').on('click',function(e){e.preventDefault()})
+        //$('#contactPage .tabs > li a').on('touchstart',function(e){e.preventDefault()})
+        $('#contactPage .tabs > li a').on('click',function(e){
+            e.preventDefault();
+            $('.tabs > li').removeClass('active');
+            var tabToShow = $(this).attr('href');
+            $('.contentTabs .results').removeClass('active');
+            $('.tabs > li').removeClass('active');
+            $(this).parent().addClass('active');
+            $('#contactPage .contentTabs #'+tabToShow).addClass('active');
+        });
 }
 
 function createSwipes(){

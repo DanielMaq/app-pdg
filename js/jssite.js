@@ -158,18 +158,19 @@ function menuCreator(){
             }
         }
     });
-
-    $('#menu li a').on('click',function(e){
-        e.preventDefault();
-        //var href = $(this).attr('href');
-        //window.location.href=href;
-    })
-    $('#menu li a').on('touchend',function(e){
-        e.preventDefault()
+    $(document).on('click','#menu li a', function(e){
         var href = $(this).attr('href');
         window.location.href=href;
     })
-
+    $('#menu li a').draggable({
+        start: function(event, ui) {
+        ui.helper.bind("click.prevent",
+            function(event) { event.preventDefault(); });
+        },
+        stop: function(event, ui) {
+            setTimeout(function(){ui.helper.unbind("click.prevent");}, 300);
+        }
+    })
 }
 
 function setjQueryUILang(){
