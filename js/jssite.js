@@ -246,7 +246,7 @@ function getCampaigns(){
             }
         },
         error:function(error){
-            alert(JSON.stringify(error));
+            console.log(JSON.stringify(error));
         }
     });
 }

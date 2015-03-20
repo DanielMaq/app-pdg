@@ -21,40 +21,41 @@ $('#loginPage').live( 'pageinit',function(event){
 
         var sendOk = 0;
 
-        //if($.trim(username).length === 0 ){
-        //    showError('El email es requerido.');
-        //    $('input.username').focus();
-        //    return;
-        //}else{
-        //    sendOk = 1;
-        //}
+        if($.trim(username).length === 0 ){
+            showError('El email es requerido.');
+            $('input.username').focus();
+            return;
+        }else{
+            sendOk = 1;
+        }
 
-        //if($.trim(pass).length === 0){
-        //    showError('La contraseña no puede ser vacía.');
-        //    $('input.password').focus();
-        //    return;
-        //}else{
-        //    sendOk = 1;
-        //}
-        //
-        //if(!validateEmail(username)){
-        //    showError('El Email ingresado no es válido');
-        //    $('input.username').focus();
-        //    return;
-        //}else{
-        //    sendOk = 1;
-        //}
+        if($.trim(pass).length === 0){
+            showError('La contraseña no puede ser vacía.');
+            $('input.password').focus();
+            return;
+        }else{
+            sendOk = 1;
+        }
+
+        if(!validateEmail(username)){
+            showError('El Email ingresado no es válido');
+            $('input.username').focus();
+            return;
+        }else{
+            sendOk = 1;
+        }
         sendOk = 1;
         if(sendOk){
             //TODO: borrar datos fijos
 
-
+            /*
                 username = 'gpetti@aterrizar.com.ar';
                 pass = '30577262124';
-
+            */
             $.ajax({
                 url: webServicesUrl+"login.php",
                 type:'POST',
+                timeout: 5000,
                 data:{email: username, password: pass},
                 beforeSend: function(){
                     $('.innerContainer *').not('h2').hide()
@@ -76,6 +77,9 @@ $('#loginPage').live( 'pageinit',function(event){
                 },
                 error:function(error){
                     showError('Error de conexión.');
+                    $('.innerContainer *').show()
+                    $('.innerContainer p.loading').hide();
+                    $('input.username').focus();
                 }
             });
         }

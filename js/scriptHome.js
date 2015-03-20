@@ -116,7 +116,7 @@ function tokenHandler (result) {
         data:{newDeviceID: result, newUserId: localStorage.getItem('userID'), platform: 'apns'},
         success:function(result){},
         error:function(error){
-            alert(JSON.stringify(error));
+            console.log(JSON.stringify(error));
         }
     });
 }

@@ -41,7 +41,7 @@ $('#pwdRecoverPage').live( 'pageinit',function(event) {
                     }
                 },
                 error:function(error){
-                    alert(JSON.stringify(error));
+                    console.log(JSON.stringify(error));
                 }
             });
         }

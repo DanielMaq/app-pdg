@@ -19,7 +19,7 @@ var app = {
     },
     //
     documentReady: function() {
-        alert('Ready to go!');
+        //alert('Ready to go!');
         console.log('Ready to go!');
     }
 };
