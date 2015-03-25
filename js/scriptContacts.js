@@ -60,6 +60,16 @@ $('#contactPage').live( 'pageinit',function(event) {
             setTimeout(function(){$('.showSelects').addClass('notShow')},100)
         }
     })
+
+    $('#contactPage .tabs > li a').on('click',function(e){
+        e.preventDefault();
+        $('.tabs > li').removeClass('active');
+        var tabToShow = $(this).attr('href');
+        $('.contentTabs .results').removeClass('active');
+        $('.tabs > li').removeClass('active');
+        $(this).parent().addClass('active');
+        $('#contactPage .contentTabs #'+tabToShow).addClass('active');
+    });
 });
 
 var contactos = null;
@@ -99,6 +109,7 @@ function getCampaingMsgs(campId)
                 generateTabs()
                 $('p.loader').hide();
                 $('.results').show();
+                $('.wrapperContent').show();
             }
         });
 }
@@ -346,15 +357,6 @@ function generateTabs(){
         $('#contactPage .container').addClass('show')
         ////$('#contactPage .tabs > li a').on('click',function(e){e.preventDefault()})
         //$('#contactPage .tabs > li a').on('touchstart',function(e){e.preventDefault()})
-        $('#contactPage .tabs > li a').on('click',function(e){
-            e.preventDefault();
-            $('.tabs > li').removeClass('active');
-            var tabToShow = $(this).attr('href');
-            $('.contentTabs .results').removeClass('active');
-            $('.tabs > li').removeClass('active');
-            $(this).parent().addClass('active');
-            $('#contactPage .contentTabs #'+tabToShow).addClass('active');
-        });
 }
 
 function createSwipes(){
@@ -377,21 +379,12 @@ function generateDate(date){
 }
 
 window.onload = function() {
-    WebPullToRefresh.init( {
-        loadingFunction: exampleLoadingFunction
-    } );
-};
-
-// Just an example loading function that returns a
-// promise that WebPullToRefresh can use.
-var exampleLoadingFunction = function() {
-    getCampaingMsgs(currentCamp)
-    return new Promise( function( resolve, reject ) {
-        // Run some async loading code here
-        if ( true /* if the loading worked */ ) {
-            resolve();
-        } else {
-            reject();
-        }
-    } );
+    $(".wrapperContent").pullToRefresh({
+        lockRefresh: true
+    });
+    $(".wrapperContent").on("refresh.pulltorefresh", function (e, p){
+        $('.loader').show();
+        $('.wrapperContent').hide();
+        getCampaingMsgs(currentCamp)
+    })
 };

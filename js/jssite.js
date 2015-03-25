@@ -8,6 +8,12 @@ var webServicesUrl = 'http://projectsunderdev.com/app-pdg/';
 **/
 deviceBackBtn();
 
+$(function(){
+    $('#menu li a').on('touchend', function(e){
+            window.location.href = $(this).attr('href');
+    })
+})
+
 function setHeights(header){
 
     var hasHeader = header || 0;
@@ -147,7 +153,7 @@ function menuCreator(){
         try {
             navigator.notification.confirm(
                 '¿Seguro deseas salir?', // message
-                function(){window.location.href = "login.html"}, // callback to invoke with index of button pressed
+                onConfirm, // callback to invoke with index of button pressed
                 'Cerrar Aplicación', // title
                 ['Cancelar', 'Salir'] // buttonLabels
             );
@@ -158,19 +164,6 @@ function menuCreator(){
             }
         }
     });
-    $(document).on('click','#menu li a', function(e){
-        var href = $(this).attr('href');
-        window.location.href=href;
-    })
-    $('#menu li a').draggable({
-        start: function(event, ui) {
-        ui.helper.bind("click.prevent",
-            function(event) { event.preventDefault(); });
-        },
-        stop: function(event, ui) {
-            setTimeout(function(){ui.helper.unbind("click.prevent");}, 300);
-        }
-    })
 }
 
 function setjQueryUILang(){

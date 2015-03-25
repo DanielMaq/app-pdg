@@ -94,6 +94,8 @@ $(window).on( 'load',function(event){
         }
     })
 
+    progress(80, $('#progressBar'));
+
 });
 
 $(window).on('resize', function(){
@@ -184,7 +186,7 @@ function getCampaingReport(campId){
         $.ajax({
             url: webServicesUrl+"report.php",
             type:'POST',
-            async: false,
+            async: true,
             data: {
                 campID : campId,
                 from: fromDate,
@@ -196,15 +198,16 @@ function getCampaingReport(campId){
 
                 if (r.data && r.data.status && r.data.status == 'success' &&  r.data.Reporte != undefined) {
                     updateReportsLocalStorage(r.data, campId, type);
+
+                    showReports(campId, type);
                 }
             },
             error:function(error){
+                showReports(campId, type);
                 console.log(JSON.stringify(error));
             }
         });
-
-        showReports(campId, type);
-    }
+}
 }
 
 function getUltimaVisita(campId, type)
@@ -350,7 +353,7 @@ function loadGraph1(arrayVisitas, arrayConsultas){
         chart: {
             renderTo: 'graph1',
             backgroundColor: '#ffffff',
-            type: 'area',
+            type: 'column',
             height: $(window).width()/2,
             borderWidth:0
         },
@@ -400,20 +403,7 @@ function loadGraph1(arrayVisitas, arrayConsultas){
             fillColor: '#a5b39a',
             marker: {
                 fillColor: '#628a27'
-            },
-            pointInterval: 24 * 36000
-        }, {
-            name: 'Consultas',
-            data:arrayConsultas,
-            fillColor: 'transparent',
-            color: '#58bd7c',
-            marker: {
-                lineWidth: 2,
-                lineColor: '#58bd7c',
-                fillColor: '#a0d2f1',
-                symbol: 'circle'
-            },
-            pointInterval: 24 * 36000
+            }
         }],
         credits: {
             enabled: false
@@ -425,80 +415,13 @@ function loadGraph2(deuda, mes){
 
     var $graphContainer = $('#graph2');
 
-    var dataPercent = Math.ceil(parseInt(mes * 100 / deuda));
+    var dataPercent = Math.round(parseInt(mes * 100 / deuda));
     var allPercent = deuda;
+    $('.graphInfo').remove();
+    var html = '<div class="graphInfo"><p>'+ mes + ' visitas en el mes  sobre un total de ' + allPercent;
+    $('.completedMonthGraph').prepend(html);
 
-    var gaugeOptions = {
-
-        chart: {
-            type: 'solidgauge',
-            backgroundColor: '#ffffff',
-        },
-        title: null,
-        pane: {
-            center: ['50%', '70%'],
-            size: '100%',
-            startAngle: -60,
-            endAngle: 60,
-            background: {
-                backgroundColor: '#e0e0e0',
-                innerRadius: '60%',
-                outerRadius: '100%',
-                shape: 'arc'
-            }
-        },
-        tooltip: {
-            enabled: false
-        },
-        // the value axis
-        yAxis: {
-            lineWidth: 0,
-            minorTickInterval: null,
-            tickPixelInterval: 400,
-            tickWidth: 0
-        },
-        plotOptions: {
-            solidgauge: {
-                dataLabels: {
-                    y: 5,
-                    borderWidth: 0,
-                    useHTML: true
-                }
-            },
-            series: {
-                marker: {
-                    fillColor: '#0F0'
-                }
-            }
-        }
-    };
-
-    $graphContainer.highcharts(Highcharts.merge(gaugeOptions, {
-        yAxis: {
-            min: 0,
-            max: 100,
-            title: {
-                text: null
-            },
-            labels: {
-                enabled: false
-            }
-        },
-        credits: {
-            enabled: false
-        },
-        series: [{
-            name: 'Completado',
-            data: [dataPercent],
-            dataLabels: {
-                format: '<div class="graphInfo"><p><span>{y} %</span> *El 100% de este mes es de '+ allPercent +' visitas </p></div>'
-            },
-            tooltip: {
-                enabled: false
-            },
-            floating: true
-        }]
-    }));
+    progress(dataPercent, $('#progressBar'));
 }
 
 function loadGraph3(torta){
@@ -590,4 +513,9 @@ function loadGraph3(torta){
                 enabled: false
             }
         });
+}
+
+function progress(percent, $element) {
+    var progressBarWidth = percent * $element.width() / 100;
+    $element.find('div').animate({ width: progressBarWidth }, 800).html(percent + "%&nbsp;");
 }

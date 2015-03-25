@@ -1046,9 +1046,12 @@ html body #contactDetailPage.ui-page a.blueBtn{
 #campaignPage {
     background:  none no-repeat scroll 0 0 #f5f5f5;
 }
+#campaignPage .container {
+    padding-top: 60px;
+}
 #campaignPage .results{
     display: block;
-    margin: 60px auto 0;
+    margin: 25px auto 0;
     position: relative;
 }
 #campaignPage .loader,
@@ -1123,7 +1126,9 @@ html body #contactDetailPage.ui-page a.blueBtn{
 #reportPage {
     background:  none no-repeat scroll 0 0 #ffffff;
 }
-
+#reportPage .container {
+    padding-top: 60px;
+}
 .selectsContainer, #campaignPage .campaignSelector{
     max-height: 0;
     overflow: hidden;
@@ -1269,19 +1274,14 @@ html body #contactDetailPage.ui-page a.blueBtn{
     top: 180px !important;
 }
 #reportPage .results .graphContainer.completedMonthGraph .graphInfo{
-    color: #999;
-    font-size: 18px;
-    font-size: 3vw !important;
-    text-align: center;
-    position: relative;
-    top: 15px;
+    color: #005C85;
+    font-size: 20px;
+    text-align: left;
+    position: static;
+    width: 90%;
+    margin: 0 auto;
 }
-#reportPage .results .graphContainer.completedMonthGraph .graphInfo span{
-    color: #333;
-    display: block;
-    font-size: 34px;
-    font-size: 5vw !important;
-}
+
 
 
 #pieChartInfoText span{
@@ -1292,4 +1292,25 @@ html body #contactDetailPage.ui-page a.blueBtn{
 }
 #pieChartInfoText span:last-child{
     font-size: 4vw !important;
+}
+
+#progressBar {
+    width: 90%;
+    margin: 0 5%;
+    height: 25px;
+    border: 1px solid #000000;
+    background-color: transparent;
+}
+
+#progressBar div {
+    min-height: 100%;
+    color: #fff;
+    text-align: right;
+    line-height: 25px; /* same as #progressBar height if we want text middle aligned */
+    width: 0;
+    background-color: #F7A35C;
+}
+#contactDetailPage .container,
+#contactAnswerPage .container{
+    padding-top: 60px;
 }

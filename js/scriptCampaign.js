@@ -45,8 +45,10 @@ function getCampaingPage(campId){
     /* Asignarle el alto necesario al iframe */
     var winH = $(window).height();
     var headH = $('.ui-header').height();
-    var iframeH = winH - headH - 102; //fix margin(30), padding (32), selector (40)
+    var iframeH = winH - headH - 102 - 60; //fix margin(30), padding (32), selector (40)
 
     $('.results iframe').css('height', iframeH);
+
+    setTimeout(function(){$('#campaignPage .container').fadeIn();},500)
 
 }

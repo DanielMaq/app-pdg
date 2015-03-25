@@ -1,6 +1,10 @@
 var contact = localStorage.getItem('contacto');
 var contactID = $.parseJSON(contact).contactID;
 var send = 0;
+
+$(function(){
+    $('textarea.campo.textMsg').focus();
+});
 $('#contactAnswerPage').live( 'pageinit',function(event){
 
     /* Verificar si hay msj, sino volver atras */
