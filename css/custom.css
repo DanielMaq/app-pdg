@@ -1311,6 +1311,7 @@ html body #contactDetailPage.ui-page a.blueBtn{
     background-color: #F7A35C;
 }
 #contactDetailPage .container,
-#contactAnswerPage .container{
+#contactAnswerPage .container
+#profilePage .container{
     padding-top: 60px;
 }

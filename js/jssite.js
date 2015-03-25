@@ -147,13 +147,10 @@ function menuCreator(){
     $('.slicknav_menu .btnExit').on('touchstart', function(e){
         e.preventDefault();
 
-        localStorage.removeItem('userID');
-        sessionStorage.clear();
-
         try {
             navigator.notification.confirm(
                 '¿Seguro deseas salir?', // message
-                onConfirm, // callback to invoke with index of button pressed
+                onConfirm(), // callback to invoke with index of button pressed
                 'Cerrar Aplicación', // title
                 ['Cancelar', 'Salir'] // buttonLabels
             );
@@ -288,6 +285,8 @@ function deviceBackBtn(){
 
 function onConfirm(buttonIndex) {
     if(buttonIndex == 2){
+        localStorage.removeItem('userID');
+        sessionStorage.clear();
         navigator.app.exitApp();
     }
 }
