@@ -1,6 +1,6 @@
 var contactos;
 var currentCamp;
-$('#contactPage').live( 'pageinit',function(event) {
+$('#contactPage').live( 'pageinit',function() {
 
     $('p.loader').show();
 
@@ -9,21 +9,20 @@ $('#contactPage').live( 'pageinit',function(event) {
     menuCreator();
 
     /* Asignarle el alto necesario al contenedor */
-    var winH = $(window).height();
-    var headH = $('.ui-header').height();
-
 
     loadCampaignSelector();
 
-    var firstCamp = currentCamp = $('.campaignSelector select option:first-child').attr('data-campId');
-
-
-    var cpId = localStorage.getItem('cid');
-    if( !$.isEmptyObject(cpId) ){
-        $('#select-3-button span').text('Campaña ' + cpId);
-        $('.campaignSelector').val(cpId);
-        firstCamp = currentCamp = cpId;
-        localStorage.removeItem('cid');
+    if(window.location.hash) {
+        currentCamp = window.location.hash.substring(1);
+    } else {
+        currentCamp = $('.campaignSelector select option:first-child').attr('data-campId');
+        //var cpId = localStorage.getItem('cid');
+        //if( !$.isEmptyObject(cpId) ){
+        //    $('#select-3-button span').text('Campaña ' + cpId);
+        //    $('.campaignSelector').val(cpId);
+        //    firstCamp = currentCamp = cpId;
+        //    localStorage.removeItem('cid');
+        //}
     }
 
     getCampaingMsgs(currentCamp);
@@ -41,15 +40,15 @@ $('#contactPage').live( 'pageinit',function(event) {
         localStorage.setItem('cid', campId);
         localStorage.setItem('contacto', JSON.stringify(contactos[msgId]));
         window.location.href = "contactsDetail.html";
-    })
+    });
 
     $(document).on('touchstart','.contactAction .action1',function(){
         var msgId = $(this).parent().parent().parent().attr('data-msgId');
         var campId = $(this).parent().parent().parent().attr('data-campid');
-        localStorage.setItem('cid', campId)
-        localStorage.setItem('contacto', JSON.stringify(contactos[msgId]))
+        localStorage.setItem('cid', campId);
+        localStorage.setItem('contacto', JSON.stringify(contactos[msgId]));
         window.location.href = "contactsAnswer.html";
-    })
+    });
 
     $('.showSelects').on('touchend',function(){
         if($(this).hasClass('notShow')){
@@ -59,17 +58,18 @@ $('#contactPage').live( 'pageinit',function(event) {
             $('.campaignSelector').css('max-height','0');
             setTimeout(function(){$('.showSelects').addClass('notShow')},100)
         }
-    })
+    });
 
     $('#contactPage .tabs > li a').on('click',function(e){
         e.preventDefault();
-        $('.tabs > li').removeClass('active');
+        var el =  $('.tabs > li');
+        el.removeClass('active');
         var tabToShow = $(this).attr('href');
         $('.contentTabs .results').removeClass('active');
-        $('.tabs > li').removeClass('active');
         $(this).parent().addClass('active');
         $('#contactPage .contentTabs #'+tabToShow).addClass('active');
     });
+
 });
 
 var contactos = null;
@@ -364,6 +364,7 @@ function createSwipes(){
     var listadiv = $('.swiper-container');
     $.each(listadiv, function (){
         var mySwiper = new Swiper(this,{
+            direction: 'horizontal',
             slidesPerView: 'auto',
             calculateHeight: true,
             width: '100%'

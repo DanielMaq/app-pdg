@@ -1,3 +1,5 @@
+var currentCampID = '';
+
 $(window).on( 'load',function(event){
 
     setHeights(1);
@@ -38,21 +40,10 @@ $(window).on( 'load',function(event){
             $('#datepickerTo').val(toDate);
         }
 
-        var campId = $('.campaignSelector select option:selected').attr('data-campId');
+        var campId = currentCampID = $('.campaignSelector select option:selected').attr('data-campId');
 
         getCampaingReport(campId);
     });
-
-    //$('.filter.btn').on('touchstart',function(){
-    //    var campId = $(this).find('option:selected').attr('data-campId');
-    //    if (!campId){
-    //        var campId = $('.campaignSelector select option:first-child').attr('data-campId');
-    //    }
-    //    var fdate = $('#datepickerFrom').val();
-    //    var tdate = $('#datepickerTo').val();
-    //
-    //})
-
 
     $('#datepickerFrom').datepicker({
         maxDate: toDate,
@@ -95,6 +86,12 @@ $(window).on( 'load',function(event){
     })
 
     progress(80, $('#progressBar'));
+
+    currentCampID = $('.campaignSelector select option:first-child').attr('data-campId');
+
+    $('.infoBlock.clientes').on('tap',function(e,data){
+        window.location.href = 'contacts.html#'+currentCampID;
+    })
 
 });
 
@@ -466,7 +463,7 @@ function loadGraph3(torta){
                         var textX = this.plotLeft + (this.plotWidth  * 0.5);
                         var textY = this.plotTop  + (this.plotHeight * 0.5) + 55;
 
-                        var span = '<span id="pieChartInfoText" style="position:absolute; text-align:center;z-index:9999">';
+                        var span = '<span id="pieChartInfoText" style="position:absolute; text-align:center;z-index:9">';
                         span += '<span style="font-size: 25px;color:#000">'+$totales+'</span>';
                         span += '<span style="font-size: 13px;color:#000">VISITAS</span>';
                         span += '</span>';
@@ -514,6 +511,8 @@ function loadGraph3(torta){
             }
         });
 }
+
+
 
 function progress(percent, $element) {
     var progressBarWidth = percent * $element.width() / 100;
