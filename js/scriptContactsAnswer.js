@@ -4,6 +4,9 @@ var send = 0;
 
 $(function(){
     $('textarea.campo.textMsg').focus();
+    setTimeout(function(){
+        $('textarea.campo.textMsg').click();
+    },200)
 });
 $('#contactAnswerPage').live( 'pageinit',function(event){
 

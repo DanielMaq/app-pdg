@@ -378,16 +378,3 @@ function generateDate(date){
     newDate = newDate[2] + '/' + newDate[1] + '/' + newDate[0];
     return newDate;
 }
-
-window.onload = function() {
-    try{
-        $(".wrapperContent").pullToRefresh({
-            lockRefresh: true
-        });
-        $(".wrapperContent").on("refresh.pulltorefresh", function (e, p){
-            $('.loader').show();
-            $('.wrapperContent').hide();
-            getCampaingMsgs(currentCamp)
-        })
-    }catch(err){}
-};
