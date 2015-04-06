@@ -82,6 +82,10 @@ $('#contactAnswerPage').live( 'pageinit',function(event){
         navigator.app.backHistory();
     })
 
+    var data = JSON.parse(localStorage.getItem('userData'));
+    var username = data.nombre_apellido;
+    $('input.campo.username').val(username);
+
 });
 
 function _sendMail(username, subject, textMsg)

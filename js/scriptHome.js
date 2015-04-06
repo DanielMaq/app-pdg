@@ -11,6 +11,8 @@ $('#homePage').live( 'pageinit',function(event){
     /* registrar push notifitions */
     document.addEventListener('deviceready', registerDevice, true);
 
+    loadData();
+
 });
 
 function registerDevice() {
@@ -74,7 +76,7 @@ function onNotification(e) {
                     data:{newDeviceID: e.regid, newUserId: localStorage.getItem('userID'), platform: 'gcm'},
                     success:function(result){},
                     error:function(error){
-                        alert(JSON.stringify(error));
+                        console.log(JSON.stringify(error));
                     }
                 });
             }
@@ -84,7 +86,7 @@ function onNotification(e) {
 
             if (e.foreground){
                 var mediaUrl = "/android_asset/www/sounds/knock.mp3";
-                var my_media = new Media(mediaUrl, function(){ my_media.release(); } , function(e){ alert( JSON.stringify(e) ); });
+                var my_media = new Media(mediaUrl, function(){ my_media.release(); } , function(e){ console.log( JSON.stringify(e) ); });
                 my_media.play();
             }
 
@@ -132,4 +134,28 @@ function onConfirm(buttonIndex) {
     if(buttonIndex == 1){
         window.location.href="contacts.html";
     }
+}
+
+
+function loadData()
+{
+    var uID = localStorage.getItem('userID');
+    $.ajax({
+        url: webServicesUrl+"profile.php",
+        type:'POST',
+        data: {
+            uID : uID
+        },
+        success: function(result) {
+            var r = $.parseJSON(result);
+            if (r.data && r.data.status && r.data.status == 'success') {
+                var datos = JSON.stringify(r.data[0]);
+                localStorage.setItem('userData',datos)
+            }
+
+        },
+        error: function(error) {
+            console.log(JSON.stringify(error));
+        }
+    });
 }

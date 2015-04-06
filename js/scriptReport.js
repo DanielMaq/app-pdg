@@ -41,7 +41,7 @@ $(window).on( 'load',function(event){
         }
 
         var campId = currentCampID = $('.campaignSelector select option:selected').attr('data-campId');
-
+        console.log(currentCampID)
         getCampaingReport(campId);
     });
 
@@ -70,7 +70,8 @@ $(window).on( 'load',function(event){
         $('.loader').show();
         $('.noResults, .results').hide();
 
-        getCampaingReport(campId)
+        var campId = currentCampID = $('.campaignSelector select option:selected').attr('data-campId');
+        getCampaingReport(campId);
     });
 
     $('.showSelects').addClass('notShow');

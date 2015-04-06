@@ -991,7 +991,7 @@ html body #contactDetailPage.ui-page a.blueBtn{
 }
 #contactAnswerPage .container {
     margin-top: 60px;
-    padding: 0 16px;
+    padding: 60px 16px 0;
 }
 #contactAnswerPage .senderData{
     border-bottom: 1px solid #5cd2ed;
@@ -1080,7 +1080,7 @@ html body #contactDetailPage.ui-page a.blueBtn{
     background:  none no-repeat scroll 0 0 #f5f5f5;
 }
 #profilePage .container {
-    padding: 0 16px;
+    padding: 60px 16px 0;
 }
 #profilePage .profileForm{
     margin: 20px auto 0;

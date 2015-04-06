@@ -380,12 +380,14 @@ function generateDate(date){
 }
 
 window.onload = function() {
-    $(".wrapperContent").pullToRefresh({
-        lockRefresh: true
-    });
-    $(".wrapperContent").on("refresh.pulltorefresh", function (e, p){
-        $('.loader').show();
-        $('.wrapperContent').hide();
-        getCampaingMsgs(currentCamp)
-    })
+    try{
+        $(".wrapperContent").pullToRefresh({
+            lockRefresh: true
+        });
+        $(".wrapperContent").on("refresh.pulltorefresh", function (e, p){
+            $('.loader').show();
+            $('.wrapperContent').hide();
+            getCampaingMsgs(currentCamp)
+        })
+    }catch(err){}
 };

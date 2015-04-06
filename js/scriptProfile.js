@@ -69,41 +69,55 @@ $('#profilePage').live( 'pageinit',function(event){
 
 function loadData()
 {
+    var datos = JSON.parse(localStorage.getItem('userData'));
+
     var uID = localStorage.getItem('userID');
 
-    $.ajax({
-        url: webServicesUrl+"profile.php",
-        type:'POST',
-        data: {
-            uID : uID
-        },
-        success: function(result) {
-            var r = $.parseJSON(result);
-            if (r.data && r.data.status && r.data.status == 'success') {
-                var datos = r.data[0];
+    $('.idEmpresa').val(datos.cuit);
+    $('.razonSocial').val(datos.razon_social);
+    $('.telefonoEmp').val(datos.telefono);
+    $('.name').val(datos.nombre_apellido);
+    $('.email').val(datos.email);
+    $('.telefono').val(datos.telefono);
+    $('.celular').val(datos.telefono_celular);
+    $('.telefono2').val(datos.telefono_alternativo);
 
-                $('.loader').hide();
+    $('.loader').hide();
+    $('div.profileForm').fadeIn();
 
-                $('.idEmpresa').val(datos.cuit);
-                $('.razonSocial').val(datos.razon_social);
-                $('.telefonoEmp').val(datos.telefono);
-                $('.name').val(datos.nombre_apellido);
-                $('.email').val(datos.email);
-                $('.telefono').val(datos.telefono);
-                $('.celular').val(datos.telefono_celular);
-                $('.telefono2').val(datos.telefono_alternativo);
-
-                $('div.profileForm').fadeIn();
-            } else {
-                $('.loader, .results').hide();
-                $('.noResults').show();
-            }
-
-        },
-        error: function(error) {
-            console.log(JSON.stringify(error));
-        }
-    });
+    //$.ajax({
+    //    url: webServicesUrl+"profile.php",
+    //    type:'POST',
+    //    data: {
+    //        uID : uID
+    //    },
+    //    success: function(result) {
+    //        var r = $.parseJSON(result);
+    //        if (r.data && r.data.status && r.data.status == 'success') {
+    //            var datos = r.data[0];
+    //
+    //            $('.loader').hide();
+    //
+    //            $('.idEmpresa').val(datos.cuit);
+    //            $('.razonSocial').val(datos.razon_social);
+    //            $('.telefonoEmp').val(datos.telefono);
+    //            $('.name').val(datos.nombre_apellido);
+    //            $('.email').val(datos.email);
+    //            $('.telefono').val(datos.telefono);
+    //            $('.celular').val(datos.telefono_celular);
+    //            $('.telefono2').val(datos.telefono_alternativo);
+    //
+    //            $('div.profileForm').fadeIn();
+    //        } else {
+    //            $('.loader, .results').hide();
+    //            $('.noResults').show();
+    //        }
+    //
+    //    },
+    //    error: function(error) {
+    //        console.log(JSON.stringify(error));
+    //    }
+    //});
 }
 
 function saveData()
