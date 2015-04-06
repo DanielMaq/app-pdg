@@ -333,6 +333,7 @@ function showReports(campId, type)
         $('.loader, .results').hide();
         $('.noResults').show();
     }
+    $('.loader, .results').hide();
 }
 
 

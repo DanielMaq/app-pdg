@@ -27,6 +27,19 @@ body{
     text-transform: none;
     color: #ffffff;
 }
+body * {
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+    -moz-backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0) translate3d(0,0,0);
+    -moz-transform: translateZ(0) translate3d(0,0,0);
+    -ms-transform: translateZ(0) translate3d(0,0,0);
+    -o-transform: translateZ(0) translate3d(0,0,0);
+    transform: translateZ(0) translate3d(0,0,0);
+}
 html body .ui-page a.blueBtn{
     background: none repeat scroll 0 0 #0291c8;
     border: 2px solid #0181ab;
@@ -858,12 +871,12 @@ input.campo{
     line-height: 27px;
     display: block;
     position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
+    top: 23px;
+    /*-webkit-transform: translateY(-50%);*/
+    /*-moz-transform: translateY(-50%);*/
+    /*-ms-transform: translateY(-50%);*/
+    /*-o-transform: translateY(-50%);*/
+    /*transform: translateY(-50%);*/
     -webkit-transition: all 0.4s linear;
     -moz-transition: all 0.4s linear;
     -ms-transition: all 0.4s linear;
@@ -889,11 +902,11 @@ input.campo{
     color: #ffffff;
 }
 #contactPage .swiper-slide.contactAction.swiper-slide-active .arrow .circle{
-    -webkit-transform: translateY(-50%) rotate(180deg);
-    -moz-transform: translateY(-50%) rotate(180deg);
-    -ms-transform: translateY(-50%) rotate(180deg);
-    -o-transform: translateY(-50%) rotate(180deg);
-    transform: translateY(-50%) rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 #contactPage .swiper-slide.contactAction .action1{
     height: 70px;
@@ -912,9 +925,9 @@ input.campo{
     top: 5px;
 }
 #contactPage .swiper-slide.contactAction.swiper-slide-active {
-    -webkit-box-shadow: inset 0px 1px 20px 2px rgba(0, 0, 0, 0.5);
-    -moz-box-shadow:    inset 0px 1px 20px 2px rgba(0, 0, 0, 0.5);
-    box-shadow: inset 0px 1px 20px 2px rgba(0, 0, 0, 0.5);
+    /*-webkit-box-shadow: inset 0px 1px 20px 2px rgba(0, 0, 0, 0.5);*/
+    /*-moz-box-shadow:    inset 0px 1px 20px 2px rgba(0, 0, 0, 0.5);*/
+    /*box-shadow: inset 0px 1px 20px 2px rgba(0, 0, 0, 0.5);*/
     background: #02508a;
 }
 #contactPage .swiper-slide.contactAction:after {
@@ -1230,7 +1243,6 @@ html body #contactDetailPage.ui-page a.blueBtn{
 }
 #reportPage .results .graphContainer h2{
     background: none no-repeat scroll 0 0 transparent;
-    box-shadow:none;
     border-radius: 0;
     color: #005C85;
     font-size: 18px;
@@ -1243,7 +1255,6 @@ html body #contactDetailPage.ui-page a.blueBtn{
     border-color: #E3E3E3;
 }
 #reportPage .results .graphContainer #visitContactGraph{
-    box-shadow: 1px 1px 3px #777;
     margin: 0 auto;
 }
 #reportPage .results .theGraphContent{
@@ -1258,7 +1269,6 @@ html body #contactDetailPage.ui-page a.blueBtn{
 #reportPage .results .graphContainer.completedMonthGraph .theGraph,
 #reportPage .results .graphContainer.consuTypeGraph .theGraph{
     border: none;
-    box-shadow: none;
     border-radius: 0;
 }
 #reportPage .results .graphContainer.consuTypeGraph .highcharts-container{
