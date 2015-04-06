@@ -42,11 +42,11 @@ body * {
     -moz-backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    -webkit-transform: translateZ(0) translate3d(0,0,0);
-    -moz-transform: translateZ(0) translate3d(0,0,0);
-    -ms-transform: translateZ(0) translate3d(0,0,0);
-    -o-transform: translateZ(0) translate3d(0,0,0);
-    transform: translateZ(0) translate3d(0,0,0);
+    /*-webkit-transform: translateZ(0) translate3d(0,0,0);*/
+    /*-moz-transform: translateZ(0) translate3d(0,0,0);*/
+    /*-ms-transform: translateZ(0) translate3d(0,0,0);*/
+    /*-o-transform: translateZ(0) translate3d(0,0,0);*/
+    /*transform: translateZ(0) translate3d(0,0,0);*/
 }
 html body .ui-page a.blueBtn{
     background: none repeat scroll 0 0 #0291c8;
