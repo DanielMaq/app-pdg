@@ -153,7 +153,7 @@ function menuCreator(){
         try {
             navigator.notification.confirm(
                 '¿Seguro deseas salir?', // message
-                onConfirm, // callback to invoke with index of button pressed
+                onConfirmLogout, // callback to invoke with index of button pressed
                 'Cerrar Aplicación', // title
                 ['Cancelar', 'Salir'] // buttonLabels
             );
@@ -285,6 +285,14 @@ function deviceBackBtn(){
         }
     }, false);
 }
+function onConfirmLogout(buttonIndex) {
+	buttonIndex = parseInt(buttonIndex)
+    if(buttonIndex == 2){
+        localStorage.removeItem('userID');
+        sessionStorage.clear();
+        window.location.href = 'login.html';	
+    }
+}
 
 function onConfirm(buttonIndex) {
 	buttonIndex = parseInt(buttonIndex)
@@ -292,7 +300,7 @@ function onConfirm(buttonIndex) {
         localStorage.removeItem('userID');
         sessionStorage.clear();
         navigator.app.exitApp();
-        window.location.href = "login.html"
+		
     }
 }
 
