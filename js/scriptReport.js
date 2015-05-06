@@ -193,14 +193,17 @@ function getCampaingReport(campId){
             },
             success: function(result) {
                 var r = $.parseJSON(result);
-
                 if (r.data && r.data.status && r.data.status == 'success' &&  r.data.Reporte != undefined) {
                     updateReportsLocalStorage(r.data, campId, type);
 
                     showReports(campId, type);
                 }
             },
+            complete: function (result) {
+                showReports(campId, type);
+            }, 
             error:function(error){
+                
                 showReports(campId, type);
                 console.log(JSON.stringify(error));
             }
@@ -284,6 +287,7 @@ function updateReportsLocalStorage(data, campId, type)
 
 function showReports(campId, type)
 {
+    
     var sLocalReports = localStorage.getItem('reports');
     var aLocalReports = sLocalReports != null ? JSON.parse(sLocalReports) : [];
     var r = {};

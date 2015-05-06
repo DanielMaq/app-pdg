@@ -73,13 +73,19 @@ $('#contactPage').live( 'pageinit',function() {
 });
 
 var contactos = null;
+var contContactos = 0;
 
 function getCampaingMsgs(campId)
 {
-    var uID = localStorage.getItem('userID');
-    var campID = campId;
-    var page = 0;
-    var ultimoID = getUltimoId(campId);
+    
+    contContactos = countContact(campId);
+
+    if (contContactos == 0)
+    {
+        var uID = localStorage.getItem('userID');
+        var campID = campId;
+        var page = 0;
+        var ultimoID = getUltimoId(campId);
         $.ajax({
             url: webServicesUrl+"contact.php",
             type:'POST',
@@ -112,6 +118,15 @@ function getCampaingMsgs(campId)
                 $('.wrapperContent').show();
             }
         });
+    } else {
+        $('.results').empty();
+        showContacts(campId);
+        showNewContacts(campId);
+        generateTabs()
+        $('p.loader').hide();
+        $('.results').show();
+        $('.wrapperContent').show();
+    }
 }
 
 function getUltimoId(campId)
@@ -130,6 +145,7 @@ function getUltimoId(campId)
 
 function updateContactsLocalStorage(data, campId)
 {
+    
     var keys = Object.keys(data);
     keys.pop();
 
@@ -175,6 +191,8 @@ function updateContactsLocalStorage(data, campId)
     }
 
     localStorage.setItem('contacts', JSON.stringify(aLocalContacts));
+    contContactos = countContact(campId);
+
 }
 
 function updateUltimoIdLocalStorage(campId, contactID)
@@ -208,8 +226,25 @@ function updateUltimoIdLocalStorage(campId, contactID)
     localStorage.setItem('ultimoID', JSON.stringify(ultimosID));
 }
 
+
+function countContact(campId)
+{
+    var sLocalContacts = localStorage.getItem('contacts');
+    var aLocalContacts = (sLocalContacts != null && sLocalContacts != undefined) ? JSON.parse(sLocalContacts) : [];
+
+    var tmp_contactos = [];
+    for (var i = 0; i < aLocalContacts.length; i++) {
+        if (aLocalContacts[i] != undefined && aLocalContacts[i].campID == campId) {
+            tmp_contactos = aLocalContacts[i].data;
+        }
+    }
+    
+    return tmp_contactos.length;
+}
+
 function showContacts(campId)
 {
+    
     //Anchos para generar los swipes
     var winW = $(window).width();
     var psW = winW-80;
@@ -220,20 +255,31 @@ function showContacts(campId)
     var $resultsContainer = $('.results.todos');
     var sLocalContacts = localStorage.getItem('contacts');
     var aLocalContacts = sLocalContacts != null ? JSON.parse(sLocalContacts) : [];
+
     contactos = null;
-    for (var i = 0; i < 31; i++) {
+    for (var i = 0; i < sLocalContacts.length; i++) {
         if (aLocalContacts[i] != undefined && aLocalContacts[i].campID == campId) {
             contactos = aLocalContacts[i].data;
         }
     }
-
+    
     if (contactos == null) {
             $resultsContainer.html('<p class="noResults">No se han encontrado resultados.</p>');
     } else {
         var data = '<div class="listContact"><ul>';
 
+        var init = 0;
+        var to = 0;
+        if (contContactos >= 60) {
+            init = 30;
+            to = 60;
+        } else {
+            init = Math.ceil(contContactos/2);
+            to = contContactos;
+        }
+
         //for (var i = 0; i < contactos.length; i++) {
-        for (var i = 0; i < 31; i++) {
+        for (var i = init; i <= to; i++) {
             var contact = contactos[i];
             if (contact != null && contact.contactID != undefined) {
                 var date = generateDate(contact.date); //obtenemos la fecha en el formato adecuado
@@ -307,10 +353,18 @@ function showNewContacts(campId)
     } else {
         var data = '<div class="listContact"><ul>';
 
-        for (var i = 0; i < 31; i++) {
+        var init = 0;
+        var to = 0;
+        if (contContactos >= 60) {
+            to = 29;
+        } else {
+            to = Math.floor(contContactos/2);
+        }
+
+        for (var i = init; i <= to; i++) {
             var contact = contactos[i];
 
-            if (contact != null && contact.contactID != undefined && contact.contactID >= ultimoID) {
+            if (contact != null && contact.contactID != undefined) {
                 var date = generateDate(contact.date); //obtenemos la fecha en el formato adecuado
 
 
