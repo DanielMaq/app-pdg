@@ -111,9 +111,10 @@ html body .ui-page a.blueBtn:active{
 }
 .ui-header .title{
     color: #fff;
-    float: left;
     font-size: 20px;
     margin: 0;
+    width: 60%;
+    float: left;
 }
 .ui-header .back{
     cursor: pointer;
@@ -655,14 +656,13 @@ input.campo{
     float: right;
     position: relative !important;
     text-align: center;
-    position: relative;
     z-index: 0;
     color: #fff;
     font-size: 30px !important;
     min-height: 100%;
     line-height: 60px;
     left: 0;
-    top:0;
+    top:0px;
     margin-right: 20px !important;
     cursor: pointer;
 }
@@ -841,14 +841,7 @@ input.campo{
     height: 70px;
 }
 #contactPage .swiper-slide .info {
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-    left: 35px;
+    padding: 15px;
 }
 #contactPage .swiper-slide .info .name{
     text-transform: capitalize;
@@ -864,13 +857,13 @@ input.campo{
 #contactPage .swiper-slide.contactAction .arrow {
     margin-left: 30px;
 }
-#contactPage .swiper-slide.contactAction{
-    -webkit-transition: all 0.4s linear;
-    -moz-transition: all 0.4s linear;
-    -ms-transition: all 0.4s linear;
-    -o-transition: all 0.4s linear;
-    transition: all 0.4s linear;
-}
+/*#contactPage .swiper-slide.contactAction{*/
+    /*-webkit-transition: all 0.4s linear;*/
+    /*-moz-transition: all 0.4s linear;*/
+    /*-ms-transition: all 0.4s linear;*/
+    /*-o-transition: all 0.4s linear;*/
+    /*transition: all 0.4s linear;*/
+/*}*/
 #contactPage .swiper-slide.contactAction .arrow .circle{
     border: 1px solid #d5dbcb;
     border-radius: 50%;
@@ -880,16 +873,11 @@ input.campo{
     display: block;
     position: absolute;
     top: 23px;
-    /*-webkit-transform: translateY(-50%);*/
-    /*-moz-transform: translateY(-50%);*/
-    /*-ms-transform: translateY(-50%);*/
-    /*-o-transform: translateY(-50%);*/
-    /*transform: translateY(-50%);*/
-    -webkit-transition: all 0.4s linear;
-    -moz-transition: all 0.4s linear;
-    -ms-transition: all 0.4s linear;
-    -o-transition: all 0.4s linear;
-    transition: all 0.4s linear;
+    /*-webkit-transition: all 0.4s linear;*/
+    /*-moz-transition: all 0.4s linear;*/
+    /*-ms-transition: all 0.4s linear;*/
+    /*-o-transition: all 0.4s linear;*/
+    /*transition: all 0.4s linear;*/
 
 }
 #contactPage .swiper-slide.contactAction .arrow i {
@@ -902,11 +890,11 @@ input.campo{
     transform: translateY(1px);
 }
 #contactPage .swiper-slide.contactAction.swiper-slide-active .arrow i{
-    -webkit-transform: translateY(1px);
-    -moz-transform: translateY(1px);
-    -ms-transform: translateY(1px);
-    -o-transform: translateY(1px);
-    transform: translateY(1px);
+    /*-webkit-transform: translateY(1px);*/
+    /*-moz-transform: translateY(1px);*/
+    /*-ms-transform: translateY(1px);*/
+    /*-o-transform: translateY(1px);*/
+    /*transform: translateY(1px);*/
     color: #ffffff;
 }
 #contactPage .swiper-slide.contactAction.swiper-slide-active .arrow .circle{
