@@ -98,7 +98,7 @@ function getCampaingMsgs(campId)
         $.ajax({
             url: webServicesUrl+"contact.php",
             type:'POST',
-            async: true,
+            async: false,
             data:{
                 uID : uID,
                 campID: campID,
@@ -120,8 +120,7 @@ function getCampaingMsgs(campId)
             complete: function(){
                 $('.results').empty();
                 showContacts(campId);
-                showNewContacts(campId);
-                generateTabs()
+                //showNewContacts(campId);
                 $('p.loader').hide();
                 $('.results').show();
                 $('.wrapperContent').show();
@@ -130,8 +129,7 @@ function getCampaingMsgs(campId)
     } else {
         $('.results').empty();
         showContacts(campId);
-        showNewContacts(campId);
-        generateTabs()
+        //showNewContacts(campId);
         $('p.loader').hide();
         $('.results').show();
         $('.wrapperContent').show();
@@ -321,8 +319,6 @@ function showContacts(campId)
 
         $resultsContainer.html(data);
     }
-
-    createSwipes();
 }
 
 function showNewContacts(campId)
@@ -399,11 +395,9 @@ function showNewContacts(campId)
                 data += '</li>';
             }
         }
-
         data += '</ul></div>';
         $resultsContainer.html(data);
     }
-    createSwipes()
 }
 
 function parseDate($date)
@@ -415,25 +409,6 @@ function parseDate($date)
 
     return date.getDate() + ' ' + months[date.getMonth()] + ' ' + date.getFullYear() + ' - ' + time;
 }
-
-function generateTabs(){
-        $('#contactPage .container').addClass('show')
-        ////$('#contactPage .tabs > li a').on('click',function(e){e.preventDefault()})
-        //$('#contactPage .tabs > li a').on('touchstart',function(e){e.preventDefault()})
-}
-
-function createSwipes(){
-    // Create swippper
-    var listadiv = $('.swiper-container');
-    //$.each(listadiv, function (){
-    //    var mySwiper = new Swiper(this,{
-    //        //direction: 'horizontal',
-    //        //slidesPerView: 'auto',
-    //        //width: '100%'
-    //    });
-    //});
-}
-
 function generateDate(date){
     var newDate = date.split(' ');
     newDate = newDate[0].split('-');
