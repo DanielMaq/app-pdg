@@ -667,7 +667,7 @@ input.campo{
     cursor: pointer;
 }
 #contactPage .campaignSelector {
-    max-height: 0;
+    max-height: 83px;
     -webkit-transition: max-height 0.5s ease-in;
     -moz-transition: max-height 0.5s ease-in;
     -ms-transition: max-height 0.5s ease-in;
@@ -1151,7 +1151,7 @@ html body #contactDetailPage.ui-page a.blueBtn{
     padding-top: 60px;
 }
 .selectsContainer, #campaignPage .campaignSelector{
-    max-height: 0;
+    max-height: 83px;
     overflow: hidden;
     -webkit-transition: max-height 0.5s ease-in;
     -moz-transition: max-height 0.5s ease-in;

@@ -19,8 +19,6 @@ $('#campaignPage').live( 'pageinit',function(event){
 
     });
 
-    $('.showSelects').addClass('notShow');
-
     $('.showSelects').on('touchend',function(){
         if($(this).hasClass('notShow')){
             $('.campaignSelector').css('max-height','83px');

@@ -70,6 +70,15 @@ $('#contactPage').live( 'pageinit',function() {
         $('#contactPage .contentTabs #'+tabToShow).addClass('active');
     });
 
+    $(document).on('touchstart','#contactPage .contactAction:not(.swiper-slide-active) .arrow .circle',function(){
+        $(this).parent().parent().parent().find('.contactInfo').fadeOut().removeClass('swiper-slide-active');
+        $(this).parent().parent().addClass('swiper-slide-active');
+    })
+    $(document).on('touchstart','#contactPage .contactAction.swiper-slide-active .arrow .circle',function(){
+        $(this).parent().parent().parent().find('.contactInfo').fadeIn().addClass('swiper-slide-active');
+        $(this).parent().parent().removeClass('swiper-slide-active');
+    })
+
 });
 
 var contactos = null;
@@ -416,14 +425,13 @@ function generateTabs(){
 function createSwipes(){
     // Create swippper
     var listadiv = $('.swiper-container');
-    $.each(listadiv, function (){
-        var mySwiper = new Swiper(this,{
-            direction: 'horizontal',
-            slidesPerView: 'auto',
-            calculateHeight: true,
-            width: '100%'
-        });
-    });
+    //$.each(listadiv, function (){
+    //    var mySwiper = new Swiper(this,{
+    //        //direction: 'horizontal',
+    //        //slidesPerView: 'auto',
+    //        //width: '100%'
+    //    });
+    //});
 }
 
 function generateDate(date){
