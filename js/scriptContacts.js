@@ -1,42 +1,5 @@
 /**
  *
- * @param campId
- */
-function getCampaingMsgs(campId) {
-    var uID = localStorage.getItem('userID');
-    var campID = campId;
-    var page = 0;
-    //var ultimoID = '136040';//getUltimoId(campId);
-    var ultimoID = getUltimoId(campId);
-
-    $.ajax({
-        url: webServicesUrl+"contact.php",
-        type:'POST',
-        async: true,
-        data:{
-            uID : uID,
-            campID: campID,
-            page: page,
-            ultimoID: ultimoID
-        },
-        success: function (result) {
-            var r = $.parseJSON(result);
-            if (r.data && r.data.status && r.data.status == 'success' && r.data[0] != undefined) {
-                updateContactsLocalStorage(r.data, campId);
-            }
-        },
-        complete: function(){
-            $('.results').empty();
-            showContacts(campId, true);
-            $('p.loader').hide();
-            $('.results').show();
-            $('.wrapperContent').show();
-        }
-    });
-}
-
-/**
- *
  * @param local
  * @param campId
  * @returns {boolean}
@@ -48,7 +11,7 @@ function getIndiceDeCampania(local, campId){
     var localContacts = [];
 
     var index = false; // Esta es la posición de la campaña dentro del array de contactos
-    
+
     // Busco todos los contactos de una campaña y lo pone en la variable "localContacts"
     for (var i = 0; i < aLocalContacts.length; i++) {
         if (aLocalContacts[i] != undefined && aLocalContacts[i].campID == campId) {
@@ -143,7 +106,7 @@ function _agregarNuevosContactosaViejosContactos(data, campId) {
     }
 
     var contactsNuevos = array_merge(data, localContacts);
-    
+
     _updateContacts('contacts', index, contactsNuevos, campId);
 }
 
