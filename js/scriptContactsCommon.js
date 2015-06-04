@@ -23,7 +23,7 @@ $('#contactPage').live( 'pageinit',function() {
         setCampId(currentCamp);
     }
     selectCampaignSelector(currentCamp);
-    getCampaingMsgs(currentCamp);
+    getCampaingMsgs1(currentCamp);
 
     $('.campaignSelector select').on('change', function(){
         setCampId($(this).find('option:selected').attr('data-campId'));
@@ -62,7 +62,7 @@ $('#contactPage').live( 'pageinit',function() {
  *
  * @param campId
  */
-function getCampaingMsgs(campId) {
+function getCampaingMsgs1(campId) {
     $('.results').empty();
     showContacts(campId);
     $('p.loader').hide();

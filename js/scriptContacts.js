@@ -1,5 +1,42 @@
 /**
  *
+ * @param campId
+ */
+function getCampaingMsgs(campId) {
+    var uID = localStorage.getItem('userID');
+    var campID = campId;
+    var page = 0;
+    //var ultimoID = '136040';//getUltimoId(campId);
+    var ultimoID = getUltimoId(campId);
+
+    $.ajax({
+        url: webServicesUrl+"contact.php",
+        type:'POST',
+        async: true,
+        data:{
+            uID : uID,
+            campID: campID,
+            page: page,
+            ultimoID: ultimoID
+        },
+        success: function (result) {
+            var r = $.parseJSON(result);
+            if (r.data && r.data.status && r.data.status == 'success' && r.data[0] != undefined) {
+                updateContactsLocalStorage(r.data, campId);
+            }
+        },
+        complete: function(){
+            $('.results').empty();
+            showContacts(campId, true);
+            $('p.loader').hide();
+            $('.results').show();
+            $('.wrapperContent').show();
+        }
+    });
+}
+
+/**
+ *
  * @param local
  * @param campId
  * @returns {boolean}
