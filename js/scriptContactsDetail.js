@@ -11,8 +11,11 @@ $('#contactDetailPage').live( 'pageinit',function(event){
 });
 
 function getMsg(data){
-
     data = JSON.parse(data);
+
+    // Cambiar estado a mensaje leido
+    changeMsgReadStatus(data.contactID);
+
     $('.name').html(data.nombre + ' ' + data.apellido);
     $('.mail').html(data.email);
     $('.phone').html(data.telefono);

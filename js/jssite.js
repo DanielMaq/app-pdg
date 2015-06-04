@@ -153,7 +153,7 @@ function menuCreator(){
         try {
             navigator.notification.confirm(
                 '¿Seguro deseas salir?', // message
-                onConfirmLogout, // callback to invoke with index of button pressed
+                onConfirm(), // callback to invoke with index of button pressed
                 'Cerrar Aplicación', // title
                 ['Cancelar', 'Salir'] // buttonLabels
             );
@@ -244,6 +244,13 @@ function getCampaigns(){
     });
 }
 
+function setCampId(id) {
+    sessionStorage.setItem("currentCamp", id);
+}
+function getCampId() {
+    return sessionStorage.getItem("currentCamp");
+}
+
 function loadCampaignSelector(){
     var $select = $('.campaignSelector select');
     var camps = $.parseJSON( sessionStorage.getItem('campsID') );
@@ -260,6 +267,14 @@ function loadCampaignSelector(){
     if ($('.campaignSelector select option').length == 1) {
         $('.campaignSelector').hide();
     }
+}
+
+
+function selectCampaignSelector(id){
+    var $select = $('.campaignSelector select');
+    $('#select-3-button span').text('Campaña ' + id);
+    
+    $select.val(id)
 }
 
 function deviceBackBtn(){
@@ -285,22 +300,14 @@ function deviceBackBtn(){
         }
     }, false);
 }
-function onConfirmLogout(buttonIndex) {
-	buttonIndex = parseInt(buttonIndex)
-    if(buttonIndex == 2){
-        localStorage.removeItem('userID');
-        sessionStorage.clear();
-        window.location.href = 'login.html';	
-    }
-}
 
 function onConfirm(buttonIndex) {
-	buttonIndex = parseInt(buttonIndex)
+    alert(buttonIndex);
     if(buttonIndex == 2){
         localStorage.removeItem('userID');
         sessionStorage.clear();
         navigator.app.exitApp();
-		
+        window.location.href = "login.html"
     }
 }
 

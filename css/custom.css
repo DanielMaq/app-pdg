@@ -812,27 +812,27 @@ input.campo{
     position: absolute;
     top: 0;
 }
-/*#contactPage .contentTabs .results.todos {*/
-    /*-webkit-transform: translate3d(-100%,0,0);*/
-    /*-moz-transform: translate3d(-100%,0,0);*/
-    /*-ms-transform: translate3d(-100%,0,0);*/
-    /*-o-transform: translate3d(-100%,0,0);*/
-    /*transform: translate3d(-100%,0,0);*/
-/*}*/
-/*#contactPage .contentTabs .results.nuevos {*/
-    /*-webkit-transform: translate3d(100%,0,0);*/
-    /*-moz-transform: translate3d(100%,0,0);*/
-    /*-ms-transform: translate3d(100%,0,0);*/
-    /*-o-transform: translate3d(100%,0,0);*/
-    /*transform: translate3d(100%,0,0);*/
-/*}*/
-/*#contactPage .contentTabs .results.active{*/
-    /*-webkit-transform: translate3d(0,0,0);*/
-    /*-moz-transform: translate3d(0,0,0);*/
-    /*-ms-transform: translate3d(0,0,0);*/
-    /*-o-transform: translate3d(0,0,0);*/
-    /*transform: translate3d(0,0,0);*/
-/*}*/
+#contactPage .contentTabs .results.todos {
+    -webkit-transform: translate3d(-100%,0,0);
+    -moz-transform: translate3d(-100%,0,0);
+    -ms-transform: translate3d(-100%,0,0);
+    -o-transform: translate3d(-100%,0,0);
+    transform: translate3d(-100%,0,0);
+}
+#contactPage .contentTabs .results.nuevos {
+    -webkit-transform: translate3d(100%,0,0);
+    -moz-transform: translate3d(100%,0,0);
+    -ms-transform: translate3d(100%,0,0);
+    -o-transform: translate3d(100%,0,0);
+    transform: translate3d(100%,0,0);
+}
+#contactPage .contentTabs .results.active{
+    -webkit-transform: translate3d(0,0,0);
+    -moz-transform: translate3d(0,0,0);
+    -ms-transform: translate3d(0,0,0);
+    -o-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
 #contactPage .swiper-container {
     width: 100%;
 }
@@ -841,7 +841,7 @@ input.campo{
     height: 70px;
 }
 #contactPage .swiper-slide .info {
-    padding: 15px;
+    padding: 17px;
 }
 #contactPage .swiper-slide .info .name{
     text-transform: capitalize;
@@ -1039,7 +1039,7 @@ html body #contactDetailPage.ui-page a.blueBtn{
 }
 #contactAnswerPage .sendContactForm .campo.textMsg{
     border: 1px solid #939598;
-    min-height: 120px;
+    min-height: 220px;
 }
 #contactAnswerPage .sendContactForm .ui-btn{
     border: medium none;
@@ -1320,4 +1320,8 @@ html body #contactDetailPage.ui-page a.blueBtn{
 #contactAnswerPage .container
 #profilePage .container{
     padding-top: 60px;
+}
+
+.read {
+    background-color: rgba(249, 249, 232, 0.87);
 }

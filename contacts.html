@@ -6,14 +6,14 @@
         <meta name="format-detection" content="telephone=no"/>
         <meta name="msapplication-tap-highlight" content="no"/>
         <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>-->
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, height=device-height">
-		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, height=device-height">
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
         <link rel="stylesheet" type="text/css" href="js/snap/snap.css"/>
         <link rel="stylesheet" type="text/css" href="css/fonts.css"/>
         <link rel="stylesheet" type="text/css" href="css/slicknav.css" />
         <link rel="stylesheet" type="text/css" href="css/custom.css"/>
-		<link rel="stylesheet" href="js/pulltorefresh/base.css">
+        <link rel="stylesheet" href="js/pulltorefresh/base.css">
 
         <title>PDG - Telefonica</title>
 
@@ -25,7 +25,7 @@
             <div data-role="header" id="pageHeader" data-position="fixed">
                 <img src="./img/ico-menu.png" class="menuBtn"/>
                 <p class="title">Mis Contactos</p>
-                <a href="#" class="showSelects" data-role="none" rel="external"><i class="fa fa-filter"></i></a>
+                <a href="#" class="showSelects notShow" data-role="none" rel="external"><i class="fa fa-filter"></i></a>
                 <ul id="menu" style="" class="slicknav_menu notShow">
                     <li class="username"><span class="circle"></span> <img src="img/logo.png" width="200" /></li>
                     <li><a href="contacts.html" class="active" rel="external"><span class="icon contacts"></span> <span>Mis Contactos</span> </a></li>
@@ -55,44 +55,39 @@
                 <div class="wrap">
                     <ul class="tabs">
                         <li class="active">
-                            <a href="tab-1">Todos</a>
+                            <a href="#">Nuevos</a>
                         </li>
                         <li>
-                            <a href="tab-2">Nuevos</a>
+                            <a href="contacts-all.html" rel="external">Todos</a>
                         </li>
                     </ul>
                 </div>
+                <p class="loader"> Cargando <img src="img/ajax-loader.gif" /></p>
 
-				<p class="loader"> Cargando <img src="img/ajax-loader.gif" /></p>
+                <div class="wrapperContent" id="content" style="">
+                    <div class="contentTabs" style="color: #000000;">
+                        <div class="results active" id="tab-1">
+                        </div>
+                    </div>
 
-				<div class="wrapperContent" id="content" style="">
-
-					<div class="contentTabs" style="color: #000000;">
-
-						<div class="results todos active" id="tab-1">
-						</div>
-
-						<div class="results nuevos" id="tab-2">
-						</div>
-					</div>
-
-				</div>
+                </div>
             </div> <!-- /content -->
 
         </div> <!-- /page -->
 
-    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-    <script type="text/javascript" src="js/jqueryUI/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/pulltorefresh/jquery.p2r.min.js" defer></script>
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/jqueryUI/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/pulltorefresh/jquery.p2r.min.js" defer></script>
 
 
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/jssite.js"></script>
-    <script type="text/javascript" src="js/scriptContacts.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/jssite.js"></script>
+        <script type="text/javascript" src="js/scriptContactsCommon.js"></script>
+        <script type="text/javascript" src="js/scriptContacts.js"></script>
 
-	<link href="js/idangerous/idangerous.swiper.css" rel="stylesheet"/>
-    <script type="text/javascript" src="js/idangerous/idangerous.swiper.js"></script>
+        <link href="js/idangerous/idangerous.swiper.css" rel="stylesheet"/>
+        <script type="text/javascript" src="js/idangerous/idangerous.swiper.js"></script>
     </body>
 </html>

@@ -82,7 +82,7 @@ $('#contactAnswerPage').live( 'pageinit',function(event){
     $('.title.back').on('touchstart',function(e){
         e.preventDefault();
         history.go(-1);
-        try{navigator.app.backHistory();}catch(err){}
+        navigator.app.backHistory();
     })
 
     var data = JSON.parse(localStorage.getItem('userData'));
