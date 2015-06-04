@@ -23,7 +23,7 @@ $('#contactPage').live( 'pageinit',function() {
         setCampId(currentCamp);
     }
     selectCampaignSelector(currentCamp);
-    getCampaingMsgs1(currentCamp);
+    getCampaingMsgs(currentCamp);
 
     $('.campaignSelector select').on('change', function(){
         setCampId($(this).find('option:selected').attr('data-campId'));
@@ -62,13 +62,13 @@ $('#contactPage').live( 'pageinit',function() {
  *
  * @param campId
  */
-function getCampaingMsgs1(campId) {
-    $('.results').empty();
-    showContacts(campId);
-    $('p.loader').hide();
-    $('.results').show();
-    $('.wrapperContent').show();
-}
+//function getCampaingMsgs1(campId) {
+//    $('.results').empty();
+//    showContacts(campId);
+//    $('p.loader').hide();
+//    $('.results').show();
+//    $('.wrapperContent').show();
+//}
 
 /**
  *
