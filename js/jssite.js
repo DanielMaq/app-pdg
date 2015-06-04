@@ -302,7 +302,6 @@ function deviceBackBtn(){
 }
 
 function onConfirm(buttonIndex) {
-    alert(buttonIndex);
     if(buttonIndex == 2){
         localStorage.removeItem('userID');
         sessionStorage.clear();
