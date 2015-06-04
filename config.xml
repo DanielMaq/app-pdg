@@ -37,7 +37,7 @@
     <preference name="ErrorUrl" value=""/>
     <preference name="BackgroundColor" value="#005C85"/>
     <preference name="KeepRunning" value="true"/>
-    <preference name="DisallowOverscroll" value="false"/>
+    <preference name="DisallowOverscroll" value="true"/>
     <preference name="LoadingDialog" value=","/>
     <preference name="LoadUrlTimeoutValue" value="20000"/>
     <preference name="disable-cursor" value="false"/>
