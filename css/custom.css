@@ -1350,6 +1350,9 @@ html body #contactDetailPage.ui-page a.blueBtn{
     padding-top: 60px;
 }
 
-.read {
-    background-color: rgba(249, 249, 232, 0.87);
+.swiper-container.read {
+    background-color: rgba(243,243,243,0.85);
+}
+.swiper-container.read .name {
+    color: #666 !important;
 }

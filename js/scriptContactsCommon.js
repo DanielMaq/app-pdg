@@ -155,7 +155,7 @@ function showContacts(campId, isNew) {
 
             if (contact != null && contact.contactID != undefined) {
                 var date = generateDate(contact.date); //obtenemos la fecha en el formato adecuado
-                var isRead = (!in_array(contact.contactID, msgStatuses)) ? 'read' : '';
+                var isRead = (!in_array(contact.contactID, msgStatuses)) ? '' : 'read';
 
                 data += '<li data-msgId="'+i+'">';
 
