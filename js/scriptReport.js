@@ -104,15 +104,11 @@ $(window).on( 'load',function(event){
 
     calcHeightDinamic();
 });
-var first = true;
 function calcHeightDinamic (){
-    if(first){
-        var $calc = $(window).height() - 60;
-        first = false
-    }else{
-        var $calc = $(window).height() - 60;
-    }
-    $('.container[role=main]').height($calc)
+
+    var $calc = $(window).height() - $('.selectsContainer').height() - 60;
+
+    $('.results').height($calc).css('overflow','auto')
 }
 
 $(window).on('resize', function(){
