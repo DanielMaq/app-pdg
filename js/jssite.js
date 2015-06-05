@@ -216,7 +216,7 @@ function cerrarSesion(){
     try {
         navigator.notification.confirm(
                 '¿Seguro deseas salir?', // message
-                cleanSession(), // callback to invoke with index of button pressed
+                onConfirmLogout(), // callback to invoke with index of button pressed
                 'Cerrar Aplicación', // title
                 ['Cancelar', 'Salir'] // buttonLabels
                 );
@@ -226,6 +226,12 @@ function cerrarSesion(){
             cleanSession();
         }
     }    
+}
+
+function onConfirmLogout(buttonIndex) {
+    if(buttonIndex == 2){
+        cleanSession();
+    }
 }
 
 function cleanSession(){

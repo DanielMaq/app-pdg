@@ -206,8 +206,20 @@ html body .ui-page a.blueBtn:active{
     float: none;
     right: 10%;
 }
+#menu li.username {
+    position: relative;
+    margin-bottom: 7px;
+}
 #menu li.username span:last-child{
     padding-left: 15px;
+}
+#menu li.username small {
+  text-align: center;
+  margin: 0 auto;
+  width: 100%;
+  position: absolute;
+  top: 39px;
+  left: 0px;
 }
 #menu li.username span {
     display: inline-block;
@@ -1156,7 +1168,7 @@ html body #contactDetailPage.ui-page a.blueBtn{
     padding-top: 60px;
 }
 .selectsContainer, #campaignPage .campaignSelector{
-    max-height: 0;
+     max-height: 83px;
     overflow: hidden;
     -webkit-transition: max-height 0.5s ease-in;
     -moz-transition: max-height 0.5s ease-in;

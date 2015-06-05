@@ -6,8 +6,8 @@
         <meta name="format-detection" content="telephone=no"/>
         <meta name="msapplication-tap-highlight" content="no"/>
         <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>-->
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, height=device-height">
-		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, height=device-height">
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
         <link rel="stylesheet" type="text/css" href="js/snap/snap.css"/>
         <link rel="stylesheet" type="text/css" href="css/fonts.css"/>
@@ -19,29 +19,32 @@
     </head>
     <body>
 
-    <div class="snap-content" id="snapContent" >
+        <div class="snap-content" id="snapContent" >
 
-        <div data-role="page" id="profilePage" data-theme="c">
+            <div data-role="page" id="profilePage" data-theme="c">
 
-            <div data-role="header" id="pageHeader">
-                <img src="./img/ico-menu.png" class="menuBtn"/>
-                <p class="title">Mis Datos</p>
-                <a href="home.html" class="home" data-role="none" rel="external"><img src="img/ico-home.png" /></a>
-                <ul id="menu" style="" class="slicknav_menu notShow">
-                    <li class="username"><span class="circle"></span> <img src="img/logo.png" width="200" /></li>
-                    <li><a href="contacts.html" class="" data-role="none" rel="external"><span class="icon contacts"></span> <span>Mis Contactos</span> </a></li>
-                    <!--<li><a href="#" class="" data-role="none" rel="external"><span class="icon msg"></span> <span>Mensajes</span> </a></li>-->
-                    <li><a href="campaign.html" class="" data-role="none" rel="external"><span class="icon camp"></span> <span>Mis Campañas</span> </a></li>
-                    <li><a href="reports.html" class="" data-role="none" rel="external"><span class="icon reports"></span> <span>Mis Reportes</span> </a></li>
-                    <li><a href="profile.html" class="active" data-role="none" rel="external"><span class="icon config"></span> <span>Configuración</span> </a></li>
-                    <li class="vSpace"></li>
-                    <li class="line"><hr /></li>
-                    <li class="bottom"><a href="#" class="btnExit"><span class="icon exit"></span> <span>Cerrar Sesión</span> </a></li>
-                </ul>
-            </div>
-            <div role="main" class="container">
-				<p class="loader"> Cargando <img src="img/ajax-loader.gif" /></p>
-                <div class="profileForm">
+                <div data-role="header" id="pageHeader">
+                    <img src="./img/ico-menu.png" class="menuBtn"/>
+                    <p class="title">Mis Datos</p>
+                    <a href="home.html" class="home" data-role="none" rel="external"><img src="img/ico-home.png" /></a>
+                    <ul id="menu" style="" class="slicknav_menu notShow">
+                        <li class="username">
+                            <span class="circle"></span>
+                            <img src="img/logo.png" width="200" /><small>Presencia Digital Gestionada</small>
+                        </li>
+                        <li><a href="contacts.html" class="" data-role="none" rel="external"><span class="icon contacts"></span> <span>Mis Contactos</span> </a></li>
+                        <!--<li><a href="#" class="" data-role="none" rel="external"><span class="icon msg"></span> <span>Mensajes</span> </a></li>-->
+                        <li><a href="campaign.html" class="" data-role="none" rel="external"><span class="icon camp"></span> <span>Mis Campañas</span> </a></li>
+                        <li><a href="reports.html" class="" data-role="none" rel="external"><span class="icon reports"></span> <span>Mis Reportes</span> </a></li>
+                        <li><a href="profile.html" class="active" data-role="none" rel="external"><span class="icon config"></span> <span>Configuración</span> </a></li>
+                        <li class="vSpace"></li>
+                        <li class="line"><hr /></li>
+                        <li class="bottom"><a href="#" class="btnExit"><span class="icon exit"></span> <span>Cerrar Sesión</span> </a></li>
+                    </ul>
+                </div>
+                <div role="main" class="container">
+                    <p class="loader"> Cargando <img src="img/ajax-loader.gif" /></p>
+                    <div class="profileForm">
                         <form novalidate="" id="theForm">
 
                             <h2>Datos de la Empresa</h2>
@@ -66,24 +69,24 @@
                         </div>
 
                         <a href="#" class="blueBtn save">Guardar Cambios</a>
-                </div>
+                    </div>
 
 
-            </div> <!-- /content -->
+                </div> <!-- /content -->
 
-        </div> <!-- /page -->
+            </div> <!-- /page -->
 
-    </div>
+        </div>
 
-    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-	<script type="text/javascript" src="js/jqueryUI/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/snap/snap.min.js"></script>
-    <script type="text/javascript" src="js/jssite.js"></script>
-    <script type="text/javascript" src="js/scriptProfile.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="js/jqueryUI/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/snap/snap.min.js"></script>
+        <script type="text/javascript" src="js/jssite.js"></script>
+        <script type="text/javascript" src="js/scriptProfile.js"></script>
 
-    <script src="js/jquery.slicknav.min.js"></script>
+        <script src="js/jquery.slicknav.min.js"></script>
     </body>
 </html>
