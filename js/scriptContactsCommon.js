@@ -54,8 +54,9 @@ $('#contactPage').live( 'pageinit',function() {
             setTimeout(function(){$('.showSelects').addClass('notShow')},100)
         }
     });
-
 });
+
+
 
 /**
  *
@@ -182,6 +183,7 @@ function showContacts(campId, isNew) {
         $resultsContainer.html(data);
     }
     createSwipes()
+
 }
 
 /**

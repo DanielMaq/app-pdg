@@ -1356,3 +1356,7 @@ html body #contactDetailPage.ui-page a.blueBtn{
 .swiper-container.read .name {
     color: #666 !important;
 }
+
+.nav-up {
+    top: -40px;
+}

@@ -453,6 +453,25 @@ $('a.home').on('touchstart', function () {
 
 $(document).ready(function () {
     $('body').fadeIn('slow');
+
+    if ($('#campaignPage').length != 0) return
+    // Bind the swiperightHandler callback function to the swipe event on div.box
+    var ts;
+    $(document).bind('touchstart', function (e){
+       ts = e.originalEvent.touches[0].clientY;
+       //$('#pageHeader').fadeOut();
+    });
+
+    $(document).bind('touchend', function (e){
+       var te = e.originalEvent.changedTouches[0].clientY;
+       if(ts > te+5){
+          $('#pageHeader').fadeOut();
+       }else if(ts < te-5){
+          setTimeout(function () {
+              $('#pageHeader').fadeIn();
+          }, 250);
+       }
+    });
 });
 
 function reloadPage(url)
