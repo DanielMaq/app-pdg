@@ -84,6 +84,8 @@ $(window).on( 'load',function(event){
             $('.selectsContainer').css('max-height','0');
             setTimeout(function(){$('.showSelects').addClass('notShow')},100)
         }
+
+        setTimeout(function(){calcHeightDinamic();},700)
     })
 
     progress(80, $('#progressBar'));
@@ -94,7 +96,24 @@ $(window).on( 'load',function(event){
         window.location.href = 'contacts.html#'+currentCampID;
     })
 
+    var supportsOrientationChange = "onorientationchange" in window,
+        orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+    window.addEventListener(orientationEvent, function() {
+        calcHeightDinamic();
+    }, false);
+
+    calcHeightDinamic();
 });
+var first = true;
+function calcHeightDinamic (){
+    if(first){
+        var $calc = $(window).height() - 60;
+        first = false
+    }else{
+        var $calc = $(window).height() - 60;
+    }
+    $('.container[role=main]').height($calc)
+}
 
 $(window).on('resize', function(){
     var firstCamp = $('.campaignSelector select option:first-child').attr('data-campId');
