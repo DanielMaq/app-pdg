@@ -216,7 +216,7 @@ function cerrarSesion(){
     //try {
         navigator.notification.confirm(
                 '¿Seguro deseas salir?', // message
-                onConfirmLogout(), // callback to invoke with index of button pressed
+                onConfirmLogout, // callback to invoke with index of button pressed
                 'Cerrar Aplicación', // title
                 ['Cancelar', 'Salir'] // buttonLabels
                 );
