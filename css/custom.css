@@ -216,10 +216,9 @@ html body .ui-page a.blueBtn:active{
 #menu li.username small {
   text-align: center;
   margin: 0 auto;
-  width: 100%;
   position: absolute;
   top: 39px;
-  left: 0px;
+  left: 67px;
 }
 #menu li.username span {
     display: inline-block;

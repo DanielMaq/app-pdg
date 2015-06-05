@@ -229,6 +229,7 @@ function cerrarSesion(){
 }
 
 function onConfirmLogout(buttonIndex) {
+    alert('buttonIndex: ' + buttonIndex);
     if(buttonIndex == 2){
         cleanSession();
     }
