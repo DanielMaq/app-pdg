@@ -21,8 +21,6 @@
     <preference name="ios-statusbarstyle" value="default"/>
     <preference name="detect-data-types" value="true"/>
     <preference name="exit-on-suspend" value="false"/>
-    <preference name="show-splash-screen-spinner" value="false"/>
-    <preference name="auto-hide-splash-screen" value="true"/>
     <preference name="EnableViewportScale" value="true"/>
     <preference name="MediaPlaybackRequiresUserAction" value="false"/>
     <preference name="AllowInlineMediaPlayback" value="false"/>
@@ -33,7 +31,6 @@
     <preference name="SuppressesIncrementalRendering" value="false"/>
     <preference name="android-minSdkVersion" value="8"/>
     <preference name="android-installLocation" value="internalOnly"/>
-    <preference name="SplashScreenDelay" value="5000"/>
     <preference name="ErrorUrl" value=""/>
     <preference name="BackgroundColor" value="#005C85"/>
     <preference name="KeepRunning" value="true"/>
@@ -49,6 +46,15 @@
     <gap:plugin name="com.phonegap.plugins.pushplugin"/>
     <gap:plugin name="org.apache.cordova.dialogs"/>
     <gap:plugin name="com.phonegap.plugin.statusbar"/>
+
+    <gap:plugin name="org.apache.cordova.splashscreen"/>
+    <preference name="SplashScreen" value="splash.png" />
+    <preference name="SplashScreenBackgroundColor" value="#005c85" />
+    <preference name="SplashScreenDelay" value="5000"/>
+    <preference name="FadeSplashScreen" value="false"/>
+    <preference name="ShowSplashScreenSpinner" value="false"/>
+
+    <gap:splash src="splash.png" />
     <gap:config-file platform="ios" parent="UIStatusBarHidden">
         <true/>
     </gap:config-file>

@@ -450,32 +450,8 @@ function swipedetect(el, callback) {
 $('a.home').on('touchstart', function () {
     window.location.href = 'home.html';
 })
-
 $(document).ready(function () {
     $('body').fadeIn('slow');
-
-    if ($('#campaignPage').length != 0) return;
-    // Bind the swiperightHandler callback function to the swipe event on div.box
-    var ts;
-    $(document).bind('touchstart', function (e){
-       ts = e.originalEvent.touches[0].clientY;
-       //$('#pageHeader').fadeOut();
-    });
-
-    $(document).bind('touchend', function (e){
-       var te = e.originalEvent.changedTouches[0].clientY;
-       if(ts > te+5){
-          $('#pageHeader').fadeOut();
-          $('#pageHeader #menu').hide();
-       }else if(ts < te-5){
-          setTimeout(function () {
-              $('#pageHeader').fadeIn();
-              setTimeout(function () {
-                    $('#pageHeader #menu').show();
-                }, 500);
-          }, 1000);
-       }
-    });
 });
 
 function reloadPage(url)

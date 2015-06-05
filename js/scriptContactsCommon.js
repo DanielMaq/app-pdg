@@ -48,15 +48,28 @@ $('#contactPage').live( 'pageinit',function() {
     $('.showSelects').on('touchend',function(){
         if($(this).hasClass('notShow')){
             $('.campaignSelector').css('max-height','83px');
-            setTimeout(function(){$('.showSelects').removeClass('notShow')},100)
+            setTimeout(function(){$('.showSelects').removeClass('notShow');},100);
+
         }else{
             $('.campaignSelector').css('max-height','0');
             setTimeout(function(){$('.showSelects').addClass('notShow')},100)
         }
+
+        setTimeout(function(){calcHeightDinamic();},700)
     });
+    var supportsOrientationChange = "onorientationchange" in window,
+        orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
+    window.addEventListener(orientationEvent, function() {
+        calcHeightDinamic();
+    }, false);
+
+    calcHeightDinamic();
 });
 
-
+function calcHeightDinamic (){
+    var $calc = $(window).height() - $('.campaignSelector').height() - 60;
+    $('.container[role=main]').height($calc)
+}
 
 /**
  *
