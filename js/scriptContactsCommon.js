@@ -2,7 +2,6 @@ var contactos = null;
 var currentCamp;
 
 $('#contactPage').live( 'pageinit',function() {
-
     $('p.loader').show();
 
     setHeights(1);

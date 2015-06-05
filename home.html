@@ -6,51 +6,63 @@
         <meta name="format-detection" content="telephone=no"/>
         <meta name="msapplication-tap-highlight" content="no"/>
         <!--<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi"/>-->
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, height=device-height">
-		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, height=device-height">
+        <link rel="stylesheet" type="text/css" href="css/index.css"/>
         <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css"/>
         <link rel="stylesheet" type="text/css" href="css/fonts.css"/>
         <link rel="stylesheet" type="text/css" href="css/custom.css"/>
 
         <title>PDG - Telefonica</title>
 
-		<style>
-			#menu li {
-				padding: 6px 0 !important;
-			}
-		</style>
+        <style>
+            #menu li {
+                padding: 6px 0 !important;
+            }
+        </style>
 
     </head>
     <body>
 
-    <div data-role="page" id="homePage" data-theme="c">
+        <div data-role="page" id="homePage" data-theme="c">
 
-        <div role="main" class="container">
+            <div role="main" class="container">
 
-            <img src="img/logo.png"/>
+                <img src="img/logo.png"/>
+                <p id="bajada" align="center" class="font_2">Presencia Digital Gestionada</p>
 
-			<ul id="menu" style="list-style: none;max-width: 400px;margin:0 auto;">
-				<li><a href="contacts.html" class="active" data-role="none" rel="external"><span class="icon contacts"></span> <span style="font-size: 20px">Mis Contactos</span> </a></li>
-				<!--<li><a href="#" class="" data-role="none" rel="external"><span class="icon msg"></span> <span>Mensajes</span> </a></li>-->
-				<li><a href="campaign.html" class="" data-role="none" rel="external"><span class="icon camp"></span> <span style="font-size: 20px">Mis Campañas</span> </a></li>
-				<li><a href="reports.html" class="" data-role="none" rel="external"><span class="icon reports"></span> <span style="font-size: 20px">Mis Reportes</span> </a></li>
-				<li><a href="profile.html" class="" data-role="none" rel="external"><span class="icon config"></span> <span style="font-size: 20px">Configuración</span> </a></li>
-				<li class="vSpace"></li>
-				<!--<li class="line" style="width: 90%"><hr /></li>-->
-				<!--<li class="bottom"><a href="#" class="btnExit"><span class="icon exit"></span> <span style="font-size: 20px">Cerrar Sesión</span> </a></li>-->
-			</ul>
+                <ul id="menu" style="list-style: none;max-width: 400px;margin:0 auto;">
+                    <li><a href="contacts.html" class="active" data-role="none" rel="external"><span class="icon contacts"></span> <span style="font-size: 20px">Mis Contactos</span> </a></li>
+                    <!--<li><a href="#" class="" data-role="none" rel="external"><span class="icon msg"></span> <span>Mensajes</span> </a></li>-->
+                    <li><a href="campaign.html" class="" data-role="none" rel="external"><span class="icon camp"></span> <span style="font-size: 20px">Mis Campañas</span> </a></li>
+                    <li><a href="reports.html" class="" data-role="none" rel="external"><span class="icon reports"></span> <span style="font-size: 20px">Mis Reportes</span> </a></li>
+                    <li><a href="profile.html" class="" data-role="none" rel="external"><span class="icon config"></span> <span style="font-size: 20px">Configuración</span> </a></li>
+                    <li class="vSpace"></li>
+                    <li class="line" style="width: 90%"><hr /></li>
+                    <li class="bottom"><a href="#" class="btnExitHome"><span class="icon exit"></span> <span style="font-size: 20px">Cerrar Sesión</span> </a></li>
+                </ul>
 
-        </div> <!-- /content -->
+            </div> <!-- /content -->
 
-    </div> <!-- /page -->
+        </div> <!-- /page -->
 
 
-    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="js/PushNotification.js"></script>
-    <script type="text/javascript" src="js/jssite.js"></script>
-    <script type="text/javascript" src="js/scriptHome.js"></script>
+        <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/PushNotification.js"></script>
+        <script type="text/javascript" src="js/jssite.js"></script>
+        <script type="text/javascript" src="js/scriptHome.js"></script>
+        
+        <script type="text/javascript">
+            $(document).ready(function (){
+
+                $('#menu .btnExitHome').on('touchstart', function (e) {
+                    e.preventDefault();
+                    cerrarSesion();
+                });
+            });
+            
+        </script>
     </body>
 </html>

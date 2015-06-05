@@ -34,6 +34,7 @@ body{
     text-rendering: optimizeLegibility;
     -webkit-tap-highlight-color: transparent; /* To remove it */
     -webkit-overflow-scrolling: touch;
+    display: none;
 }
 body * {
     -webkit-box-shadow: none !important;
@@ -485,9 +486,13 @@ html body .ui-page a.blueBtn:active{
 }
 #homePage img{
     display: block;
-    margin: 48px auto;
+    margin: 48px auto 20px;
     max-width: 300px;
     width: 80%;
+}
+#homePage #bajada{
+    display: block;
+    margin: 0px auto 40px;
 }
 #homePage .homeMenu{
     margin-top: 100px;
@@ -667,7 +672,7 @@ input.campo{
     cursor: pointer;
 }
 #contactPage .campaignSelector {
-    max-height: 0;
+    max-height: 83px;
     -webkit-transition: max-height 0.5s ease-in;
     -moz-transition: max-height 0.5s ease-in;
     -ms-transition: max-height 0.5s ease-in;
