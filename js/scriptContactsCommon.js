@@ -189,7 +189,6 @@ function showContacts(campId, isNew) {
  */
 function createSwipes(){
     // Create swippper
-    return;
     var listadiv = $('.swiper-container');
     $.each(listadiv, function (){
         var mySwiper = new Swiper(this,{
