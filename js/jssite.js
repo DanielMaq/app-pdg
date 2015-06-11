@@ -330,7 +330,7 @@ function loadCampaignSelector() {
     $('.campaignSelector select option').remove();
 
 
-    $select.append('<option data-campId="Todas" value="0">Todas</option>');
+    if ($('div#contactPage').length > 0) $select.append('<option data-campId="Todas" value="0">Todas</option>');
     $.each(camps, function (key, value) {
         if (key == 0) {
             $('#select-3-button span').text('Campaña ' + value.campaignID);
