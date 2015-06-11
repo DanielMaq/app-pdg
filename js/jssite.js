@@ -330,6 +330,7 @@ function loadCampaignSelector() {
     $('.campaignSelector select option').remove();
 
 
+    $select.append('<option data-campId="Todas" value="0">Todas</option>');
     $.each(camps, function (key, value) {
         if (key == 0) {
             $('#select-3-button span').text('Campaña ' + value.campaignID);
@@ -345,7 +346,12 @@ function loadCampaignSelector() {
 
 function selectCampaignSelector(id) {
     var $select = $('.campaignSelector select');
-    $('#select-3-button span').text('Campaña ' + id);
+    if (id == 'Todas') {
+        $('#select-3-button span').text(id);
+    } else {
+        $('#select-3-button span').text('Campaña ' + id);
+    }
+    
 
     $select.val(id)
 }

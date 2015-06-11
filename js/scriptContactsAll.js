@@ -1,3 +1,19 @@
+var pagenew = false;
+
+/**
+ *
+ * @param campId
+ */
+function getAllMsgs() {
+    $('.results').empty();
+    showAllContacts(false);
+    $('p.loader').hide();
+    $('.results').show();
+    $('.wrapperContent').show();
+}
+
+
+
 /**
  *
  * @param campId

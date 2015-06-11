@@ -1,5 +1,7 @@
 var contactos = null;
 var currentCamp;
+var paginator = 30;
+var itemreload = paginator;
 
 $('#contactPage').live( 'pageinit',function() {
     $('p.loader').show();
@@ -22,7 +24,14 @@ $('#contactPage').live( 'pageinit',function() {
         setCampId(currentCamp);
     }
     selectCampaignSelector(currentCamp);
-    getCampaingMsgs(currentCamp);
+    if (currentCamp == 'Todas')
+    {
+        /* Traemos todas las campañas y llamamos a todos sus mensajes */
+        getAllMsgs();
+    } else {
+        getCampaingMsgs(currentCamp);
+    }
+    
 
     $('.campaignSelector select').on('change', function(){
         setCampId($(this).find('option:selected').attr('data-campId'));
@@ -64,6 +73,15 @@ $('#contactPage').live( 'pageinit',function() {
     }, false);
 
     calcHeightDinamic();
+    
+    
+    
+    $('.container').on('scroll', function (){
+        var total = $('.container')[0].scrollHeight - $('.container').scrollTop() - $('.container').height();
+        if (total < 10) reload();
+    });
+    
+    
 });
 
 function calcHeightDinamic (){
@@ -71,17 +89,6 @@ function calcHeightDinamic (){
     $('.container[role=main]').height($calc)
 }
 
-/**
- *
- * @param campId
- */
-//function getCampaingMsgs1(campId) {
-//    $('.results').empty();
-//    showContacts(campId);
-//    $('p.loader').hide();
-//    $('.results').show();
-//    $('.wrapperContent').show();
-//}
 
 /**
  *
@@ -121,6 +128,9 @@ function parseDate($date) {
  * @param isNew
  */
 function showContacts(campId, isNew) {
+    var desde = 0;
+    var hasta = itemreload;
+
     //Anchos para generar los swipes
     var winW = $(window).width();
     var psW = winW-80;
@@ -163,8 +173,11 @@ function showContacts(campId, isNew) {
         var msgStatuses = localStorage.getItem('messagesStatus');
         msgStatuses = msgStatuses != null ? JSON.parse(msgStatuses) : [];
 
-        var to = isNew ? (contactos.length <= 30 ? contactos.length : 30) : contactos.length;
-        for (var i = 0; i <= to; i++) {
+        //var to = isNew ? (contactos.length <= 30 ? contactos.length : 30) : contactos.length;
+        
+        var ini = (itemreload - paginator);
+        var to = (contactos.length <= itemreload ? contactos.length : itemreload);
+        for (var i = ini; i < to; i++) {
             var contact = contactos[i];
 
             if (contact != null && contact.contactID != undefined) {
@@ -193,11 +206,105 @@ function showContacts(campId, isNew) {
         }
 
         data += '</ul></div>';
-        $resultsContainer.html(data);
+        $resultsContainer.append(data);
+    }
+    createSwipes()
+}
+
+
+/**
+ *
+ * @param campId
+ * @param isNew
+ */
+function showAllContacts(isNew) {
+    
+    var desde = 0;
+    var hasta = itemreload;
+    
+    
+    //Anchos para generar los swipes
+    var winW = $(window).width();
+    var psW = winW-80;
+    var psiW = winW-160;
+    var asW = winW;
+
+    var _localMsgs = (isNew ? 'allmsgs_news' : 'allmsgs');
+
+    // Contenedor de resultados
+    var $resultsContainer = $('.results');
+    var sLocalContacts = localStorage.getItem(_localMsgs);
+    //var aLocalContacts = sLocalContacts != null ? JSON.parse(sLocalContacts) : [];
+
+    contactos = JSON.parse(sLocalContacts);
+
+    if (contactos == null) {
+        $resultsContainer.html('<p class="noResults">No se han encontrado resultados.</p>');
+    } else {
+        var data = '<div class="listContact"><ul>';
+
+        var msgStatuses = localStorage.getItem('messagesStatus');
+        msgStatuses = msgStatuses != null ? JSON.parse(msgStatuses) : [];
+
+
+        var ini = (itemreload - paginator);
+        var to = itemreload;
+        $.each(contactos, function (key, value) {
+            var i = key;
+            if (key >= ini && key < to) {
+                var contact = value;
+
+                if (key == 0)
+                {
+                    localStorage.setItem('setallultimo', contact.contactID);
+                }
+
+                if (contact != null && contact.contactID != undefined) {
+                    var date = generateDate(contact.date); //obtenemos la fecha en el formato adecuado
+                    var isRead = (!in_array(contact.contactID, msgStatuses)) ? '' : 'read';
+
+                    data += '<li data-msgId="'+i+'">';
+
+                    data += '<div class="swiper-container '+ isRead +'" data-snap-ignore="1" data-contactId="'+contact.contactID+'" data-msgId="'+i+'">';
+                    data += '<div class="swiper-wrapper">' //Abrimos swiper
+
+                    data += '<div class="swiper-slide contactInfo" style="width:'+psW+'px">' //1er slider -> contactInfo
+                    data += '<div class="info" style="width:'+psiW+'px;">' +
+                    '<div class="name">'+contact.nombre+'</div>' +
+                    '<div class="campaign">Campaña '+contact.campaignID+', '+date+'</div>' +
+                    '</div>'; // Contacto INFO --> Nombre, campaña y fecha
+                    data += '</div>' //cierre 1er slider
+
+                    data += '<div class="swiper-slide contactAction" style="width: '+asW+'px;">' + //2do slider -> contactInfo
+                    '<div class="arrow" style=""><span class="circle"><i class="fa fa-angle-left"></i></span></div>' +
+                    '<div class="action1" style="">Responder<span class="pencil"><i class="fa fa-pencil"></i></span></div>' +
+                    '</div>';
+                    data += '</div></div>'; //cierre swiper-container & swiper-wrapper
+                    data += '</li>';
+                }
+            }
+        });
+
+        data += '</ul></div>';
+        $resultsContainer.append(data);
     }
     createSwipes()
 
 }
+
+
+function reload(){
+    itemreload = itemreload + paginator;
+
+    if (currentCamp == 'Todas')
+    {
+        showAllContacts(pagenew);
+    } else {
+        showContacts(currentCamp, pagenew);
+    }
+    calcHeightDinamic();
+}
+
 
 /**
  *
@@ -213,6 +320,11 @@ function createSwipes(){
             width: '100%'
         });
     });
+    
+    
+    //$('.container')[0].scrollHeight
+    
+    
 }
 
 /**

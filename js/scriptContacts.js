@@ -1,3 +1,48 @@
+var pagenew = true;
+
+/**
+ *
+ * @param campId
+ */
+function getAllMsgs() {
+    var uID = localStorage.getItem('userID');
+    var page = 0;
+    var ultimoID = localStorage.getItem('setallultimo');
+
+    $.ajax({
+        url: webServicesUrl+"contact.php",
+        type:'POST',
+        async: true,
+        data:{
+            uID : uID,
+            page: page,
+            ultimoID: ultimoID,
+        },
+        success: function (result) {
+            var r = $.parseJSON(result);
+            if (r.data && r.data.status && r.data.status == 'success' && r.data[0] != undefined) {
+                var nuevos = r.data;
+
+                var viejos = localStorage.getItem('allmsgs');
+                viejos =  viejos != null ? JSON.parse(viejos) : [];
+                var todos = array_merge(nuevos, viejos);
+                localStorage.setItem('allmsgs', JSON.stringify(todos));
+                localStorage.setItem('allmsgs_news', JSON.stringify(nuevos));
+            }
+        },
+        complete: function(){
+            $('.results').empty();
+            showAllContacts(true);
+            $('p.loader').hide();
+            $('.results').show();
+            $('.wrapperContent').show();
+        }
+    });
+}
+
+
+
+
 /**
  *
  * @param campId
