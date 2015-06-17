@@ -26,6 +26,7 @@ $('#contactAnswerPage').live( 'pageinit',function(event){
 
     data = JSON.parse(contact);
     $('.name').html(data.nombre + ' ' + data.apellido);
+    $('.mail').html(data.email);
 
     $('#contactAnswerPage .sendContactForm .blueBtn').on('click', function(e) { //LOGIN
         e.preventDefault();
