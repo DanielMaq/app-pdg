@@ -23,7 +23,7 @@ function registerDevice() {
         if (device.platform == 'android' || device.platform == 'Android' || device.platform == 'amazon-fireos' ) {
             /* Registro si es android */
             /* 4r */
-            pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
+            //pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
             /* Adverit */
             pushNotification.register(successHandler, errorHandler, {"senderID":"416515594811","ecb":"onNotification"});
         } else {
