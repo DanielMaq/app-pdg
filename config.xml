@@ -4,19 +4,15 @@
         id="app.pdg.com"
         versionCode=""
         version="1.0.0">
-    <name>PDG app</name><description>PDG app</description>
-    <author href="" email="test.and.development@gmail.com">WebFactory DevTeam</author>
-   
-    <!--
-       If you do not want any permissions to be added to your app, add the
-       following tag to your config.xml; you will still have the INTERNET
-       permission on your app, which PhoneGap requires.
-    -->
-    <preference name="permissions"                value="none"/> 
-    
+    <name>PDG app</name>
+    <description>
+        PDG app
+    </description>
+    <author href="" email="test.and.development@gmail.com">
+        WebFactory DevTeam
+    </author>
     <preference name="Fullscreen" value="true"/>
     <preference name="phonegap-version" value="3.7.0"/>
-    
     <preference name="orientation" value="default"/>
     <preference name="target-device" value="universal"/>
     <preference name="webviewbounce" value="true"/>
