@@ -22,7 +22,10 @@ function registerDevice() {
         pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android' || device.platform == 'amazon-fireos' ) {
             /* Registro si es android */
-            pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
+            /* 4r */
+            //pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
+            /* Adverit */
+            pushNotification.register(successHandler, errorHandler, {"senderID":"416515594811","ecb":"onNotification"});
         } else {
             /* Registro si es ios */
             pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});

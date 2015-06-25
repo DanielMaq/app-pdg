@@ -11,6 +11,7 @@
     <author href="" email="test.and.development@gmail.com">
         WebFactory DevTeam
     </author>
+    <preference name="permissions" value="none"/>
     <preference name="Fullscreen" value="true"/>
     <preference name="phonegap-version" value="3.7.0"/>
     <preference name="orientation" value="default"/>
