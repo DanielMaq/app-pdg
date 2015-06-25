@@ -71,7 +71,7 @@ function onNotification(e) {
                 // here is where you might want to send it the regID for later use.
                 console.log("regID = " + e.regid);
                 $.ajax({
-                    url: 'http://projectsunderdev.com/app-pdg/ws/registerDevice.php',
+                    url: webServicesUrl + 'registerDevice.php',
                     type:'POST',
                     data:{newDeviceID: e.regid, newUserId: localStorage.getItem('userID'), platform: 'gcm'},
                     success:function(result){},
@@ -113,7 +113,7 @@ function tokenHandler (result) {
     // Your iOS push server needs to know the token before it can push to this device
     // here is where you might want to send it the token for later use.
     $.ajax({
-        url: 'http://projectsunderdev.com/app-pdg/ws/registerDevice.php',
+        url: webServicesUrl + 'registerDevice.php',
         type:'POST',
         data:{newDeviceID: result, newUserId: localStorage.getItem('userID'), platform: 'apns'},
         success:function(result){},

@@ -1,7 +1,7 @@
 /*
  * Variables
  **/
-var webServicesUrl = 'http://projectsunderdev.com/app-pdg/';
+var webServicesUrl = 'http://gpoadmin.adverit.com/webservices/application/';
 
 /*
  * Boton Volver Cerrar app.
