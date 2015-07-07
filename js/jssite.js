@@ -193,41 +193,24 @@ function menuCreator() {
     $('.slicknav_menu .btnExit').on('touchstart', function (e) {
         e.preventDefault();
         cerrarSesion();
-        /*
-        try {
-            navigator.notification.confirm(
-                    '¿Seguro deseas salir?', // message
-                    onConfirm(), // callback to invoke with index of button pressed
-                    'Cerrar Aplicación', // title
-                    ['Cancelar', 'Salir'] // buttonLabels
-                    );
-        } catch (err) {
-            var r = confirm('¿Seguro deseas salir?');
-            if (r == true) {
-                window.location.href = "login.html"
-            }
-        }
-        */
     });
 }
 
 
 function cerrarSesion(){
-    //try {
+    try {
         navigator.notification.confirm(
                 '¿Seguro deseas salir?', // message
                 onConfirmLogout, // callback to invoke with index of button pressed
                 'Cerrar Aplicación', // title
                 ['Cancelar', 'Salir'] // buttonLabels
                 );
-        /*
     } catch (err) {
         var r = confirm('¿Seguro deseas salir?');
         if (r == true) {
             cleanSession();
         }
     }    
-    */
 }
 
 function onConfirmLogout(buttonIndex) {

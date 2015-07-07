@@ -16,16 +16,12 @@ $('#homePage').live( 'pageinit',function(event){
 });
 
 function registerDevice() {
-
     try
     {
         pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android' || device.platform == 'amazon-fireos' ) {
             /* Registro si es android */
-            /* 4r */
-            //pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
-            /* Adverit */
-            pushNotification.register(successHandler, errorHandler, {"senderID":"416515594811","ecb":"onNotification"});
+            pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
         } else {
             /* Registro si es ios */
             pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
@@ -33,9 +29,9 @@ function registerDevice() {
     }
     catch(err)
     {
-        txt="There was an error on this page.\n\n";
-        txt+="Error description: " + err.message + "\n\n";
-        showMessage(txt);
+        //txt="There was an error on this page.\n\n";
+        //txt+="Error description: " + err.message + "\n\n";
+        //showMessage(txt);
     }
 }
 
@@ -103,11 +99,11 @@ function onNotification(e) {
             break;
 
         case 'error':
-            showMessage(e.msg);
+            showMessage('Ha ocurrido un error inesperado');
             break;
 
         default:
-            showMessage('Unknown, an event was received and we do not know what it is');
+            //showMessage('Unknown, an event was received and we do not know what it is');
             break;
     }
 }
@@ -131,7 +127,7 @@ function successHandler (result) {
 }
 
 function errorHandler (error) {
-    showMessage('Error: ' + error);
+    //showMessage('Error: ' + error);
 }
 function onConfirm(buttonIndex) {
     if(buttonIndex == 1){

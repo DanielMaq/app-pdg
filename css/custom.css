@@ -437,6 +437,7 @@ html body .ui-page a.blueBtn:active{
     text-align: center;
     top: 0;
     width: 300px;
+    z-index: 999;
 }
 #thePopUp .popContainer{
     background: none repeat scroll 0 0 #0291c8;
@@ -981,7 +982,6 @@ input.campo{
     font-size: 22px;
     margin: 0;
 }
-#contactAnswerPage .senderData .mail,
 #contactDetailPage .senderData .mail,
 #contactDetailPage .senderData .phone{
     background: url("../img/ico-envelop.png") no-repeat scroll 0 center / 26px auto transparent;
@@ -1067,14 +1067,8 @@ html body #contactDetailPage.ui-page a.blueBtn{
     width: 90%;
 }
 #contactAnswerPage .sendContactForm .campo.textMsg{
+    border: 1px solid #939598;
     min-height: 220px;
-    background: none no-repeat scroll 0 0 #ffffff;
-    border: none !important;
-    color: #404041;
-    margin-bottom: 0px;
-}
-#contactAnswerPage .sendContactForm .campo.textMsg:focus {
-    border: none !important;
 }
 #contactAnswerPage .sendContactForm .ui-btn{
     border: medium none;
@@ -1351,13 +1345,10 @@ html body #contactDetailPage.ui-page a.blueBtn{
     width: 0;
     background-color: #F7A35C;
 }
+#contactDetailPage .container,
+#contactAnswerPage .container
 #profilePage .container{
     padding-top: 60px;
-}
-
-#contactDetailPage .container,
-#contactAnswerPage .container {
-    padding-top: 40px;
 }
 
 .swiper-container.read {

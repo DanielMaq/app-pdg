@@ -26,7 +26,7 @@ $('#loginPage').live( 'pageinit',function(event){
             $('input.username').focus();
             return;
         }else{
-            sendOk = 1;
+            sendOk = sendOk + 1;
         }
 
         if($.trim(pass).length === 0){
@@ -34,7 +34,7 @@ $('#loginPage').live( 'pageinit',function(event){
             $('input.password').focus();
             return;
         }else{
-            sendOk = 1;
+            sendOk = sendOk + 1;
         }
 
         if(!validateEmail(username)){
@@ -42,10 +42,9 @@ $('#loginPage').live( 'pageinit',function(event){
             $('input.username').focus();
             return;
         }else{
-            sendOk = 1;
+            sendOk = sendOk + 1;
         }
-        sendOk = 1;
-        if(sendOk){
+        if(sendOk == 3){
             //TODO: borrar datos fijos
 
             /*

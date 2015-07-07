@@ -486,7 +486,7 @@ function loadGraph3(torta){
 
                         var span = '<span id="pieChartInfoText" style="position:absolute; text-align:center;z-index:9">';
                         span += '<span style="font-size: 25px;color:#000">'+$totales+'</span>';
-                        span += '<span style="font-size: 10px !important;color:#000">CONSULTAS</span>';
+                        span += '<span style="font-size: 13px;color:#000">VISITAS</span>';
                         span += '</span>';
 
                         $("#addText").append(span);
@@ -501,7 +501,7 @@ function loadGraph3(torta){
             },
             plotOptions: {
                 pie: {
-                    innerSize: '98%',
+                    innerSize: '85%',
                     allowPointSelect: true,
                     cursor: 'pointer',
                     dataLabels: {
