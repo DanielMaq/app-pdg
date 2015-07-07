@@ -3,14 +3,16 @@
         xmlns:gap="http://phonegap.com/ns/1.0"
         id="app.pdg.com"
         versionCode=""
-        version="1.0.0">
-    <name>PDG app</name>
+        version="2.0.0">
+    <name>PDG</name>
     <description>
-        PDG app
+        PDG
     </description>
     <author href="" email="test.and.development@gmail.com">
         WebFactory DevTeam
     </author>
+
+    <preference name="permissions" value="none"/>
     <preference name="Fullscreen" value="true"/>
     <preference name="phonegap-version" value="3.7.0"/>
     <preference name="orientation" value="default"/>
@@ -46,6 +48,7 @@
     <gap:plugin name="com.phonegap.plugins.pushplugin"/>
     <gap:plugin name="org.apache.cordova.dialogs"/>
     <gap:plugin name="com.phonegap.plugin.statusbar"/>
+    <gap:plugin name="de.appplant.cordova.plugin.badge" version="0.6.4" />
 
     <gap:plugin name="org.apache.cordova.splashscreen"/>
     <preference name="SplashScreen" value="splash.png" />

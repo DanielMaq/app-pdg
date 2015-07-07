@@ -19,7 +19,7 @@ function registerDevice() {
     try
     {
         pushNotification = window.plugins.pushNotification;
-        if (device.platform == 'android' || device.platform == 'Android' || device.platform == 'amazon-fireos' ) {
+        if (device.platform == 'android' || device.platform == 'Android' ) {
             /* Registro si es android */
             pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
         } else {
@@ -123,6 +123,12 @@ function tokenHandler (result) {
 }
 
 function successHandler (result) {
+    //Aquí deberíamos sumar un badge
+    try{
+        cordova.plugins.notification.badge.increase();
+    }catch (err){
+
+    }
     //showMessage('Success: ' + result);
 }
 
