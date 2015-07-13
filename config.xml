@@ -10,6 +10,7 @@ PDG		</description>
 		<author href="" email="test.and.development@gmail.com">
 WebFactory DevTeam
 		</author>
+		<preference name='phonegap-version' value='cli-5.1.1' />
 		<preference name="orientation" value="default" />
 		<preference name="fullscreen" value="false" />
 		<preference name="target-device" value="universal" />
@@ -50,10 +51,13 @@ WebFactory DevTeam
 		<gap:plugin name="com.phonegap.plugins.pushplugin" />
 		<gap:plugin name="com.phonegap.plugin.statusbar"  />
 		<gap:plugin name="de.appplant.cordova.plugin.badge"  version="0.6.4" />
+		<gap:plugin name="com.indigoway.cordova.whitelist.whitelistplugin" version="1.1.1" />
+
 		<icon src="img/icon.png" />
 		<gap:splash src="splash.png" />
 
 		<preference name="permissions" value="none"/>
 		
         <access origin="*" />
+		<allow-navigation href="*" />
 	</widget>
