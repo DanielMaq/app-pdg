@@ -1,7 +1,8 @@
 /*
  * Variables
  **/
-var webServicesUrl = 'http://gpoadmin.adverit.com/webservices/application/';
+//var webServicesUrl = 'http://gpoadmin.adverit.com/webservices/application/';
+var webServicesUrl = 'http://projectsunderdev.com/app-pdg/';
 
 /*
  * Boton Volver Cerrar app.
@@ -220,7 +221,14 @@ function onConfirmLogout(buttonIndex) {
 }
 
 function cleanSession(){
-    localStorage.clear();
+    localStorage.removeItem('userData');
+    localStorage.removeItem('userID');
+    localStorage.removeItem('ultimaVisita');
+    localStorage.removeItem('reports');
+    localStorage.removeItem('allmsgs');
+    localStorage.removeItem('allmsgs_news');
+    localStorage.removeItem('setallultimo');
+    //localStorage.clear();
     sessionStorage.clear();
     window.location.href = "login.html";
 }
@@ -449,3 +457,21 @@ function reloadPage(url)
         window.location.href = url;
     });
 }
+
+document.addEventListener("pause", onPause, false);
+document.addEventListener("deviceready", onReady, false);
+document.addEventListener("resume", onResume, false);
+
+function onPause() {
+    // Handle the pause event
+}
+function onResume() {
+    cordova.plugins.notification.badge.clear();
+}
+function onReady() {
+    cordova.plugins.notification.badge.clear();
+    cordova.plugins.notification.badge.registerPermission(function (granted) {
+        // console.log('Permission has been granted: ' + granted);
+    });
+}
+

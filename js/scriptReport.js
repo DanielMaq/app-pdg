@@ -90,7 +90,7 @@ $(window).on( 'load',function(event){
 
     progress(80, $('#progressBar'));
 
-    currentCampID = $('.campaignSelector select option:first-child').attr('data-campId');
+    currentCampID = $('.campaignSelector select option:first-child').val();
 
     $('.infoBlock.clientes').on('tap',function(e,data){
         window.location.href = 'contacts.html#'+currentCampID;
@@ -215,10 +215,9 @@ function getCampaingReport(campId){
                 }
             },
             complete: function (result) {
-                showReports(campId, type);
+                //showReports(campId, type);
             }, 
             error:function(error){
-                
                 showReports(campId, type);
                 console.log(JSON.stringify(error));
             }
@@ -339,20 +338,15 @@ function showReports(campId, type)
             arrayVisitas[index] = [fechaCreado, parseInt(this.visitas) ];
             arrayConsultas[index] = [fechaCreado, parseInt(this.consultas) ];
         });
-
-        setTimeout(function() {
             showInfoBlock(impresiones, visitas, consultas);
-            $('.loader, .noResults').hide();
             $('.results').show();
             loadGraph1(arrayVisitas, arrayConsultas);
             loadGraph2(r.data.total_deuda, r.data.progreso_mes);
             loadGraph3(r.data.torta);
-        }, 1500 );
     } else {
-        $('.loader, .results').hide();
         $('.noResults').show();
     }
-    $('.loader, .results').hide();
+    $('.loader').hide();
 }
 
 

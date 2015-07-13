@@ -1,5 +1,12 @@
 $('#loginPage').live( 'pageinit',function(event){
 
+    if(localStorage.getItem('lastlogin') != null ){
+        var $autoLogin = $.parseJSON(localStorage.getItem('lastlogin'))
+        console.log($autoLogin);
+        $('input.username').val($autoLogin.user)
+        $('input.password').val($autoLogin.pw)
+    }
+
     is_logged();
 
     setHeights();
@@ -67,6 +74,8 @@ $('#loginPage').live( 'pageinit',function(event){
                         //showError('Ingresando...', 1);
                         localStorage.setItem("userID", r.data[0].userID);
                         window.location.href="home.html";
+                        var $lastlogin = '{"user": "'+$('input.username').val()+'", "pw": "'+$('input.password').val()+'"}';
+                        localStorage.setItem('lastlogin', $lastlogin);
                     }else{
                         showError(r.data.message);
                         $('.innerContainer *').show()

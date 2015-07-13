@@ -53,6 +53,7 @@ var PushNotification = function() {
 		}
 
 		cordova.exec(successCallback, successCallback, "PushPlugin", "setApplicationIconBadgeNumber", [{badge: badge}]);
+		cordova.plugins.notification.badge.increase();
     };
 
 //-------------------------------------------------------------------
