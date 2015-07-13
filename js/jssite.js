@@ -458,19 +458,23 @@ function reloadPage(url)
     });
 }
 
-document.addEventListener("pause", onPause, false);
 document.addEventListener("deviceready", onReady, false);
-document.addEventListener("resume", onResume, false);
 
 function onPause() {
-    // Handle the pause event
+    window.plugin.backgroundMode.enable();
 }
 function onResume() {
-    cordova.plugins.notification.badge.clear();
+    window.plugins.notification.badge.clear();
+    window.plugin.backgroundMode.disable();
 }
 function onReady() {
-    cordova.plugins.notification.badge.clear();
-    cordova.plugins.notification.badge.registerPermission(function (granted) {
+    document.addEventListener("resume", onResume, false);
+    document.addEventListener("pause", onPause, false);
+
+    window.plugin.backgroundMode.disable();
+
+    window.plugins.notification.badge.clear();
+    window.plugins.notification.badge.registerPermission(function (granted) {
         // console.log('Permission has been granted: ' + granted);
     });
 }

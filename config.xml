@@ -51,7 +51,8 @@ WebFactory DevTeam
 		<gap:plugin name="com.phonegap.plugins.pushplugin" />
 		<gap:plugin name="com.phonegap.plugin.statusbar"  />
 		<gap:plugin name="de.appplant.cordova.plugin.badge"  version="0.6.4" />
-
+		<gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.4" />
+	
 		<icon src="img/icon.png" />
 		<gap:splash src="splash.png" />
 
