@@ -48,12 +48,13 @@ WebFactory DevTeam
 		<gap:plugin name="org.apache.cordova.dialogs"  />
 		<gap:plugin name="org.apache.cordova.media"  />
 		<gap:plugin name="org.apache.cordova.splashscreen"  />
+		<gap:plugin name="com.phonegap.plugins.pushplugin" />
+		<gap:plugin name="com.phonegap.plugin.statusbar"  />
+		<gap:plugin name="de.appplant.cordova.plugin.badge"  version="0.6.4" />
 		<icon src="img/icon.png" />
 		<gap:splash src="splash.png" />
 
 		<preference name="permissions" value="none"/>
-		<gap:plugin name="com.phonegap.plugins.pushplugin" />
-		<gap:plugin name="com.phonegap.plugin.statusbar"  />
-		<gap:plugin name="de.appplant.cordova.plugin.badge"  version="0.6.4" />
+		
         <access origin="*" />
 	</widget>
