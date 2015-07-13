@@ -54,8 +54,7 @@ function onNotificationAPN(e) {
     }
 
     if (e.badge) {
-        cordova.plugins.notification.badge.increase();
-        //pushNotification.setApplicationIconBadgeNumber(successHandler, e.badge);
+        pushNotification.setApplicationIconBadgeNumber(successHandler, e.badge);
     }
 }
 
@@ -124,14 +123,13 @@ function tokenHandler (result) {
 }
 
 function successHandler (result) {
-    document.addEventListener('deviceready', function () {
-        try{
-            cordova.plugins.notification.badge.increase();
-        }catch (err){
-
-        }
-    }, false);
     //Aquí deberíamos sumar un badge
+    try{
+        cordova.plugins.notification.badge.increase();
+    }catch (err){
+
+    }
+    //showMessage('Success: ' + result);
 }
 
 function errorHandler (error) {
@@ -139,7 +137,6 @@ function errorHandler (error) {
 }
 function onConfirm(buttonIndex) {
     if(buttonIndex == 1){
-        cordova.plugins.notification.badge.configure({ autoClear: Boolean });
         window.location.href="contacts.html";
     }
 }
