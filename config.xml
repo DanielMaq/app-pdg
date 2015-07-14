@@ -56,6 +56,10 @@ WebFactory DevTeam
 		<icon src="img/icon.png" />
 		<gap:splash src="splash.png" />
 
+		<gap:config-file platform="ios" parent="UIViewControllerBasedStatusBarAppearance" overwrite="true">
+			<false/>
+		</gap:config-file>
+
 		<preference name="permissions" value="none"/>
 		
         <access origin="*" />
