@@ -868,10 +868,10 @@ input.campo{
     left: 35px;
 }
 #contactPage .swiper-slide .info .name{
-    text-transform: capitalize;
+    text-transform: capitalize !important;
     color: #02508A;
     font-size: 18px;
-    white-space: nowrap;
+    /*white-space: nowrap;*/
     overflow: hidden;
 }
 #contactPage .swiper-slide .info .campaign {

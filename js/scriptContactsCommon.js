@@ -183,7 +183,6 @@ function showContacts(campId, isNew) {
             if (contact != null && contact.contactID != undefined) {
                 var date = generateDate(contact.date); //obtenemos la fecha en el formato adecuado
                 var isRead = (!in_array(contact.contactID, msgStatuses)) ? '' : 'read';
-
                 data += '<li data-msgId="'+i+'">';
 
                 data += '<div class="swiper-container '+ isRead +'" data-snap-ignore="1" data-contactId="'+contact.contactID+'" data-campId="'+campId+'" data-msgId="'+i+'">';
@@ -191,7 +190,7 @@ function showContacts(campId, isNew) {
 
                 data += '<div class="swiper-slide contactInfo" style="width:'+psW+'px">' //1er slider -> contactInfo
                 data += '<div class="info" style="width:'+psiW+'px;">' +
-                '<div class="name">'+contact.nombre+'</div>' +
+                '<div class="name">'+capitalizeFirstLetter(contact.nombre)+' '+capitalizeFirstLetter(contact.apellido)+'</div>' +
                 '<div class="campaign">Campaña '+campId+', '+date+'</div>' +
                 '</div>'; // Contacto INFO --> Nombre, campaña y fecha
                 data += '</div>' //cierre 1er slider
@@ -262,7 +261,6 @@ function showAllContacts(isNew) {
                 if (contact != null && contact.contactID != undefined) {
                     var date = generateDate(contact.date); //obtenemos la fecha en el formato adecuado
                     var isRead = (!in_array(contact.contactID, msgStatuses)) ? '' : 'read';
-
                     data += '<li data-msgId="'+i+'">';
 
                     data += '<div class="swiper-container '+ isRead +'" data-snap-ignore="1" data-contactId="'+contact.contactID+'" data-msgId="'+i+'">';
@@ -270,7 +268,7 @@ function showAllContacts(isNew) {
 
                     data += '<div class="swiper-slide contactInfo" style="width:'+psW+'px">' //1er slider -> contactInfo
                     data += '<div class="info" style="width:'+psiW+'px;">' +
-                    '<div class="name">'+contact.nombre+'</div>' +
+                    '<div class="name">'+capitalizeFirstLetter(contact.nombre)+' '+capitalizeFirstLetter(contact.apellido)+'</div>' +
                     '<div class="campaign">Campaña '+contact.campaignID+', '+date+'</div>' +
                     '</div>'; // Contacto INFO --> Nombre, campaña y fecha
                     data += '</div>' //cierre 1er slider
@@ -520,4 +518,9 @@ function changeMsgReadStatus(contactId) {
     }
 
     localStorage.setItem('messagesStatus', JSON.stringify(msgStatuses));
+}
+
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + (string.slice(1)).toLowerCase();
+
 }

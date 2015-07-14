@@ -471,6 +471,10 @@ function onReady() {
     document.addEventListener("resume", onResume, false);
     document.addEventListener("pause", onPause, false);
 
+    cordova.plugins.backgroundMode.configure({
+        silent: true
+    })
+
     cordova.plugins.backgroundMode.disable();
 
     cordova.plugins.notification.badge.clear();
