@@ -462,29 +462,17 @@ document.addEventListener("deviceready", onReady, false);
 
 function onPause() {
     window.plugin.backgroundMode.enable();
-    cordova.plugins.backgroundMode.configure({
-        silent: true
-    })
 }
 function onResume() {
     window.plugins.notification.badge.clear();
     window.plugin.backgroundMode.disable();
-    window.plugins.backgroundMode.configure({
-        silent: true
-    })
 }
 function onReady() {
     document.addEventListener("resume", onResume, false);
     document.addEventListener("pause", onPause, false);
-    window.plugins.backgroundMode.configure({
-        silent: true
-    })
 
     window.plugin.backgroundMode.disable();
 
     window.plugins.notification.badge.clear();
-    window.plugins.notification.badge.registerPermission(function (granted) {
-        // console.log('Permission has been granted: ' + granted);
-    });
 }
 
