@@ -461,6 +461,9 @@ function reloadPage(url)
 document.addEventListener("deviceready", onReady, false);
 
 function onPause() {
+    cordova.plugins.backgroundMode.configure({
+        silent: true
+    })
     window.plugin.backgroundMode.enable();
 }
 function onResume() {
