@@ -461,29 +461,29 @@ function reloadPage(url)
 document.addEventListener("deviceready", onReady, false);
 
 function onPause() {
-    cordova.plugin.backgroundMode.enable();
+    window.plugin.backgroundMode.enable();
     cordova.plugins.backgroundMode.configure({
         silent: true
     })
 }
 function onResume() {
-    cordova.plugins.notification.badge.clear();
-    cordova.plugin.backgroundMode.disable();
-    cordova.plugins.backgroundMode.configure({
+    window.plugins.notification.badge.clear();
+    window.plugin.backgroundMode.disable();
+    window.plugins.backgroundMode.configure({
         silent: true
     })
 }
 function onReady() {
     document.addEventListener("resume", onResume, false);
     document.addEventListener("pause", onPause, false);
-    cordova.plugins.backgroundMode.configure({
+    window.plugins.backgroundMode.configure({
         silent: true
     })
 
-    cordova.plugin.backgroundMode.disable();
+    window.plugin.backgroundMode.disable();
 
-    cordova.plugins.notification.badge.clear();
-    cordova.plugins.notification.badge.registerPermission(function (granted) {
+    window.plugins.notification.badge.clear();
+    window.plugins.notification.badge.registerPermission(function (granted) {
         // console.log('Permission has been granted: ' + granted);
     });
 }
