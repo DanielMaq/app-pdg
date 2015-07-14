@@ -461,18 +461,18 @@ function reloadPage(url)
 document.addEventListener("deviceready", onReady, false);
 
 function onPause() {
-    window.plugin.backgroundMode.enable();
+    cordova.plugins.backgroundMode.enable();
 }
 function onResume() {
-    window.plugins.notification.badge.clear();
-    window.plugin.backgroundMode.disable();
+    cordova.plugins.notification.badge.clear();
+    cordova.plugins.backgroundMode.disable();
 }
 function onReady() {
     document.addEventListener("resume", onResume, false);
     document.addEventListener("pause", onPause, false);
 
-    window.plugin.backgroundMode.disable();
+    cordova.plugins.backgroundMode.disable();
 
-    window.plugins.notification.badge.clear();
+    cordova.plugins.notification.badge.clear();
 }
 
