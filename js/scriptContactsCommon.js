@@ -99,6 +99,10 @@ function getUltimoId(campId) {
     var ultimoID;
     var ultimosID = localStorage.getItem('ultimoID');
     ultimosID = ultimosID != null ? JSON.parse(ultimosID) : [];
+
+    if (ultimosID.length == 0) {
+        return 0;
+    }
     for (var i = 0; i < ultimosID.length; i++) {
         if (ultimosID[i].campID == campId) {
             ultimoID = ultimosID[i].ultimoID;
