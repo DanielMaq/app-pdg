@@ -230,6 +230,7 @@ function cleanSession(){
     localStorage.removeItem('setallultimo');
     //localStorage.clear();
     sessionStorage.clear();
+    pushNotification.unregister(successHandler, errorHandler);
     window.location.href = "login.html";
 }
 
@@ -360,27 +361,11 @@ function deviceBackBtn() {
 
         if (exitApp) {
             cerrarSesion();
-            /*
-            navigator.notification.confirm(
-                    '¿Seguro deseas salir?', // message
-                    onConfirm, // callback to invoke with index of button pressed
-                    'Cerrar Aplicación', // title
-                    ['Cancelar', 'Salir'] // buttonLabels
-                    );
-                    */
+            navigator.app.exitApp();
         } else {
             navigator.app.backHistory();
         }
     }, false);
-}
-
-function onConfirm(buttonIndex) {
-    if (buttonIndex == 2) {
-        localStorage.removeItem('userID');
-        sessionStorage.clear();
-        navigator.app.exitApp();
-        window.location.href = "login.html"
-    }
 }
 
 function validateEmail(email) {
@@ -461,22 +446,20 @@ function reloadPage(url)
 document.addEventListener("deviceready", onReady, false);
 
 function onPause() {
+    cordova.plugins.backgroundMode.configure({
+        silent: true
+    })
     cordova.plugins.backgroundMode.enable();
 }
 function onResume() {
-    cordova.plugins.notification.badge.clear();
     cordova.plugins.backgroundMode.disable();
 }
 function onReady() {
     document.addEventListener("resume", onResume, false);
     document.addEventListener("pause", onPause, false);
-
     cordova.plugins.backgroundMode.configure({
         silent: true
     })
-
     cordova.plugins.backgroundMode.disable();
-
-    cordova.plugins.notification.badge.clear();
 }
 

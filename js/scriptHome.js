@@ -29,9 +29,6 @@ function registerDevice() {
     }
     catch(err)
     {
-        //txt="There was an error on this page.\n\n";
-        //txt+="Error description: " + err.message + "\n\n";
-        //showMessage(txt);
     }
 }
 
@@ -54,7 +51,7 @@ function onNotificationAPN(e) {
     }
 
     if (e.badge) {
-        pushNotification.setApplicationIconBadgeNumber(successHandler, e.badge);
+        pushNotification.setApplicationIconBadgeNumber(successHandler, null, e.badge);
     }
 }
 
@@ -66,8 +63,6 @@ function onNotification(e) {
         case 'registered':
             if ( e.regid.length > 0 )
             {
-                // Your GCM push server needs to know the regID before it can push to this device
-                // here is where you might want to send it the regID for later use.
                 console.log("regID = " + e.regid);
                 $.ajax({
                     url: webServicesUrl + 'registerDevice.php',
@@ -82,7 +77,6 @@ function onNotification(e) {
             break;
 
         case 'message':
-
             if (e.foreground){
                 var mediaUrl = "/android_asset/www/sounds/knock.mp3";
                 var my_media = new Media(mediaUrl, function(){ my_media.release(); } , function(e){ console.log( JSON.stringify(e) ); });
@@ -123,18 +117,12 @@ function tokenHandler (result) {
 }
 
 function successHandler (result) {
-    //Aquí deberíamos sumar un badge
-    try{
-        cordova.plugins.notification.badge.increase();
-    }catch (err){
 
-    }
-    //showMessage('Success: ' + result);
 }
 
 function errorHandler (error) {
-    //showMessage('Error: ' + error);
 }
+
 function onConfirm(buttonIndex) {
     if(buttonIndex == 1){
         window.location.href="contacts.html";

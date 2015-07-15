@@ -1,5 +1,10 @@
 $('#loginPage').live('pageinit', function (event) {
 
+    try {
+        pushNotification.unregister(successHandler, errorHandler);
+    } catch (err) {
+    }
+
     if (localStorage.getItem('lastlogin') != null) {
         var $autoLogin = $.parseJSON(localStorage.getItem('lastlogin'))
         $('input.username').val($autoLogin.user)
