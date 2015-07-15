@@ -51,7 +51,7 @@ function onNotificationAPN(e) {
     }
 
     if (e.badge) {
-        pushNotification.setApplicationIconBadgeNumber(successHandler, null, e.badge);
+        pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, e.badge);
     }
 }
 

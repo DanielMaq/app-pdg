@@ -201,6 +201,7 @@ function cerrarSesion(){
 
 function onConfirmLogout(buttonIndex) {
     if(buttonIndex == 2){
+        pushNotification.unregister(successHandler, errorHandler);
         cleanSession();
     }
 }
@@ -221,6 +222,7 @@ function cleanSession(){
     if (exit){
         navigator.app.exitApp();
     }else{
+        pushNotification.unregister(successHandler, errorHandler);
         window.location.href = "login.html";
     }
 }
