@@ -12,7 +12,7 @@ WebFactory DevTeam
 		</author>
 		<preference name='phonegap-version' value='3.7.0' />
 		<preference name="orientation" value="default" />
-		<preference name="fullscreen" value="false" />
+		<preference name="fullscreen" value="true" />
 		<preference name="android-windowSoftInputMode" value="adjustResize"/>
 		<preference name="target-device" value="universal" />
 		<preference name="webviewbounce" value="true" />
