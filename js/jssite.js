@@ -201,7 +201,6 @@ function cerrarSesion(){
 
 function onConfirmLogout(buttonIndex) {
     if(buttonIndex == 2){
-        pushNotification.unregister(successHandler, errorHandler);
         cleanSession();
     }
 }
@@ -219,12 +218,11 @@ function cleanSession(){
     try{
         pushNotification.unregister(successHandler, errorHandler);
     }catch(err){}
-    if (exit){
+    if (exit == 1) {
         navigator.app.exitApp();
-    }else{
-        pushNotification.unregister(successHandler, errorHandler);
-        window.location.href = "login.html";
+        return false
     }
+    window.location.href = "login.html";
 }
 
 function setjQueryUILang() {
@@ -345,18 +343,30 @@ function deviceBackBtn() {
 
     document.addEventListener("backbutton", function (e) {
         e.preventDefault();
+        var exitApp = 0;
         if ($("#homePage.ui-page-active").length > 0) {
+            exitApp = 1;
             exit = 1;
         } else if ($("#loginPage.ui-page-active").length > 0) {
+            exitApp = 1;
             exit = 1;
         }
 
-        if (exit) {
+        if (exitApp) {
             cerrarSesion();
         } else {
             navigator.app.backHistory();
         }
     }, false);
+}
+
+function onConfirm(buttonIndex) {
+    if (buttonIndex == 2) {
+        localStorage.removeItem('userID');
+        sessionStorage.clear();
+        navigator.app.exitApp();
+        window.location.href = "login.html"
+    }
 }
 
 function validateEmail(email) {
