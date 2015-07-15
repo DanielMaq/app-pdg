@@ -520,7 +520,10 @@ function changeMsgReadStatus(contactId) {
     localStorage.setItem('messagesStatus', JSON.stringify(msgStatuses));
 }
 
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + (string.slice(1)).toLowerCase();
-
+function capitalizeFirstLetter(str) {
+    try{
+        var firstLetter = str.substr(0, 1);
+        var theRest = str.substr(1);
+        return firstLetter.toUpperCase() + theRest.toLowerCase();
+    }catch(err){}
 }

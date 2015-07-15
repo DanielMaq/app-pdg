@@ -66,21 +66,6 @@ function setHeights(header) {
     var hasHeader = header || 0;
 
     var $cont = $('.container');
-    //var contH = winH - 32; // Fix padding container
-    //
-    //if(hasHeader){
-    //    setTimeout(function(){
-    //        var headH = $('.ui-header').height();
-    //        contH -= headH;
-    //        $cont.css('min-height', contH);
-    //    },200);
-    //}
-    //
-    //if(contH < 500){
-    //    contH = 500;
-    //}
-
-    //$cont.css('min-height', '100%');
 }
 
 function is_logged() {
@@ -230,7 +215,9 @@ function cleanSession(){
     localStorage.removeItem('setallultimo');
     //localStorage.clear();
     sessionStorage.clear();
-    pushNotification.unregister(successHandler, errorHandler);
+    try{
+        pushNotification.unregister(successHandler, errorHandler);
+    }catch(err){}
     if (exit){
         navigator.app.exitApp();
     }else{
