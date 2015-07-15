@@ -57,7 +57,7 @@ function getCampaingMsgs(campId) {
         var ultimoID = getUltimoId(campId);
 
         $.ajax({
-            url: _webServicesUrl+"contact.php",
+            url: webServicesUrl+"contact.php",
             type:'POST',
             async: true,
             data:{

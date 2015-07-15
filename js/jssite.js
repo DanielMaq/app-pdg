@@ -443,14 +443,17 @@ function onPause() {
     cordova.plugins.backgroundMode.enable();
 }
 function onResume() {
-    cordova.plugins.backgroundMode.disable();
-}
-function onReady() {
-    document.addEventListener("resume", onResume, false);
-    document.addEventListener("pause", onPause, false);
     cordova.plugins.backgroundMode.configure({
         silent: true
     })
+    cordova.plugins.backgroundMode.disable();
+}
+function onReady() {
+    cordova.plugins.backgroundMode.configure({
+        silent: true
+    })
+    document.addEventListener("resume", onResume, false);
+    document.addEventListener("pause", onPause, false);
     cordova.plugins.backgroundMode.disable();
 }
 
