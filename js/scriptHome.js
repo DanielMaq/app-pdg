@@ -1,4 +1,4 @@
-var pushNotification;
+//var pushNotification;
 
 $('#homePage').live( 'pageinit',function(event){
 
@@ -15,10 +15,15 @@ $('#homePage').live( 'pageinit',function(event){
 
 });
 
+document.addEventListener('deviceready', function () {
+    cordova.plugins.notification.badge.clear();
+}, false);
+
+
 function registerDevice() {
     try
     {
-        pushNotification = window.plugins.pushNotification;
+        //pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android' ) {
             /* Registro si es android */
             pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
@@ -126,6 +131,7 @@ function errorHandler (error) {
 function onConfirm(buttonIndex) {
     if(buttonIndex == 1){
         window.location.href="contacts.html";
+        cordova.plugins.notification.badge.increase();
     }
 }
 
