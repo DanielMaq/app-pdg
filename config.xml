@@ -12,14 +12,14 @@ WebFactory DevTeam
 		</author>
 		<preference name='phonegap-version' value='3.7.0' />
 		<preference name="orientation" value="default" />
-		<preference name="fullscreen" value="false" />
+		<preference name="fullscreen" value="true" />
 		<preference name="target-device" value="universal" />
 		<preference name="webviewbounce" value="true" />
 		<preference name="prerendered-icon" value="true" />
 		<preference name="stay-in-webview" value="true" />
 		<preference name="ios-statusbarstyle" value="black-transparent" />
 		<preference name="detect-data-types" value="true" />
-		<preference name="exit-on-suspend" value="true" />
+		<preference name="exit-on-suspend" value="false" />
 		<preference name="show-splash-screen-spinner" value="false" />
 		<preference name="auto-hide-splash-screen" value="true" />
 		<preference name="EnableViewportScale" value="true" />

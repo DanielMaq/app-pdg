@@ -3,7 +3,7 @@
  **/
 //var webServicesUrl = 'http://gpoadmin.adverit.com/webservices/application/';
 var webServicesUrl = 'http://projectsunderdev.com/app-pdg/';
-
+var exit = 0;
 /*
  * Boton Volver Cerrar app.
  **/
@@ -231,7 +231,11 @@ function cleanSession(){
     //localStorage.clear();
     sessionStorage.clear();
     pushNotification.unregister(successHandler, errorHandler);
-    window.location.href = "login.html";
+    if (exit){
+        navigator.app.exitApp();
+    }else{
+        window.location.href = "login.html";
+    }
 }
 
 function setjQueryUILang() {
@@ -352,16 +356,14 @@ function deviceBackBtn() {
 
     document.addEventListener("backbutton", function (e) {
         e.preventDefault();
-        var exitApp = 0;
         if ($("#homePage.ui-page-active").length > 0) {
-            exitApp = 1;
+            exit = 1;
         } else if ($("#loginPage.ui-page-active").length > 0) {
-            exitApp = 1;
+            exit = 1;
         }
 
-        if (exitApp) {
+        if (exit) {
             cerrarSesion();
-            navigator.app.exitApp();
         } else {
             navigator.app.backHistory();
         }
