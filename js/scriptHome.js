@@ -1,5 +1,5 @@
 //var pushNotification;
-
+var badgeCount = 0;
 $('#homePage').live( 'pageinit',function(event){
 
     setHeights();
@@ -16,7 +16,11 @@ $('#homePage').live( 'pageinit',function(event){
 });
 
 document.addEventListener('deviceready', function () {
-    cordova.plugins.notification.badge.clear();
+    pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
+    var onDelay = function(){
+        pushNotification.setApplicationIconBadgeNumber(0, function(){});
+    };
+    window.setTimeout(onDelay, 1000);
 }, false);
 
 
@@ -122,7 +126,8 @@ function tokenHandler (result) {
 }
 
 function successHandler (result) {
-
+    badgeCount++
+    pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
 }
 
 function errorHandler (error) {
@@ -131,7 +136,6 @@ function errorHandler (error) {
 function onConfirm(buttonIndex) {
     if(buttonIndex == 1){
         window.location.href="contacts.html";
-        cordova.plugins.notification.badge.increase();
     }
 }
 

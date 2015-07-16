@@ -1,8 +1,8 @@
 /*
  * Variables
  **/
-var webServicesUrl = 'http://gpoadmin.adverit.com/webservices/application/';
-//var webServicesUrl = 'http://projectsunderdev.com/app-pdg/';
+//var webServicesUrl = 'http://gpoadmin.adverit.com/webservices/application/';
+var webServicesUrl = 'http://projectsunderdev.com/app-pdg/';
 var exit = 0;
 /*
  * Boton Volver Cerrar app.
@@ -447,23 +447,26 @@ function reloadPage(url)
 document.addEventListener("deviceready", onReady, false);
 
 function onPause() {
-    cordova.plugins.backgroundMode.configure({
-        silent: true
-    })
-    cordova.plugins.backgroundMode.enable();
+    //cordova.plugins.backgroundMode.configure({
+    //    silent: true
+    //})
+    //cordova.plugins.backgroundMode.enable();
+    pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
 }
 function onResume() {
-    cordova.plugins.backgroundMode.configure({
-        silent: true
-    })
-    cordova.plugins.backgroundMode.disable();
+    //cordova.plugins.backgroundMode.configure({
+    //    silent: true
+    //})
+    //cordova.plugins.backgroundMode.disable();
+    badgeCount = 0;
+    pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
 }
 function onReady() {
-    cordova.plugins.backgroundMode.configure({
-        silent: true
-    })
+    //cordova.plugins.backgroundMode.configure({
+    //    silent: true
+    //})
     document.addEventListener("resume", onResume, false);
     document.addEventListener("pause", onPause, false);
-    cordova.plugins.backgroundMode.disable();
+    //cordova.plugins.backgroundMode.disable();
 }
 
