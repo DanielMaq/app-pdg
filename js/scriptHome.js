@@ -124,12 +124,12 @@ function tokenHandler (result) {
 }
 
 function successHandler (result) {
-    alert(result)
     badgeCount++;
     pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
 }
 
 function errorHandler (error) {
+    alert('Error del sistema: ' + error);
 }
 
 function onConfirm(buttonIndex) {
