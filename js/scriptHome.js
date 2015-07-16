@@ -17,11 +17,13 @@ $('#homePage').live( 'pageinit',function(event){
 
 
 function registerDevice() {
+    alert('registrando dispositivo');
     try
     {
         //pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android' ) {
             /* Registro si es android */
+
             pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
         } else {
             /* Registro si es ios */
@@ -36,6 +38,7 @@ function registerDevice() {
     }
     catch(err)
     {
+        alert(err.message)
     }
 }
 
@@ -64,7 +67,6 @@ function onNotificationAPN(e) {
 
 // handle GCM notifications for Android
 function onNotification(e) {
-
     switch( e.event )
     {
         case 'registered':
