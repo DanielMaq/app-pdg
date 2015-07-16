@@ -1,4 +1,4 @@
-//var pushNotification;
+var pushNotification = window.plugins.pushNotification;
 var badgeCount = 0;
 $('#homePage').live( 'pageinit',function(event){
 
@@ -8,16 +8,14 @@ $('#homePage').live( 'pageinit',function(event){
         getCampaigns();
     }
 
-    /* registrar push notifitions */
-    document.addEventListener('deviceready', registerDevice, true);
-
     loadData();
 
 });
 
+/* registrar push notifitions */
+document.addEventListener('deviceready', registerDevice, true);
 
 function registerDevice() {
-    alert('registrando dispositivo');
     try
     {
         //pushNotification = window.plugins.pushNotification;
@@ -126,7 +124,8 @@ function tokenHandler (result) {
 }
 
 function successHandler (result) {
-    badgeCount++
+    alert(result)
+    badgeCount++;
     pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
 }
 
