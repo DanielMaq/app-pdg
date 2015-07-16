@@ -459,7 +459,6 @@ function onResume() {
     window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
 }
 function onReady() {
-    alert(is_logged())
     //cordova.plugins.backgroundMode.configure({
     //    silent: true
     //})

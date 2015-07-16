@@ -35,7 +35,7 @@ function registerDevice() {
     }
     catch(err)
     {
-        alert(err.message)
+        //alert(err.message)
     }
 }
 
@@ -135,7 +135,7 @@ function successHandler (result) {
 }
 
 function errorHandler (error) {
-    alert('Error del sistema: ' + error);
+    //alert('Error del sistema: ' + error);
 }
 
 function onConfirm(buttonIndex) {
