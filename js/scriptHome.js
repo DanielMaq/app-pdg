@@ -15,14 +15,6 @@ $('#homePage').live( 'pageinit',function(event){
 
 });
 
-document.addEventListener('deviceready', function () {
-    pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
-    var onDelay = function(){
-        pushNotification.setApplicationIconBadgeNumber(0, function(){});
-    };
-    window.setTimeout(onDelay, 1000);
-}, false);
-
 
 function registerDevice() {
     try
@@ -35,6 +27,12 @@ function registerDevice() {
             /* Registro si es ios */
             pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
         }
+
+        pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
+        var onDelay = function(){
+            pushNotification.setApplicationIconBadgeNumber(0, function(){});
+        };
+        window.setTimeout(onDelay, 1000);
     }
     catch(err)
     {
