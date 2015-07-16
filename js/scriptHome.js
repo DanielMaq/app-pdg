@@ -1,4 +1,4 @@
-var pushNotification = window.plugins.pushNotification;
+//var pushNotification = window.plugins.pushNotification;
 var badgeCount = 0;
 $('#homePage').live( 'pageinit',function(event){
 
@@ -21,16 +21,15 @@ function registerDevice() {
         //pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android' ) {
             /* Registro si es android */
-
-            pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
+            window.plugins.pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
         } else {
             /* Registro si es ios */
-            pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
+            window.plugins.pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
         }
 
-        pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
+        window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
         var onDelay = function(){
-            pushNotification.setApplicationIconBadgeNumber(0, function(){});
+            window.plugins.pushNotification.setApplicationIconBadgeNumber(0, function(){});
         };
         window.setTimeout(onDelay, 1000);
     }
@@ -59,7 +58,7 @@ function onNotificationAPN(e) {
     }
 
     if (e.badge) {
-        pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, e.badge);
+        window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, e.badge);
     }
 }
 
@@ -69,13 +68,17 @@ function onNotification(e) {
     {
         case 'registered':
             if ( e.regid.length > 0 )
+            //save phone ID in localstorage
             {
                 console.log("regID = " + e.regid);
                 $.ajax({
                     url: webServicesUrl + 'registerDevice.php',
                     type:'POST',
                     data:{newDeviceID: e.regid, newUserId: localStorage.getItem('userID'), platform: 'gcm'},
-                    success:function(result){},
+                    success:function(result){
+                        var regID = localStorage.getItem('userID') + '/'+e.regid+'/gcm;'
+                        localStorage.setItem('phoneID',regID)
+                    },
                     error:function(error){
                         console.log(JSON.stringify(error));
                     }
@@ -116,7 +119,10 @@ function tokenHandler (result) {
         url: webServicesUrl + 'registerDevice.php',
         type:'POST',
         data:{newDeviceID: result, newUserId: localStorage.getItem('userID'), platform: 'apns'},
-        success:function(result){},
+        success:function(result){
+            var regID = localStorage.getItem('userID') + '/'+result+'/apns;'
+            localStorage.setItem('phoneID',regID);
+        },
         error:function(error){
             console.log(JSON.stringify(error));
         }
@@ -125,7 +131,7 @@ function tokenHandler (result) {
 
 function successHandler (result) {
     badgeCount++;
-    pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
+    window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
 }
 
 function errorHandler (error) {

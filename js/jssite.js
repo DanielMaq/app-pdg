@@ -215,9 +215,6 @@ function cleanSession(){
     localStorage.removeItem('setallultimo');
     //localStorage.clear();
     sessionStorage.clear();
-    try{
-        pushNotification.unregister(successHandler, errorHandler);
-    }catch(err){}
     if (exit == 1) {
         navigator.app.exitApp();
         return false
@@ -451,7 +448,7 @@ function onPause() {
     //    silent: true
     //})
     //cordova.plugins.backgroundMode.enable();
-    pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
+    window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
 }
 function onResume() {
     //cordova.plugins.backgroundMode.configure({
@@ -459,9 +456,10 @@ function onResume() {
     //})
     //cordova.plugins.backgroundMode.disable();
     badgeCount = 0;
-    pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
+    window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
 }
 function onReady() {
+    alert(is_logged())
     //cordova.plugins.backgroundMode.configure({
     //    silent: true
     //})
@@ -469,4 +467,3 @@ function onReady() {
     document.addEventListener("pause", onPause, false);
     //cordova.plugins.backgroundMode.disable();
 }
-

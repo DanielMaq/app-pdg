@@ -1,9 +1,6 @@
 $('#loginPage').live('pageinit', function (event) {
 
-    try {
-        pushNotification.unregister(successHandler, errorHandler);
-    } catch (err) {
-    }
+    unRegisterDevice();
 
     if (localStorage.getItem('lastlogin') != null) {
         var $autoLogin = $.parseJSON(localStorage.getItem('lastlogin'))
@@ -98,3 +95,22 @@ $('#loginPage').live('pageinit', function (event) {
         return;
     });
 });
+
+function unRegisterDevice(){
+    $.ajax({
+        url: webServicesUrl + 'unRegisterDevice.php',
+        type:'POST',
+        data:{phoneID: localStorage.getItem('phoneID')},
+        success:function(result){
+            //do something
+            console.log(result);
+            //localStorage.removeItem('phoneID');
+        },
+        error:function(error){
+            console.log(JSON.stringify(error));
+        },
+        complete: function(){
+            localStorage.removeItem('phoneID');
+        }
+    });
+}
