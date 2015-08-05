@@ -76,7 +76,7 @@ function onNotification(e) {
                     type:'POST',
                     data:{newDeviceID: e.regid, newUserId: localStorage.getItem('userID'), platform: 'gcm'},
                     success:function(result){
-                        var regID = localStorage.getItem('userID') + '/'+e.regid+'/gcm;'
+                        var regID = e.regid;
                         localStorage.setItem('phoneID',regID)
                     },
                     error:function(error){
@@ -120,7 +120,7 @@ function tokenHandler (result) {
         type:'POST',
         data:{newDeviceID: result, newUserId: localStorage.getItem('userID'), platform: 'apns'},
         success:function(result){
-            var regID = localStorage.getItem('userID') + '/'+result+'/apns;'
+            var regID = result;
             localStorage.setItem('phoneID',regID);
         },
         error:function(error){

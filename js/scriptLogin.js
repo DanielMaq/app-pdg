@@ -102,6 +102,7 @@ function unRegisterDevice(){
         url: webServicesUrl + 'unRegisterDevice.php',
         type:'POST',
         data:{phoneID: localStorage.getItem('phoneID'), newUserId: localStorage.getItem('lastUserID')},
+        //data:{phoneID: '5e277502eef681cbade0e51c85c0d018f72eab7ed4eea7b8d70b7f0173ddc7ba', newUserId: '7219'},
         success:function(result){
             //do something
             console.log(result);
