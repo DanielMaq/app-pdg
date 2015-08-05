@@ -100,7 +100,7 @@ function unRegisterDevice(){
     $.ajax({
         url: webServicesUrl + 'unRegisterDevice.php',
         type:'POST',
-        data:{phoneID: localStorage.getItem('phoneID')},
+        data:{phoneID: localStorage.getItem('phoneID'), newUserId: localStorage.getItem('userID')},
         success:function(result){
             //do something
             console.log(result);
