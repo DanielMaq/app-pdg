@@ -76,6 +76,7 @@ $('#loginPage').live('pageinit', function (event) {
                         localStorage.setItem('lastlogin', $lastlogin);
                         //showError('Ingresando...', 1);
                         localStorage.setItem("userID", r.data[0].userID);
+                        localStorage.setItem("lastUserID", r.data[0].userID);
                         window.location.href = "home.html";
                     } else {
                         showError(r.data.message);
@@ -100,7 +101,7 @@ function unRegisterDevice(){
     $.ajax({
         url: webServicesUrl + 'unRegisterDevice.php',
         type:'POST',
-        data:{phoneID: localStorage.getItem('phoneID'), newUserId: localStorage.getItem('userID')},
+        data:{phoneID: localStorage.getItem('phoneID'), newUserId: localStorage.getItem('lastUserID')},
         success:function(result){
             //do something
             console.log(result);

@@ -35,7 +35,7 @@ function registerDevice() {
     }
     catch(err)
     {
-        //alert(err.message)
+        _alert(err.message)
     }
 }
 
@@ -70,7 +70,7 @@ function onNotification(e) {
             if ( e.regid.length > 0 )
             //save phone ID in localstorage
             {
-                console.log("regID = " + e.regid);
+                _alert("regID = " + e.regid);
                 $.ajax({
                     url: webServicesUrl + 'registerDevice.php',
                     type:'POST',
@@ -80,7 +80,7 @@ function onNotification(e) {
                         localStorage.setItem('phoneID',regID)
                     },
                     error:function(error){
-                        console.log(JSON.stringify(error));
+                        _alert(JSON.stringify(error));
                     }
                 });
             }
@@ -89,7 +89,7 @@ function onNotification(e) {
         case 'message':
             if (e.foreground){
                 var mediaUrl = "/android_asset/www/sounds/knock.mp3";
-                var my_media = new Media(mediaUrl, function(){ my_media.release(); } , function(e){ console.log( JSON.stringify(e) ); });
+                var my_media = new Media(mediaUrl, function(){ my_media.release(); } , function(e){ _alert( JSON.stringify(e) ); });
                 my_media.play();
             }
 
@@ -124,10 +124,15 @@ function tokenHandler (result) {
             localStorage.setItem('phoneID',regID);
         },
         error:function(error){
-            console.log(JSON.stringify(error));
+            _alert(JSON.stringify(error));
         }
     });
 }
+
+function _alert(msg){
+    alert(msg);
+}
+
 
 function successHandler (result) {
     badgeCount++;
@@ -163,7 +168,7 @@ function loadData()
 
         },
         error: function(error) {
-            console.log(JSON.stringify(error));
+            _alert(JSON.stringify(error));
         }
     });
 }
