@@ -18,8 +18,8 @@ function registerDevice() {
     }
     catch(err)
     {
-        //showMessage('[registerDevice] ' + err.message);
-        registerDeviceOk();
+        showMessage('[registerDevice] ' + err.message);
+        //registerDeviceOk();
     }
 }
 
@@ -31,7 +31,7 @@ function successHandler (result) {
 function errorHandler (error) {
     showMessage('[errorHandler] Error del sistema: ' + error);
 
-    registerDeviceOk();
+    //registerDeviceOk();
 }
 
 function tokenHandler (result) {
