@@ -30,10 +30,10 @@ function registerDevice() {
 }
 
 function successHandler(result) {
-    alert('success');
+    //alert('success');
     //if (device.platform != 'android' && device.platform != 'Android' ) {
-        badgeCount++;
-        window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
+        //badgeCount++;
+        //window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
     //}
 }
 
