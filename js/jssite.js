@@ -215,7 +215,7 @@ function cleanSession(){
     localStorage.removeItem('setallultimo');
     //localStorage.clear();
     sessionStorage.clear();
-    if (exit != undefined && exit == 1) {
+    if (exit == 1) {
         navigator.app.exitApp();
         return false
     }

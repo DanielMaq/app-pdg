@@ -37,7 +37,7 @@ PushNotification.prototype.unregister = function(successCallback, errorCallback)
 
 
 // Call this to set the application icon badge
-PushNotification.prototype.setApplicationIconBadgeNumber = function(successCallback, errorCallback, badge) {
+PushNotification.prototype.setApplicationIconBadgeNumber = function(successCallback, badge) {
 	if (errorCallback == null) { errorCallback = function() {}}
 
 	if (typeof errorCallback != "function")  {
