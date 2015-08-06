@@ -1,17 +1,22 @@
 $('#loginPage').live('pageinit', function (event) {
 
+    // Si estamos en la página de login, intentamos quitar el registro de usuario.
     unRegisterDevice();
 
+    // Colocamos los datos del último login en el formulario
     if (localStorage.getItem('lastlogin') != null) {
         var $autoLogin = $.parseJSON(localStorage.getItem('lastlogin'))
         $('input.username').val($autoLogin.user)
         $('input.password').val($autoLogin.pw)
     }
 
+    // Verificamos que no esté logueado.
     is_logged();
 
+    // Ajustamos pantalla
     setHeights();
 
+    // Configuramos el envío del formulario
     $('#loginPage #loginForm').on('submit', function (e) {
         $('#loginPage .btn.ingreso').trigger('click');
         e.preventDefault();
@@ -19,7 +24,8 @@ $('#loginPage').live('pageinit', function (event) {
     });
 
 
-    $('#loginPage .btn.ingreso').on('click', function (e) { //LOGIN
+    // Enviamos el formulario de login
+    $('#loginPage .btn.ingreso').on('click', function (e) {
 
         e.preventDefault();
         showError('vaciar');
@@ -52,6 +58,7 @@ $('#loginPage').live('pageinit', function (event) {
         } else {
             sendOk = sendOk + 1;
         }
+
         if (sendOk == 3) {
             //TODO: borrar datos fijos
 
@@ -67,17 +74,25 @@ $('#loginPage').live('pageinit', function (event) {
                 beforeSend: function () {
                     $('.innerContainer *').not('h2').hide()
                     $('.innerContainer p.loading').remove();
-                    $('.innerContainer').append('<p class="loading" style="margin-top:20px">Ingresando...</p>')
+                    $('.innerContainer').append('<p class="loading" style="margin-top:20px">Ingresando...</p>');
                 },
                 success: function (result) {
                     var r = $.parseJSON(result);
                     if (r.data && r.data.status && r.data.status == 'success') {
                         var $lastlogin = '{"user": "' + $('input.username').val() + '", "pw": "' + $('input.password').val() + '"}';
+
+                        // Guardamos los datos necesarios del usuario                        
                         localStorage.setItem('lastlogin', $lastlogin);
-                        //showError('Ingresando...', 1);
                         localStorage.setItem("userID", r.data[0].userID);
                         localStorage.setItem("lastUserID", r.data[0].userID);
-                        window.location.href = "home.html";
+
+                        // Registramos el dispositivo
+                        $('.innerContainer p.loading').remove();
+                        $('.innerContainer').append('<p class="loading" style="margin-top:20px">Registrando el dispositivo...</p>');
+                        registerDevice();
+
+                        // Redireccionamos a la home
+                        //window.location.href = "home.html";
                     } else {
                         showError(r.data.message);
                         $('.innerContainer *').show()
@@ -97,22 +112,4 @@ $('#loginPage').live('pageinit', function (event) {
     });
 });
 
-function unRegisterDevice(){
-    $.ajax({
-        url: webServicesUrl + 'unRegisterDevice.php',
-        type:'POST',
-        data:{phoneID: localStorage.getItem('phoneID'), newUserId: localStorage.getItem('lastUserID')},
-        //data:{phoneID: '5e277502eef681cbade0e51c85c0d018f72eab7ed4eea7b8d70b7f0173ddc7ba', newUserId: '7219'},
-        success:function(result){
-            //do something
-            console.log(result);
-            //localStorage.removeItem('phoneID');
-        },
-        error:function(error){
-            console.log(JSON.stringify(error));
-        },
-        complete: function(){
-            localStorage.removeItem('phoneID');
-        }
-    });
-}
+
