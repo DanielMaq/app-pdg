@@ -9,13 +9,13 @@ function registerDevice() {
         } else {
             /* Registro si es ios */
             window.plugins.pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
+            
+            window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
+            var onDelay = function(){
+                window.plugins.pushNotification.setApplicationIconBadgeNumber(0, function(){});
+            };
+            window.setTimeout(onDelay, 1000);
         }
-
-        window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
-        var onDelay = function(){
-            window.plugins.pushNotification.setApplicationIconBadgeNumber(0, function(){});
-        };
-        window.setTimeout(onDelay, 1000);
     }
     catch(err)
     {
@@ -24,9 +24,11 @@ function registerDevice() {
     }
 }
 
-function successHandler (result) {
-    badgeCount++;
-    window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
+function successHandler(result) {
+    if (device.platform != 'android' && device.platform != 'Android' ) {
+        badgeCount++;
+        window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
+    }
 }
 
 function errorHandler (error) {
@@ -36,22 +38,30 @@ function errorHandler (error) {
 }
 
 function tokenHandler (result) {
-    // Your iOS push server needs to know the token before it can push to this device
-    // here is where you might want to send it the token for later use.
-    $.ajax({
-        url: webServicesUrl + 'registerDevice.php',
-        type:'POST',
-        data:{newDeviceID: result, newUserId: localStorage.getItem('userID'), platform: 'apns'},
-        success:function(result){
-            var regID = result;
-            localStorage.setItem('phoneID',regID);
-            
-            registerDeviceOk();
-        },
-        error:function(error){
-            showMessage('[tokenHandler] ' + JSON.stringify(error));
-        }
-    });
+    try
+    {
+        // Your iOS push server needs to know the token before it can push to this device
+        // here is where you might want to send it the token for later use.
+        $.ajax({
+            url: webServicesUrl + 'registerDevice.php',
+            type:'POST',
+            data:{newDeviceID: result, newUserId: localStorage.getItem('userID'), platform: 'apns'},
+            success:function(result){
+                var regID = result;
+                localStorage.setItem('phoneID',regID);
+
+                registerDeviceOk();
+            },
+            error:function(error){
+                showMessage('[tokenHandler] ' + JSON.stringify(error));
+            }
+        });
+    }
+    catch(err)
+    {
+        showMessage('[tokenHandler] ' + err.message);
+        //registerDeviceOk();
+    }
 }
 
 
@@ -142,12 +152,13 @@ function unRegisterDevice(){
         success:function(result){
             //do something
             //console.log(result);
-            //localStorage.removeItem('phoneID');
+            showMessage("[unRegisterDevice OK]: " + JSON.stringify(result));
         },
         error:function(error){
             showMessage("[unRegisterDevice error]: " + JSON.stringify(error));
         },
         complete: function(){
+            showMessage("[unRegisterDevice complete]");
             localStorage.removeItem('phoneID');
         }
     });
