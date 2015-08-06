@@ -89,6 +89,8 @@ $('#loginPage').live('pageinit', function (event) {
                         // Registramos el dispositivo
                         $('.innerContainer p.loading').remove();
                         $('.innerContainer').append('<p class="loading" style="margin-top:20px">Registrando el dispositivo...</p>');
+                        
+                        document.addEventListener('deviceready', registerDevice, true);
                         registerDevice();
 
                         // Redireccionamos a la home
