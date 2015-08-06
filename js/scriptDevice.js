@@ -47,19 +47,20 @@ function tokenHandler (result) {
             type:'POST',
             data:{newDeviceID: result, newUserId: localStorage.getItem('userID'), platform: 'apns'},
             success:function(result){
+                showMessage('[tokenHandler ok] ' + JSON.stringify(result));
                 var regID = result;
                 localStorage.setItem('phoneID',regID);
 
                 registerDeviceOk();
             },
             error:function(error){
-                showMessage('[tokenHandler] ' + JSON.stringify(error));
+                showMessage('[tokenHandler error] ' + JSON.stringify(error));
             }
         });
     }
     catch(err)
     {
-        showMessage('[tokenHandler] ' + err.message);
+        showMessage('[tokenHandler error catch] ' + err.message);
         //registerDeviceOk();
     }
 }

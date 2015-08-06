@@ -37,13 +37,13 @@ PushNotification.prototype.unregister = function(successCallback, errorCallback)
 
 
 // Call this to set the application icon badge
-PushNotification.prototype.setApplicationIconBadgeNumber = function(successCallback, badge) {
-//	if (errorCallback == null) { errorCallback = function() {}}
-//
-//	if (typeof errorCallback != "function")  {
-//		console.log("PushNotification.setApplicationIconBadgeNumber failure: failure parameter not a function");
-//		return;
-//	}
+PushNotification.prototype.setApplicationIconBadgeNumber = function(successCallback, errorCallback, badge) {
+	if (errorCallback == null) { errorCallback = function() {}}
+
+	if (typeof errorCallback != "function")  {
+		console.log("PushNotification.setApplicationIconBadgeNumber failure: failure parameter not a function");
+		return;
+	}
 
 	if (typeof successCallback != "function") {
 		console.log("PushNotification.setApplicationIconBadgeNumber failure: success callback parameter must be a function");
