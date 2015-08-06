@@ -132,7 +132,7 @@ function tokenHandler (result) {
 }
 
 function _alert(msg){
-    alert(msg);
+    showMessage(msg);
 }
 
 
