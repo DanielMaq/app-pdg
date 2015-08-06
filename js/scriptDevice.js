@@ -152,13 +152,13 @@ function unRegisterDevice(){
         success:function(result){
             //do something
             //console.log(result);
-            showMessage("[unRegisterDevice OK]: " + JSON.stringify(result));
+            //showMessage("[unRegisterDevice OK]: " + JSON.stringify(result));
         },
         error:function(error){
             showMessage("[unRegisterDevice error]: " + JSON.stringify(error));
         },
-        complete: function(){
-            showMessage("[unRegisterDevice complete]");
+        complete: function(result){
+            showMessage("[unRegisterDevice complete]" + JSON.stringify(result));
             localStorage.removeItem('phoneID');
         }
     });
