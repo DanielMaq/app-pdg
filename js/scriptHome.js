@@ -1,5 +1,5 @@
 //var pushNotification = window.plugins.pushNotification;
-var badgeCount = 0;
+//var badgeCount = 0;
 $('#homePage').live( 'pageinit',function(event){
 
     setHeights();

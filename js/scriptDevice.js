@@ -1,3 +1,4 @@
+var badgeCount = 0;
 function registerDevice() {
     try
     {
