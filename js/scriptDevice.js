@@ -2,16 +2,21 @@ var badgeCount = 0;
 function registerDevice() {
     try
     {
+        alert(device.platform);
+        alert(1);
         //pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android' ) {
             /* Registro si es android */
             window.plugins.pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
         } else {
+            alert(2);
             /* Registro si es ios */
             window.plugins.pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
             
+            alert(3);
             window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
             var onDelay = function(){
+                alert('delay');
                 window.plugins.pushNotification.setApplicationIconBadgeNumber(0, function(){});
             };
             window.setTimeout(onDelay, 1000);
@@ -25,10 +30,11 @@ function registerDevice() {
 }
 
 function successHandler(result) {
-    if (device.platform != 'android' && device.platform != 'Android' ) {
+    alert('success');
+    //if (device.platform != 'android' && device.platform != 'Android' ) {
         badgeCount++;
         window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
-    }
+    //}
 }
 
 function errorHandler (error) {
@@ -38,6 +44,7 @@ function errorHandler (error) {
 }
 
 function tokenHandler (result) {
+    alert(1);
     try
     {
         // Your iOS push server needs to know the token before it can push to this device
@@ -55,6 +62,9 @@ function tokenHandler (result) {
             },
             error:function(error){
                 showMessage('[tokenHandler error] ' + JSON.stringify(error));
+            },
+            complete:function(aa){
+                showMessage('[tokenHandler complete] ' + JSON.stringify(aa));
             }
         });
     }
@@ -69,6 +79,7 @@ function tokenHandler (result) {
 
 // handle AjvPNS notifications for iOS
 function onNotificationAPN(e) {
+    alert(onNotificationAPN);
     if (e.alert) {
         // showing an alert also requires the org.apache.cordova.dialogs plugin
         navigator.notification.confirm(
