@@ -103,7 +103,7 @@ function unRegisterDevice(){
     $.ajax({
         url: webServicesUrl + 'unRegisterDevice.php',
         type:'POST',
-       data:{phoneID: localStorage.getItem('phoneID'), newUserId: localStorage.getItem('lastUserID')},
+        data:{phoneID: localStorage.getItem('phoneID'), newUserId: localStorage.getItem('lastUserID')},
         //data:{phoneID: 'APA91bGMhpIK4yclrbQxkVeH8nV_8VviWxybYuQl4-olLJkcTR-aaCjDGcHoOFyxSavahVn8JH90UxoRHEIhH7fZgaeRsluOWYKhR9Fqs7wQNJfImLs9m8E', newUserId: '7219'},
         //data:{phoneID: '5e277502eef681cbade0e51c85c0d018f72eab7ed4eea7b8d70b7f0173ddc7ba', newUserId: '7219'},
         success:function(result){

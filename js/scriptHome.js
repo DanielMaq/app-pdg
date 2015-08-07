@@ -81,7 +81,11 @@ function onNotification(e) {
                     },
                     error:function(error){
                         _alert(JSON.stringify(error));
-                    }
+                    },
+                    complete:function(result){
+                        var regID = e.regid;
+                        localStorage.setItem('phoneID',regID)
+                    },
                 });
             }
             break;
@@ -115,11 +119,12 @@ function onNotification(e) {
 function tokenHandler (result) {
     // Your iOS push server needs to know the token before it can push to this device
     // here is where you might want to send it the token for later use.
+    _alert("regID = " + result);
     $.ajax({
         url: webServicesUrl + 'registerDevice.php',
         type:'POST',
         data:{newDeviceID: result, newUserId: localStorage.getItem('userID'), platform: 'apns'},
-        success:function(result){
+        success:function(rta){
             var regID = result;
             localStorage.setItem('phoneID',regID);
         },
