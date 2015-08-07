@@ -215,7 +215,8 @@ function cleanSession(){
     localStorage.removeItem('setallultimo');
     //localStorage.clear();
     sessionStorage.clear();
-    if (exit == 1) {
+    if (exit != undefined && exit == 1) {
+
         navigator.app.exitApp();
         return false
     }
@@ -277,6 +278,7 @@ function openPopUp() {
 
 function getCampaigns() {
     var uID = localStorage.getItem('userID');
+
     $.ajax({
         url: webServicesUrl + "campaign.php",
         type: 'POST',
@@ -286,7 +288,20 @@ function getCampaigns() {
             if (r.data && r.data.status && r.data.status == 'success') {
                 var camps = r.data;
                 delete camps.status;
-                sessionStorage.setItem("campsID", JSON.stringify(camps));
+
+                var count = 0;
+                $.each(camps, function (key, value) {
+                    count++;
+                });
+                
+                if (count == 0)
+                {
+                    cleanSession();
+                }
+                else
+                {
+                    sessionStorage.setItem("campsID", JSON.stringify(camps));
+                }
             } else {
                 showMessage(r.data.message);
             }

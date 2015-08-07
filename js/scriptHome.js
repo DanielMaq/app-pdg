@@ -2,7 +2,7 @@
 var badgeCount = 0;
 $('#homePage').live( 'pageinit',function(event){
 
-    localStorage.setItem('countBadge', 0);
+    //localStorage.setItem('countBadge', 0);
 
     setHeights();
 
@@ -22,7 +22,7 @@ function registerDevice() {
         //pushNotification = window.plugins.pushNotification;
         if (device.platform == 'android' || device.platform == 'Android' ) {
             /* Registro si es android */
-            window.plugins.pushNotification.register(successHandler, errorHandler, {"senderID":"888853500656","ecb":"onNotification"});
+            window.plugins.pushNotification.register(successHandler, errorHandler, {"senderID":"416515594811","ecb":"onNotification"});
         } else {
             /* Registro si es ios */
             window.plugins.pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
@@ -81,7 +81,6 @@ function onNotification(e) {
             if ( e.regid.length > 0 )
             //save phone ID in localstorage
             {
-                _alert("regID = " + e.regid);
                 $.ajax({
                     url: webServicesUrl + 'registerDevice.php',
                     type:'POST',
@@ -130,7 +129,6 @@ function onNotification(e) {
 function tokenHandler (result) {
     // Your iOS push server needs to know the token before it can push to this device
     // here is where you might want to send it the token for later use.
-    _alert("regID = " + result);
     $.ajax({
         url: webServicesUrl + 'registerDevice.php',
         type:'POST',
@@ -146,7 +144,7 @@ function tokenHandler (result) {
 }
 
 function _alert(msg){
-    alert(msg);
+    //alert(msg);
 }
 
 
