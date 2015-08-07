@@ -25,6 +25,7 @@ function registerDevice() {
         } else {
             /* Registro si es ios */
             window.plugins.pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
+            window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
         }
 
         /*
