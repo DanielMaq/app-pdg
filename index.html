@@ -65,7 +65,7 @@
                     var snd = new Media(e.sound);
                     snd.play();
                 }
-                
+                pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, 22);
                 if (e.badge) {
                     pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, e.badge);
                 }
