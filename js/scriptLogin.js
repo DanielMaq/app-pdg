@@ -98,8 +98,8 @@ $('#loginPage').live('pageinit', function (event) {
 });
 
 function unRegisterDevice(){
-    alert(localStorage.getItem('phoneID'));
-    alert(localStorage.getItem('lastUserID'));
+    //alert(localStorage.getItem('phoneID'));
+    //alert(localStorage.getItem('lastUserID'));
     $.ajax({
         url: webServicesUrl + 'unRegisterDevice.php',
         type:'POST',

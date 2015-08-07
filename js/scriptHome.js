@@ -2,6 +2,8 @@
 var badgeCount = 0;
 $('#homePage').live( 'pageinit',function(event){
 
+    localStorage.setItem('countBadge', 0);
+
     setHeights();
 
     if(is_logged()){
@@ -9,7 +11,6 @@ $('#homePage').live( 'pageinit',function(event){
     }
 
     loadData();
-
 });
 
 /* registrar push notifitions */
@@ -62,7 +63,13 @@ function onNotificationAPN(e) {
 
     //window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, 2);
     if (e.badge) {
-        window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, e.badge);
+        countBadget = localStorage.getItem('countBadge');
+        
+        if (countBadget == null) countBadget = 0;
+        
+        countBadget = countBadget + 1;
+        localStorage.setItem('countBadge', countBadget);
+        window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, countBadget);
     }
 }
 
@@ -160,7 +167,7 @@ function onConfirm(buttonIndex) {
 
 
 function loadData()
-{
+{   
     var uID = localStorage.getItem('userID');
     $.ajax({
         url: webServicesUrl+"profile.php",
