@@ -58,6 +58,7 @@ function onNotificationAPN(e) {
     }
 
     if (e.badge) {
+        alert(e.badge);
         window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, e.badge);
     }
 }
