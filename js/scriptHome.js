@@ -25,7 +25,7 @@ function registerDevice() {
         } else {
             /* Registro si es ios */
             window.plugins.pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
-            window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
+            //window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
         }
 
         /*
@@ -60,7 +60,7 @@ function onNotificationAPN(e) {
         snd.play();
     }
 
-    window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, 2);
+    //window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, 2);
     if (e.badge) {
         window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, e.badge);
     }
