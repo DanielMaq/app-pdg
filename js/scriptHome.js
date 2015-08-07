@@ -58,12 +58,11 @@ function onNotificationAPN(e) {
         var snd = new Media(e.sound);
         snd.play();
     }
-alert(e);
+
+    window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, 2);
     if (e.badge) {
-        alert(e.badge);
         window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, e.badge);
     }
-    window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, e.badge);
 }
 
 // handle GCM notifications for Android
