@@ -27,11 +27,13 @@ function registerDevice() {
             window.plugins.pushNotification.register(tokenHandler, errorHandler, {"badge":"true","sound":"true","alert":"true","ecb":"onNotificationAPN"});
         }
 
+        /*
         window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
         var onDelay = function(){
             window.plugins.pushNotification.setApplicationIconBadgeNumber(0, function(){});
         };
         window.setTimeout(onDelay, 1000);
+        */
     }
     catch(err)
     {
@@ -141,8 +143,8 @@ function _alert(msg){
 
 
 function successHandler (result) {
-    badgeCount++;
-    window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
+    //badgeCount++;
+    //window.plugins.pushNotification.setApplicationIconBadgeNumber(successHandler, errorHandler, badgeCount);
 }
 
 function errorHandler (error) {
