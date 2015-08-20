@@ -18,7 +18,7 @@ function getMsg(data){
 
     $('.name').html(data.nombre + ' ' + data.apellido);
     $('.mail').html(data.email);
-    $('.phone').html(data.telefono);
+    $('.phone').html('<a href="tel:'+data.telefono+'">'+data.telefono+'</a>');
     $('.date').html(parseDate(data.date));
     $('.msgContent p').html(data.comentario);
 }
