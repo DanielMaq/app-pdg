@@ -3,13 +3,13 @@
         xmlns:gap="http://phonegap.com/ns/1.0"
         id="app.pdg.com"
         versionCode=""
-        version="2.0.0">
+        version="1.0.0">
     <name>PDG</name>
     <description>
         PDG
     </description>
-    <author href="" email="test.and.development@gmail.com">
-        WebFactory DevTeam
+    <author href="" email="lorena.galli@telefonica.com">
+        Telefónica Argenitna S.A.
     </author>
     <preference name='phonegap-version' value='3.7.0'/>
     <preference name="orientation" value="default"/>
