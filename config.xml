@@ -43,9 +43,19 @@
     <preference name="LoadUrlTimeoutValue" value="20000"/>
     <preference name="disable-cursor" value="true"/>
     <gap:platform name="ios"/>
-    <gap:platform name="android"/>
+    <!-- <gap:platform name="android"/> -->
     <gap:platform name="winphone"/>
     <feature name="http://api.phonegap.com/1.0/notification"/>
+    
+    
+    <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
+    <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.5.0" />
+    <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
+    <gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
+    <gap:plugin name="org.apache.cordova.media" version="0.2.13" />
+    <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
+
+    <!--
     <gap:plugin name="org.apache.cordova.device"/>
     <gap:plugin name="org.apache.cordova.dialogs"/>
     <gap:plugin name="org.apache.cordova.media"/>
@@ -54,7 +64,7 @@
     <gap:plugin name="com.phonegap.plugin.statusbar"/>
     <gap:plugin name="de.appplant.cordova.plugin.badge" version="0.6.4"/>
     <gap:plugin name="de.appplant.cordova.plugin.background-mode" version="0.6.4"/>
-
+    -->
     <!-- Default Icon -->
     <icon src="img/icons/icon.png"/>
     <!-- Icon Sizes -->
