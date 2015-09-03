@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns="http://www.w3.org/ns/widgets"
         xmlns:gap="http://phonegap.com/ns/1.0"
         id="app.pdg.com"
@@ -22,8 +22,6 @@
     <preference name="ios-statusbarstyle" value="black-transparent"/>
     <preference name="detect-data-types" value="true"/>
     <preference name="exit-on-suspend" value="false"/>
-    <preference name="show-splash-screen-spinner" value="false"/>
-    <preference name="auto-hide-splash-screen" value="true"/>
     <preference name="EnableViewportScale" value="true"/>
     <preference name="MediaPlaybackRequiresUserAction" value="true"/>
     <preference name="AllowInlineMediaPlayback" value="true"/>
@@ -34,7 +32,6 @@
     <preference name="SuppressesIncrementalRendering" value="true"/>
     <preference name="android-minSdkVersion" value="9"/>
     <preference name="android-installLocation" value="internalOnly"/>
-    <preference name="SplashScreenDelay" value="5000"/>
     <preference name="ErrorUrl" value=""/>
     <preference name="BackgroundColor" value="#005C85"/>
     <preference name="KeepRunning" value="true"/>
@@ -53,7 +50,6 @@
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
     <gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
     <gap:plugin name="org.apache.cordova.media" version="0.2.13" />
-    <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
 
     <!--
     <gap:plugin name="org.apache.cordova.device"/>
