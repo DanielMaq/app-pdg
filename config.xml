@@ -22,6 +22,8 @@
     <preference name="ios-statusbarstyle" value="black-transparent"/>
     <preference name="detect-data-types" value="true"/>
     <preference name="exit-on-suspend" value="false"/>
+    <preference name="show-splash-screen-spinner" value="false"/>
+    <preference name="auto-hide-splash-screen" value="true"/>
     <preference name="EnableViewportScale" value="true"/>
     <preference name="MediaPlaybackRequiresUserAction" value="true"/>
     <preference name="AllowInlineMediaPlayback" value="true"/>
@@ -50,6 +52,7 @@
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
     <gap:plugin name="org.apache.cordova.dialogs" version="0.2.10" />
     <gap:plugin name="org.apache.cordova.media" version="0.2.13" />
+    <gap:plugin name="org.apache.cordova.splashscreen" version="0.3.4" />
 
     <!--
     <gap:plugin name="org.apache.cordova.device"/>
